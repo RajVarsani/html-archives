@@ -1,0 +1,22 @@
+name: Others
+description: Any other issue you'd like to create.
+title: 'Title: '
+body:
+  - type: textarea #description
+    attributes:
+      label: Describe your issue.
+      description: A clear and concise description of what the problem is.
+      placeholder: Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+
+  - type: textarea #Screenshots
+    attributes:
+      label: Screenshots (if applicable).
+      description: Attach any screenshots you think would help.
+      placeholder: Kindly elaborate the screenshots.
+
+  - type: textarea #Additional Context
+    attributes:
+      label: Additional context (if any)
+      description: Anything else you'd like to add.
