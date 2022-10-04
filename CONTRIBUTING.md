@@ -33,7 +33,7 @@ git remote add upstream https://github.com/RajVarsani/html-archives
 **Step 6:** Checkout to a new branch:
 
 ```git
-git brach -b <branch_name>
+git checkout -b <branch_name>
 ```
 
 (you can use the following format for the branch name: `<your_github_username>-issue-<issue_number>`)
@@ -41,7 +41,7 @@ git brach -b <branch_name>
 **Step 7:** Make the desired changes to the code base. Also, before moving to the next step, make sure:
 
 - [x] Code follows the style guidelines of this project
-- [x] You have performed a self-review of my your own code
+- [x] You have performed a self-review of your own code
 - [x] You have commented your code, particularly in hard-to-understand areas
 - [x] You have made corresponding changes to the documentation
 - [x] Your changes generate no new warnings
@@ -68,7 +68,7 @@ git push origin <branch_name>
 
 **Step 10:** Discuss with the mentors if any changes are required on the pull request, before it gets merged.
 
-That it 🎉
+That's it 🎉
 
 ## 🤔 What if all the issues are already assigned?
 
