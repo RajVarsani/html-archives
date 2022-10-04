@@ -27,7 +27,7 @@ body {
   padding: 1rem;
   font-family: "Roboto", sans-serif;
   color: var(--darkBlue);
-  background-color: #fdfdfd;
+  background-color: #ffffff;
 }
 
 .container {
@@ -90,24 +90,6 @@ button:-moz-focusring,
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
-}
-
-.github-corner {
-  background-color: transparent;
-  text-decoration: none;
-}
-.github-corner svg {
-  position: absolute;
-  right: 0;
-  top: 0;
-  border: 0;
-  fill: rgba(92, 42, 157, 0.8);
-  transition: fill 0.25s ease-in-out;
-  z-index: 1;
-}
-
-.github-corner svg:hover {
-  fill: #5c2a9d;
 }
 
 .header {
@@ -175,7 +157,7 @@ label {
 }
 
 .progressbar__step.active:before {
-  background-color: var(--lightGreen);
+  background-color: rgb(18, 192, 236);
 }
 
 .progressbar__step:nth-child(2)::after,
@@ -196,7 +178,7 @@ label {
 .progressbar__step.active:nth-child(3)::after,
 .progressbar__step.active:nth-child(4)::after,
 .progressbar__step.active:nth-child(5)::after {
-  background-color: var(--lightGreen);
+  background-color: rgb(18, 192, 236);
 }
 
 .progressbar__step:before {
@@ -257,7 +239,7 @@ label {
 
 .survey__panel__period {
   display: grid;
-  grid-gap: 13px;
+  grid-gap: 35px;
   grid-template-columns: repeat(2, 150px);
 }
 
@@ -274,7 +256,7 @@ label {
 .survey__panel__period label {
   display: inline-block;
   position: relative;
-  width: 150px;
+  width: 165px;
   padding: 15px 30px;
   border: 2px solid var(--lightBlue);
   text-align: center;
@@ -444,12 +426,15 @@ label {
 }
 
 .button {
-  --btnClr: #5f6caf;
+  --btnClr: white;
   display: inline-block;
+
   padding: 10px 25px;
-  background-color: var(--btnClr);
-  color: var(--whiteClr);
-  border: 2px solid var(--btnClr);
+  background-color: white;
+  display: inline-block;
+  color: rgb(88, 208, 88);
+  border: 2px solid rgb(74, 234, 74);
+  display: inline-block;
   border-radius: 3px;
   font-size: 0.875rem;
   font-family: inherit;
@@ -462,12 +447,14 @@ button[disabled] {
 
 .button {
   margin: 0 0.5rem;
+  border-radius: 5px;
 }
 
 .button:hover {
-  --btnHoverClr: #444e83;
-  background-color: var(--btnHoverClr);
-  border-color: var(--btnHoverClr);
+  --btnHoverClr: rgb(101, 190, 101);
+  color: white;
+  background-color: rgb(119, 201, 119);
+  border-color: white;
 }
 
 .visuallyhidden {

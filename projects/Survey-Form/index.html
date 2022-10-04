@@ -8,37 +8,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a
-      href="https://github.com/alexandracaulea/freecodecamp-projects/tree/master/Responsive-Web-Design-Projects/Build%20a%20Survey%20Form"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="github-corner"
-      aria-label="View source on GitHub"
-    >
-      <svg
-        width="86"
-        height="82"
-        viewBox="0 0 86 82"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <path d="M85.346.362h-85l85 81.175V.362z" />
-        <path
-          d="M67.282 37.7c-1.209 1.268-2.414 2.188-3.617 2.76-1.202.573-2.362.788-3.478.647-1.117-.141-2.106-.416-2.969-.824-.862-.408-1.783-.984-2.764-1.727.114 1.127-.385 2.275-1.498 3.442l-4.292 4.503-6.834-6.515 3.1-3.252c-.62-.4-1.151-.81-1.594-1.232-.442-.422-.78-.823-1.011-1.203a5.282 5.282 0 01-.526-1.122 3.431 3.431 0 01-.185-.988c-.004-.29.008-.55.037-.777.029-.227.075-.406.137-.537l.094-.197a8.07 8.07 0 00.481-1.834c.072-.568.074-.98.006-1.236l-.103-.385c-.075-.643-.056-1.024.055-1.14.111-.117.298-.083.559.102l.295.282c.361.408.611.9.75 1.478.137.577.16 1.045.069 1.403l-.04.535c-.61 2.411.352 4.06 2.885 4.947.861-.707 1.745-1.043 2.65-1.008-.79-.944-1.41-1.836-1.858-2.678-.449-.842-.762-1.809-.94-2.902-.178-1.093-.019-2.261.48-3.506.497-1.244 1.35-2.5 2.559-3.767 1.367-1.435 3.019-2.216 4.955-2.344.623-1.507 1.849-2.694 3.677-3.562.066.127.205.244.417.35.212.107.526.597.943 1.472.417.875.764 1.955 1.042 3.238a19.751 19.751 0 013.919 2.78 20.44 20.44 0 012.965 3.782c1.262.184 2.324.465 3.186.84.862.376 1.407.674 1.637.892l.296.378c-.746 1.9-1.873 3.18-3.382 3.844-.035 1.94-.736 3.627-2.103 5.061z"
-          fill="#f6f6f6"
-        />
-      </svg>
-    </a>
     <div class="container">
       <header class="header">
-        <h1 id="title" class="header__title">Product Survey Form</h1>
+        <h1 id="title" class="header__title">Survey Form</h1>
         <p id="description" class="header__description">
-          We would love to hear your thoughts on how we can improve your
-          experience.
+          Thank you for participating in our survey. Please share your opinions
+          by filling in the information below.
         </p>
         <img
-          src="https://res.cloudinary.com/alexandracaulea/image/upload/v1585333913/illustration_x46ict.svg"
+          src="./images/survey-form-illustration.png"
           alt=""
           aria-hidden="true"
           class="illustration"
@@ -59,7 +37,7 @@
             aria-valuemin="1"
             aria-valuemax="5"
             aria-valuenow="1"
-            aria-valuetext="Question 1 of 5: How long have you been using our product?"
+            aria-valuetext="Question 1 of 5: How did you hear about our website?"
           >
             <span class="progressbar__step active" aria-hidden="true"></span>
             <span class="progressbar__step" aria-hidden="true"></span>
@@ -76,8 +54,8 @@
             data-requirement="option"
           >
             <h2 class="survey__panel__question">
-              <span class="visuallyhidden">Question 1 of 5 </span>How long have
-              you been using our product?
+              <span class="visuallyhidden">Question 1 of 5 </span>How did you
+              hear about our website?
             </h2>
             <div class="survey__panel__period">
               <div class="form-group">
@@ -87,7 +65,7 @@
                   name="question_1"
                   value="never"
                 />
-                <label for="never">never</label>
+                <label for="never">Television</label>
               </div>
               <div class="form-group">
                 <input
@@ -96,7 +74,7 @@
                   name="question_1"
                   value="lessthenoneyear"
                 />
-                <label for="lessthenoneyear">0 - 1 year</label>
+                <label for="lessthenoneyear">Social Media</label>
               </div>
               <div class="form-group">
                 <input
@@ -105,7 +83,7 @@
                   name="question_1"
                   value="onetotwoyears"
                 />
-                <label for="onetotwoyears">1 - 2 years</label>
+                <label for="onetotwoyears">Agency</label>
               </div>
               <div class="form-group">
                 <input
@@ -115,8 +93,7 @@
                   value="morethentwoyears"
                 />
                 <label for="morethentwoyears"
-                  ><span class="visuallyhidden">more then</span
-                  ><span aria-hidden="true">></span> 2 years</label
+                  ><span class="visuallyhidden">Other</span> Other</label
                 >
               </div>
             </div>
@@ -131,8 +108,8 @@
             data-requirement="option"
           >
             <h2 class="survey__panel__question">
-              <span class="visuallyhidden">Question 2 of 5 </span>How do rate
-              your overall satisfaction about the product?
+              <span class="visuallyhidden">Question 2 of 5 </span>How do would
+              you like to rate this website?
             </h2>
             <div class="survey__panel__satisfaction">
               <div class="form-group">
@@ -143,7 +120,7 @@
                   name="question_2"
                   value="Not Satisfied"
                 />
-                <label for="notsatified">Not Satisfied</label>
+                <label for="notsatified">Not Bad</label>
               </div>
               <div class="form-group">
                 <input
@@ -153,7 +130,7 @@
                   name="question_2"
                   value="Quite Satisfied"
                 />
-                <label for="quitesatisfied">Quite Satisfied</label>
+                <label for="quitesatisfied">good</label>
               </div>
               <div class="form-group">
                 <input
@@ -163,7 +140,7 @@
                   name="question_2"
                   value="Satisfied"
                 />
-                <label for="satisfied">Satisfied</label>
+                <label for="satisfied">Great</label>
               </div>
               <div class="form-group">
                 <input
@@ -173,7 +150,7 @@
                   name="question_2"
                   value="Completely Satisfied"
                 />
-                <label for="completelysatisfied">Completely Satisfied</label>
+                <label for="completelysatisfied">Awesome</label>
               </div>
             </div>
             <p class="error-message"></p>
@@ -187,8 +164,8 @@
             data-requirement="checkbox"
           >
             <h2 class="survey__panel__question">
-              <span class="visuallyhidden">Question 3 of 5 </span>How did you
-              hear about our company?
+              <span class="visuallyhidden">Question 3 of 5 </span>Which social
+              media accounts do you have?
             </h2>
             <div class="survey__panel__hearabout">
               <div class="form-group">
@@ -197,9 +174,9 @@
                   class="checkbox"
                   id="searchengine"
                   name="question_3"
-                  value="Search Engine"
+                  value="Facebook"
                 />
-                <label for="searchengine">Search Engine</label>
+                <label for="searchengine">Facebook</label>
               </div>
               <div class="form-group">
                 <input
@@ -207,9 +184,9 @@
                   class="checkbox"
                   id="friend"
                   name="question_3"
-                  value="A friend of mine"
+                  value="Twitter"
                 />
-                <label for="friend">A friend of mine</label>
+                <label for="friend">Twitter</label>
               </div>
               <div class="form-group">
                 <input
@@ -217,9 +194,9 @@
                   class="checkbox"
                   id="socialmedia"
                   name="question_3"
-                  value="Social Media"
+                  value="Whatsapp"
                 />
-                <label for="socialmedia">Social Media</label>
+                <label for="socialmedia">Whatsapp</label>
               </div>
               <div class="form-group">
                 <input
@@ -227,9 +204,9 @@
                   class="checkbox"
                   id="other"
                   name="question_3"
-                  value="Other"
+                  value="Linkedin"
                 />
-                <label for="other">Other</label>
+                <label for="other">Linkedin</label>
               </div>
             </div>
             <p class="error-message"></p>
@@ -667,7 +644,7 @@
               aria-label="Previous"
               aria-hidden="true"
             >
-              Prev
+              ← Prev
             </button>
             <button
               class="button"
@@ -676,7 +653,7 @@
               aria-label="Next"
               aria-hidden="false"
             >
-              Next
+              Next →
             </button>
             <button
               class="button"

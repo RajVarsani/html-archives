@@ -275,9 +275,14 @@ function Survey(survey) {
     } else {
       mainElement.classList.add("submission");
       mainElement.setAttribute("role", "alert");
-      mainElement.innerHTML = `<svg width="126" height="118" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 118" aria-hidden="true" style="transform: translateX(50%)"><path d="M52.5 118c28.995 0 52.5-23.729 52.5-53S81.495 12 52.5 12 0 35.729 0 65s23.505 53 52.5 53z" fill="#B9CCED"/><path d="M45.726 87L23 56.877l8.186-6.105 15.647 20.74L118.766 0 126 7.192 45.726 87z" fill="#A7E9AF"/></svg>
-        <h2 class="submission">Thanks for your time</h2>
-        <p>The form was successfully submitted`;
+      mainElement.innerHTML = `<img
+      src="./images/all-done.png"
+      alt=""
+      style=" width:400px;
+      height:300px;"
+      aria-hidden="true"
+      class="illustration"
+    />`;
       return false;
     }
   }
