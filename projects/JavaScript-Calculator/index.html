@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jscolor.js"></script>
+    <link
+      href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto:400,500,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina|Orbitron|Russo+One");
+      /* some CSS code */
+      .calculator {
+        background: #eeeeee;
+        position: absolute;
+        right: 2px;
+        bottom: 0px;
+        width: 300px;
+        height: 400px;
+        font-family: "Francois One";
+        color: #bfbfbf;
+        /*   box-shadow: 0 0 3px 1px #30C090; */
+      }
+      .calculator .header {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 100%;
+        background: #30c090;
+        color: #fcfcfc;
+      }
+      .calculator .header .bars,
+      .maximize-box .header .bars {
+        float: right;
+        width: auto;
+      }
+
+      .calculator .body {
+        padding: 10px;
+        height: 90%;
+        box-sizing: border-box;
+        box-shadow: 0 0 5px 0 #30c090 inset;
+      }
+      .calculator .body .input-box {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        box-sizing: border-box;
+        border: solid #30c090;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 10px;
+        background: #fafafa;
+        color: #343a34;
+        font-size: larger;
+        font-family: "Russo One", sans-serif;
+      }
+      .calculator .body .keyspanel {
+        position: relative;
+        width: 100%;
+        height: 60%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: solid #30c090;
+        border-left: none;
+        border-right: none;
+      }
+      .calculator .body .historyarea {
+        position: relative;
+        width: 100%;
+        height: 25%;
+        box-sizing: border-box;
+        border: solid #30c090;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        padding: 10px;
+        background: #fafafa;
+        color: #343a34;
+        margin-bottom: 0px;
+        bottom: 0;
+        font-size: 12px;
+      }
+      .calculator .body .keysarea {
+        width: 80%;
+        font-family: "Baloo Bhaina", cursive;
+        left: 0px;
+        position: absolute;
+      }
+      .calculator .body .functions {
+        width: 20%;
+        font-family: "Baloo Bhaina", cursive;
+        right: 0px;
+        position: absolute;
+      }
+      .calculator .body .keysarea .keys,
+      .calculator .body .functions .keys {
+        margin: 1px;
+        background: #fafafa;
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: 7px;
+        border-top: 1px solid #cccccc;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #cccccc;
+        font: bold 11px Arial;
+        cursor: pointer;
+      }
+
+      .calculator .body .keysarea .keys {
+        width: 23%;
+        height: 43px;
+        padding: 5%;
+        float: left;
+      }
+      .calculator .body .functions .keys {
+        width: 100%;
+        height: 35px;
+        color: rgb(143, 0, 0);
+        padding: 15%;
+        float: right;
+      }
+      .calculator .body .functions .keys:hover,
+      .calculator .body .keysarea .keys:hover {
+        box-shadow: 0 8px 16px 0 #30c0901a, 0 6px 20px 0 #30c0901a;
+        background: #fafafa;
+      }
+      .calculator .body .keysarea .keys:active,
+      .calculator .body .functions .keys:active {
+        background: #30c090;
+        color: #fafafa;
+      }
+      .calculator .body .functions .equal {
+        height: 66px;
+        padding: 45%;
+      }
+      #div,
+      #mul,
+      #sub,
+      #add {
+        color: #30c090;
+      }
+      #div:active,
+      #mul:active,
+      #sub:active,
+      #add:active {
+        color: #fafafa;
+      }
+      .maximize-box {
+        background: #eeeeee;
+        position: absolute;
+        right: 2px;
+        bottom: 0px;
+        width: 300px;
+        height: 40px;
+        font-family: "Francois One";
+        color: #bfbfbf;
+        /*box-shadow: 0 0 3px 1px #30C090;    */
+      }
+      .maximize-box .header {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 100%;
+        background: #30c090;
+        color: #fcfcfc;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="header">
+        MikroCal&nbsp;&trade;
+        <div class="bars">
+          <div class="material-dropdown">
+            <figure></figure>
+            <figure class="middle"></figure>
+            <p class="cross">x</p>
+            <figure></figure>
+            <ul class="dropdown">
+              <li>
+                <a href="javascript:;" id="scientific-mode">Scientific Mode</a>
+              </li>
+              <li><a href="javascript:;" id="minimize">Minimize</a></li>
+              <li class="menu-divider"></li>
+              <li><a href="javascript:;" id="exit">Exit</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <input
+          id="input-box"
+          readonly="readonly"
+          class="input-box"
+          type="text"
+          name="cal"
+          value="0"
+        />
+        <input
+          id="first-box"
+          readonly="readonly"
+          class="input-box"
+          type="hidden"
+          name="first"
+          value="0"
+        />
+        <input
+          id="second-box"
+          readonly="readonly"
+          class="input-box"
+          type="hidden"
+          name="second"
+          value="0"
+        />
+        <input
+          id="function-box"
+          readonly="readonly"
+          class="input-box"
+          type="hidden"
+          name="second"
+          value=""
+        />
+
+        <div class="keyspanel">
+          <div class="keysarea">
+            <a class="keys" id="one">1</a>
+            <a class="keys" id="two">2</a>
+            <a class="keys" id="three">3</a>
+            <a class="keys" id="div">/</a>
+            <a class="keys" id="four">4</a>
+            <a class="keys" id="five">5</a>
+            <a class="keys" id="six">6</a>
+            <a class="keys" id="mul">*</a>
+            <a class="keys" id="seven">7</a>
+            <a class="keys" id="eight">8</a>
+            <a class="keys" id="nine">9</a>
+            <a class="keys" id="sub">-</a>
+            <a class="keys" id="dot">.</a>
+            <a class="keys" id="zero">0</a>
+            <a class="keys" id="doublezero">00</a>
+            <a class="keys" id="add">+</a>
+          </div>
+          <div class="functions">
+            <a class="keys" id="clear">C</a>
+            <a class="keys" id="clearall">CA</a>
+            <a class="keys" id="backspace">&larr;</a>
+            <a class="keys equal" id="equal">=</a>
+          </div>
+        </div>
+        <textarea
+          class="historyarea"
+          id="history-box"
+          placeholder="History:"
+          readonly="readonly"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="maximize-box">
+      <div class="header">
+        MikroCal&nbsp;&trade;
+        <div class="bars">
+          <div class="material-dropdown">
+            <figure></figure>
+            <figure class="middle"></figure>
+            <p class="cross">x</p>
+            <figure></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js" type="text/javascript"></script>
+
+    <script>
+      var materialdropdown = document.querySelector(".material-dropdown"),
+        middle = document.querySelector(".middle"),
+        cross = document.querySelector(".cross"),
+        dropdown = document.querySelector(".dropdown");
+
+      materialdropdown.addEventListener("click", function () {
+        middle.classList.toggle("active");
+        cross.classList.toggle("active");
+        dropdown.classList.toggle("active");
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        //retrieving last calculation
+        // Check browser support
+        if (typeof Storage !== "undefined") {
+          // Retrieve
+          $("#history-box").val(localStorage.getItem("history"));
+        } else {
+          $("#history-box").val("Sorry, last data cannot be retrieved...");
+        }
+
+        $(".maximize-box").hide();
+        //menus function
+        $("#scientific-mode").click(function () {
+          swal({
+            title: "Not Available",
+            animation: false,
+            customClass: "animated rotateInDownRight",
+          });
+        });
+        $("#minimize").click(function () {
+          /* close calculator */ $(".calculator").slideUp();
+          /* open maximize-box */ $(".maximize-box").show();
+        });
+        $(".maximize-box").click(function () {
+          /* close maximize box */ $(".maximize-box").hide();
+          /* open calculator */ $(".calculator").slideDown();
+        });
+        $("#exit").click(function () {
+          /* close maximize */ $(".maximize-box").hide();
+          /* close calculator */ $(".calculator").fadeOut();
+        });
+
+        //functions to accept keyboard characters
+        $(document).keydown(function (e) {
+          if (e.which == 13) {
+            /* enter press action */
+            /*check if not function is pressed */
+            if ($("#function-box").val() == "") {
+              swal({
+                title: "Please select operation",
+                animation: false,
+                customClass: "animated zoomInRight",
+              });
+            } else {
+              /* assign to second box */
+              $("#second-box").val($("#input-box").val());
+              /* variables */
+              var ans;
+              var firstBox = $("#first-box").val();
+              var secondBox = $("#second-box").val();
+              /* calculation condition */
+              if ($("#function-box").val() == "/") {
+                ans =
+                  parseFloat($("#first-box").val()) /
+                  parseFloat($("#second-box").val());
+              }
+              if ($("#function-box").val() == "*") {
+                ans =
+                  parseFloat($("#first-box").val()) *
+                  parseFloat($("#second-box").val());
+              }
+              if ($("#function-box").val() == "-") {
+                ans =
+                  parseFloat($("#first-box").val()) -
+                  parseFloat($("#second-box").val());
+              }
+              if ($("#function-box").val() == "+") {
+                ans =
+                  parseFloat($("#first-box").val()) +
+                  parseFloat($("#second-box").val());
+              }
+
+              /* adding first to history */
+              $("#input-box").val(ans);
+              $("#history-box").val(
+                $("#first-box").val() +
+                  "\t" +
+                  $("#function-box").val() +
+                  "\t" +
+                  $("#second-box").val() +
+                  "\t=\t" +
+                  ans +
+                  "\n\n" +
+                  $("#history-box").val()
+              );
+              localStorage.setItem("history", $("#history-box").val());
+            }
+          }
+          /* one */ if (e.which == 49) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("1");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "1");
+            }
+          }
+          /* two */ if (e.which == 50) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("2");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "2");
+            }
+          }
+          /* three */ if (e.which == 51) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("3");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "3");
+            }
+          }
+          /* four */ if (e.which == 52) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("4");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "4");
+            }
+          }
+          /* five */ if (e.which == 53) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("5");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "5");
+            }
+          }
+          /* six */ if (e.which == 54) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("6");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "6");
+            }
+          }
+          /* seven */ if (e.which == 55) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("7");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "7");
+            }
+          }
+          /* eight */ if (e.which == 56) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("8");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "8");
+            }
+          }
+          /* nine */ if (e.which == 57) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("9");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "9");
+            }
+          }
+          /* dot */ if (e.which == 190) {
+            /* if the value is zero add dot*/ if (
+              $("#input-box").val() == "0" ||
+              $("#input-box").val() == ""
+            ) {
+              /* check if dot already exit */ if (
+                $("#input-box").val().indexOf(".") != -1
+              ) {
+                swal({
+                  title: "Cannot enter two dots",
+                  animation: false,
+                  customClass: "animated zoomInRight",
+                });
+              } else {
+                /* if there is no dot */
+              }
+              $("#input-box").val("0.");
+            } /* if the value is zero append*/ else {
+              /* if there is dot */ if (
+                $("#input-box").val().indexOf(".") != -1
+              ) {
+                swal({
+                  title: "Cannot enter two dots",
+                  cancelButtonColor: "#d33",
+                  animation: false,
+                  customClass: "animated bounceIn",
+                });
+              } else {
+                /* if there is no dot */ $("#input-box").val(
+                  $("#input-box").val() + "."
+                );
+              }
+            }
+          }
+          /* zero */ if (e.which == 48) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0"
+            ) {
+              $("#input-box").val("0");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val($("#input-box").val() + "0");
+            }
+          }
+          /* backspace */ if (e.which == 46) {
+            /* if the value is zero overright*/ if (
+              $("#input-box").val() == "0" ||
+              $("#input-box").val() == "" ||
+              $("#input-box").val().length == 1
+            ) {
+              $("#input-box").val("0");
+            } /* if the value is zero append*/ else {
+              $("#input-box").val(function (_, txt) {
+                return txt.slice(0, -1);
+              });
+            }
+          }
+        });
+
+        //activate keys
+        $("#one").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("1");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "1");
+          }
+        });
+        $("#two").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("2");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "2");
+          }
+        });
+        $("#three").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("3");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "3");
+          }
+        });
+        $("#four").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("4");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "4");
+          }
+        });
+        $("#five").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("5");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "5");
+          }
+        });
+        $("#six").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("6");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "6");
+          }
+        });
+        $("#seven").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("7");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "7");
+          }
+        });
+        $("#eight").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("8");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "8");
+          }
+        });
+        $("#nine").click(function () {
+          /* if the value is zero overright*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("9");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "9");
+          }
+        });
+        $("#dot").click(function () {
+          /* if the value is zero add dot*/ if (
+            $("#input-box").val() == "0" ||
+            $("#input-box").val() == ""
+          ) {
+            /* check if dot already exit */ if (
+              $("#input-box").val().indexOf(".") != -1
+            ) {
+              swal({
+                title: "Cannot enter two dots",
+                animation: false,
+                customClass: "animated zoomInRight",
+              });
+            } else {
+              /* if there is no dot */
+            }
+            $("#input-box").val("0.");
+          } /* if the value is zero append*/ else {
+            /* if there is dot */ if (
+              $("#input-box").val().indexOf(".") != -1
+            ) {
+              swal({
+                title: "Cannot enter two dots",
+                cancelButtonColor: "#d33",
+                animation: false,
+                customClass: "animated bounceIn",
+              });
+            } else {
+              /* if there is no dot */ $("#input-box").val(
+                $("#input-box").val() + "."
+              );
+            }
+          }
+        });
+        $("#zero").click(function () {
+          /* if the value is zero do not add*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("0");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "0");
+          }
+        });
+        $("#doublezero").click(function () {
+          /* if the value is zero do not add*/ if (
+            $("#input-box").val() == "0"
+          ) {
+            $("#input-box").val("0");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val($("#input-box").val() + "00");
+          }
+        });
+        $("#backspace").click(function () {
+          /* if the value is do not delete it*/ if (
+            $("#input-box").val() == "0" ||
+            $("#input-box").val() == "" ||
+            $("#input-box").val().length == 1
+          ) {
+            $("#input-box").val("0");
+          } /* if the value is zero append*/ else {
+            $("#input-box").val(function (_, txt) {
+              return txt.slice(0, -1);
+            });
+          }
+        });
+
+        $("#clear").click(function () {
+          /* clear all the input-box data */ $("#input-box").val("0");
+        });
+        $("#clearall").click(function () {
+          /* clear all the input-box data and history data */ $(
+            "#input-box"
+          ).val("0");
+          $("#history-box").val("");
+        });
+
+        //function keys
+        $("#div").click(function () {
+          /*asign the first number to the input first*/ $("#first-box").val(
+            $("#input-box").val()
+          );
+          /* asign function box */ $("#function-box").val("/");
+          /* clear input box for second number */ $("#input-box").val("0");
+        });
+        $("#mul").click(function () {
+          /*asign the first number to the input first*/ $("#first-box").val(
+            $("#input-box").val()
+          );
+          /* asign function box */ $("#function-box").val("*");
+          /* clear input box for second number */ $("#input-box").val("0");
+        });
+        $("#sub").click(function () {
+          /*asign the first number to the input first*/ $("#first-box").val(
+            $("#input-box").val()
+          );
+          /* asign function box */ $("#function-box").val("-");
+          /* clear input box for second number */ $("#input-box").val("0");
+        });
+        $("#add").click(function () {
+          /*asign the first number to the input first*/ $("#first-box").val(
+            $("#input-box").val()
+          );
+          /* asign function box */ $("#function-box").val("+");
+          /* clear input box for second number */ $("#input-box").val("0");
+        });
+
+        //equal operation
+        $("#equal").click(function () {
+          /*check if not function is pressed */
+          if ($("#function-box").val() == "") {
+            swal({
+              title: "Please select operation",
+              animation: false,
+              customClass: "animated zoomInRight",
+            });
+          } else {
+            /* assign to second box */
+            $("#second-box").val($("#input-box").val());
+            /* variables */
+            var ans;
+            var firstBox = $("#first-box").val();
+            var secondBox = $("#second-box").val();
+            /* calculation condition */
+            if ($("#function-box").val() == "/") {
+              ans =
+                parseFloat($("#first-box").val()) /
+                parseFloat($("#second-box").val());
+            }
+            if ($("#function-box").val() == "*") {
+              ans =
+                parseFloat($("#first-box").val()) *
+                parseFloat($("#second-box").val());
+            }
+            if ($("#function-box").val() == "-") {
+              ans =
+                parseFloat($("#first-box").val()) -
+                parseFloat($("#second-box").val());
+            }
+            if ($("#function-box").val() == "+") {
+              ans =
+                parseFloat($("#first-box").val()) +
+                parseFloat($("#second-box").val());
+            }
+
+            /* adding first to history */
+            $("#input-box").val(ans);
+            $("#history-box").val(
+              $("#first-box").val() +
+                "\t" +
+                $("#function-box").val() +
+                "\t" +
+                $("#second-box").val() +
+                "\t=\t" +
+                ans +
+                "\n\n" +
+                $("#history-box").val()
+            );
+            localStorage.setItem("history", $("#history-box").val());
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
