@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+        main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        #happy {
+            order: 2;
+            flex-grow: 1;
+        }
+
+        #sad {
+            order: 3;
+            flex-grow: 10;
+        }
+
+        #confused {
+            order: 1;
+            flex-grow: 3;
+        }
+
+        #happy,
+        #sad,
+        #confused {
+            height: 350px;
+            background-color: #369;
+            border: 5px;
+            border-color: #000;
+            border-style: solid;
+            margin-right: 5px;
+        }
+
+        /*next line*/
+
+        article {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        /*adding article is not necessary, but could be more informative.*/
+
+        article a#cool {
+            order: 2;
+            flex-grow: 3;
+        }
+
+        article a#warm {
+            order: 1;
+            flex-grow: 5;
+        }
+
+        article a#hot {
+            order: 3;
+            flex-grow: 1;
+        }
+
+        article #warm,
+        article #hot,
+        article #cool {
+            border: 0.8em 0.8em 0.8em 0.8em;
+            border-style: solid;
+            border-color: #000;
+            display: block;
+        }
+
+        a#warm:link,
+        a#warm:visited,
+        a#hot:link,
+        a#hot:visited,
+        a#cool:link,
+        a#cool:visited {
+            text-decoration: none;
+            background-color: aqua;
+        }
+
+        a#cool:hover,
+        a#warm:hover,
+        a#hot:hover {
+            color: #000;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Top Example-->
+    <main>
+        <div id="happy">
+            <p>Happy</p>
+        </div>
+        <div id="sad">
+            <p>Sad</p>
+        </div>
+        <div id="confused">
+            <p>Confused</p>
+        </div>
+    </main>
+    <br />
+    <!--Second Example-->
+    <article>
+        <a id="cool" href="#">
+            <p>Cool</p>
+        </a>
+        <a id="warm" href="#">
+            <p>Warm</p>
+        </a>
+        <a id="hot" href="#">
+            <p>Hot</p>
+        </a>
+    </article>
+</body>
+
+</html>
