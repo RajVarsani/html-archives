@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="../static/css/browse.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="shortcut icon" href="../static/icon/netflix.ico" type="image/x-icon">
+</head>
+<body onload="sorf('films')">
+    <div id="section1">
+        <div class="banner-contents">
+            <h1 class="banner-title">Money Heist</h1>
+            <h1 class="banner-description">
+                To carry out the biggest heist in history, a mysterious man called The Professor recruits
+                a band of eight robbers who have a single characteristic: n...
+            </h1>
+            <div class="banner-buttons">
+                <button id="play" class="banner-button">Play</button>
+            </div>
+        </div>
+        <div class="banner-fadeBottom"></div>
+    </div>
+
+    <div id="nav" class="nav">
+        <img class="nav-logo" src="../static/images/logo.svg" alt="logo" onclick="home()"/>
+        <button class="nav-link" onclick="sorf('series')">Series</button>
+        <button class="nav-link" onclick="sorf('films')">Films</button>
+    </div>
+
+    <div id="vdo-div" class="vdo-div" style="display: none;">
+        <div class="vdo-inner">
+            <button id="vdo-btn" class="vdo">
+                <video id='video' controls>
+                    <source src="../static/videos/explore.mp4" type="video/mp4">
+                </video>
+            </button>
+        </div>
+    </div>
+    
+    <div class="row">
+        <h2></h2>
+        <div id="r1" class="row-posters"></div>
+        <div id="r1-card" class="card">
+            <div class="card-details">
+                <h1 id="card-title" class="banner-title">Fight Club</h1>
+                <h1 id="card-desc" class="banner-description">Discontended his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.</h1>
+                <div class="banner-buttons">
+                    <button id="play" class="banner-button">Play</button>
+                </div>
+            </div>
+            <button class="close"><i class="fal fa-times"></i></button>
+        </div>
+    </div>
+  
+    <div class="row">
+        <h2></h2>
+        <div id="r2" class="row-posters"></div>
+        <div id="r2-card" class="card">
+            <div class="card-details">
+                <h1 id="card-title" class="banner-title">Fight Club</h1>
+                <h1 id="card-desc" class="banner-description">Discontended his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.</h1>
+                <div class="banner-buttons">
+                    <button id="play" class="banner-button">Play</button>
+                </div>
+            </div>
+            <button class="close"><i class="fal fa-times"></i></button>
+        </div>
+    </div>
+  
+    <div class="row">
+        <h2></h2>
+        <div id="r3" class="row-posters"></div>
+        <div id="r3-card" class="card">
+            <div class="card-details">
+                <h1 id="card-title" class="banner-title">Fight Club</h1>
+                <h1 id="card-desc" class="banner-description">Discontended his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.</h1>
+                <div class="banner-buttons">
+                    <button id="play" class="banner-button">Play</button>
+                </div>
+            </div>
+            <button class="close"><i class="fal fa-times"></i></button>
+        </div>
+    </div>
+  
+    <div class="row">
+        <h2></h2>
+        <div id="r4" class="row-posters"></div>
+        <div id="r4-card" class="card">
+            <div class="card-details">
+                <h1 id="card-title" class="banner-title">Fight Club</h1>
+                <h1 id="card-desc" class="banner-description">Discontended his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.</h1>
+                <div class="banner-buttons">
+                    <button id="play" class="banner-button">Play</button>
+                </div>
+            </div>
+            <button class="close"><i class="fal fa-times"></i></button>
+        </div>
+    </div>
+  
+    <div class="row">
+        <h2></h2>
+        <div id="r5" class="row-posters"></div>
+        <div id="r5-card" class="card">
+            <div class="card-details">
+                <h1 id="card-title" class="banner-title">Fight Club</h1>
+                <h1 id="card-desc" class="banner-description">Discontended his capitalistic lifestyle, a white-collared insomniac forms an underground fight club with Tyler, a careless soap salesman. The project soon spirals down into something sinister.</h1>
+                <div class="banner-buttons">
+                    <button id="play" class="banner-button">Play</button>
+                </div>
+            </div>
+            <button class="close"><i class="fal fa-times"></i></button>
+        </div>
+    </div>
+  
+    <div id="footer">
+        <div id="body">
+            <div id="f-container">
+                <div id="f-inner">
+                    <p id="f-top">Questions? Call 000-800-040-1843</p>
+                    <ul id="f-links">
+                        <li id="f-link-i">
+                            <a href="" id="fl">FAQ</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Help Centre</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Account</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Media Centre</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Investor Relations</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Jobs</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Ways to Watch</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Terms of Use</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Privacy</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Cookie Preferences</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Corporate Information</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Contact Us</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Speed Test</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Legal Notices</a>
+                        </li>
+                        <li id="f-link-i">
+                            <a href="" id="fl">Only on Netflix</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/browse.js"></script>
+</body>
+</html>
