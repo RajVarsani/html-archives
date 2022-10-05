@@ -1,0 +1,145 @@
+body {
+    background-color: lightslategrey;
+    display: block;
+
+  }
+
+  .lanhed {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: lightslategray;
+    background-color: khaki;
+    display: block;
+  }
+
+  .lanhed-2 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: lightslategray;
+    background-color: khaki;
+    margin-top: -7px;
+    display: block;
+  }
+
+  .bd-placeholder-img {
+    height: 247px;
+
+
+  }
+
+  .col-md-6 {
+    background-color: darkseagreen;
+    width: 637px;
+    padding-left: 20px;
+  }
+
+  #b1 {
+    background-color: lightpink;
+
+  }
+
+  #b2 {
+    background-color: lightpink;
+
+  }
+
+  .bd-placeholder-img-2 {
+    height: 220px;
+
+  }
+
+  .ffr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+
+  .bd-placeholder-img-4 {
+    height: 170px;
+    width: 150px;
+  }
+
+  #box1 {
+    margin-top: -5px;
+    
+  }
+
+  #box2 {
+    margin-top: -5px;
+   
+  }
+
+  .source {
+    text-decoration: none;
+    color: black;
+  }
+
+  .rjs {
+    text-align: right;
+    padding-right: 32px;
+  }
+
+  #c1 {
+    background-color: rgb(202, 75, 75);
+  }
+
+  #c2 {
+    background-color: rgba(0, 0, 0, 0.452);
+
+  }
+
+  #c3 {
+    background-color: rgb(187, 64, 64);
+  }
+
+  #c4 {
+    background-color: rgba(0, 0, 0, 0.466);
+
+  }
+
+  .cont3 {
+    display: flex;
+    flex-direction: raw;
+    justify-content: space-around;
+  }
+
+  .card {
+    background-color: rgb(211, 65, 94);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #hack2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-hack2 {
+    height: 100px;
+    width: 230px;
+  }
+
+  .img-gfg {
+    width: 230px;
+    height: 100px;
+
+  }
+
+  .card-link {
+    padding-top: 20px;
+    color: cornsilk;
+    font-weight: bold;
+    text-decoration: none;
+
+  }
+
+  #time {
+    color: mistyrose;
+    font-size: 15px;
+    padding-top: 3px;
+    padding-left: 100px;
+  }
