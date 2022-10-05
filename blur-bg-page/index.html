@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blur BG</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(https://assets.imgix.net/unsplash/citystreet.jpg?w=1600&auto=compress) no-repeat center top;
+            background-size: cover;
+            overflow: hidden;
+            -webkit-filter: blur(15px);
+            -moz-filter: blur(15px);
+            -o-filter: blur(15px);
+            -ms-filter: blur(15px);
+            filter: blur(15px);
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+        }
+
+        .banner img {
+            width: 600px;
+            height: 450px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -300px;
+            margin-top: -225px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="https://assets.imgix.net/unsplash/citystreet.jpg?w=800&auto=compress" alt="" />
+    </div>
+</body>
+
+</html>
