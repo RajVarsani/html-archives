@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Timeline</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="loader_bg" style="display:flex; justify-content:center;align-items: center;">
+        <div class="loader"></div>
+    </div>
     <section class="intro">
       <div class="container">
         <h1>Vertical Timeline &darr;</h1>
@@ -103,5 +106,19 @@
     </section>
 
     <script src="script.js"></script>
+    <!-- preloader script tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--preloader JS -->
+    <script>
+        $(document).ready(function() {
+        //Preloader
+        preloaderFadeOutTime = 3000;
+        function hidePreloader() {
+        var preloader = $('.loader_bg');
+        preloader.fadeOut(preloaderFadeOutTime);
+        }
+        hidePreloader();
+        });
+    </script>
   </body>
 </html>
