@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Staatliches', cursive;
+}
+html{
+    font-size:62.5%;
+}
+
+svg{
+    height: 47rem;
+    margin-top: 4%;
+}
+.SuperContainer{
+    display: flex;
+    height:100vh;
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color : #CEE5D0;
+    
+}
+h1{
+    font-size: 2.7rem;
+    color:#5E454B
+}
+.heading{
+    margin-top: 4%;
+}
+.heading2{
+    margin-top: 2%;
+}
+.btn-404{
+    padding: 1%;
+    margin-top:4%;
+    cursor: pointer;
+    background : #D8B384;
+    border: 1px solid white;
+    width: 250px;
+    font-size: 1.7rem;
+    border-radius: 10px;
+    letter-spacing:1px;
+    word-spacing: 5px;
+    color : white;
+    transition: all 0.2s linear;
+}
+.btn-404:hover{
+    border: 1px solid #D8B384;
+    background :transparent;
+    color: black;
+}
+@media screen and (max-width:1112px){
+    svg{
+        width: 70rem;
+    }
+}
+@media screen and (max-width:840px){
+    svg{
+        width: 65rem;
+    }
+    h1{
+        font-size:3rem;
+    }
+}
+@media screen and (max-width:725px){
+    svg{
+        width: 60rem;
+    }
+    h1{
+        font-size:2.7rem;
+    }
+    .btn-404{
+        margin-top: 5%;
+    }
+}
+@media screen and (max-width:636px){
+    svg{
+        width  :50rem;
+    }
+    .btn-404{
+        margin-top: 6%;
+    }
+}
+@media screen and (max-width:520px){
+    svg{
+        width : 40rem;
+    }
+    .heading{
+        margin-top: 0;
+    }
+    .btn-404{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width:429px){
+    svg{
+        width: 35rem;
+        height: 30rem;
+    }
+    .heading{
+        margin-top:10%;
+    }
+}
+@media screen and (max-width:375px){
+    svg{
+        width: 30rem;
+    }
+    h1{
+        font-size:2rem;
+    }
+}
+/* * {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+  } */

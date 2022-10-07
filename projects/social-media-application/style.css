@@ -1,0 +1,659 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Saira+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Saira&family=Saira+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  /* background : linear-gradient(to bottom, #048EBC, #F8F5F1);    */
+  background: #6798bb;
+  height: 100vh;
+  width: 100vw;
+  transition: background 0.5s ease;
+  /* display : flex;
+    align-items : center;
+    justify-content : center; */
+}
+.bodyContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContainer {
+  height: 85vh;
+  width: 85vw;
+  box-shadow: 0px 0px 40px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  background: white;
+}
+header {
+  height: 10vh;
+  width: 100%;
+}
+nav {
+  height: 100%;
+}
+.topBar {
+  display: flex;
+  height: 100%;
+  margin-top: 2%;
+  align-items: center;
+  justify-content: space-between;
+}
+.left > img {
+  height: 15rem;
+  width: auto;
+  margin-left: 80%;
+}
+.right {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 3rem;
+  display: flex;
+  width: 30%;
+  justify-content: space-evenly;
+  margin-right: 5%;
+}
+.login,
+.signup {
+  padding: 1%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#signup {
+  width: 30%;
+}
+#getStarted {
+  width: 25%;
+  margin-bottom: 7%;
+}
+a {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+#login {
+  color: black;
+}
+.signup {
+  border-radius: 20px;
+  width: 100%;
+  color: white;
+  background: #f3bda1;
+  border: 1px solid rgba(0, 0, 0, 0.72);
+}
+.login:hover {
+  border-bottom: 1px solid rgba(18, 91, 116, 1);
+}
+main {
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  /* margin-right: 9%; */
+}
+.mainImage > img {
+  height: 100%;
+  width: auto;
+  margin-right: 8%;
+}
+.mainImage {
+  width: 55%;
+  height: 60rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.leftContainer {
+  width: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 8%;
+  /* background : red; */
+}
+.newPlatform,
+.constant {
+  color: rgba(45, 70, 140, 1);
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+}
+.text {
+  font-family: "Saira", sans-serif;
+  font-size: 4rem;
+}
+.description {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 2.4rem;
+  width: 60%;
+  color: rgba(60, 56, 84, 1);
+  margin-bottom: -20%;
+}
+.getStarted {
+  background: rgba(243, 189, 161, 1);
+  width: 100%;
+  /* height: 3%; */
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  padding: 2%;
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 2.3rem;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+.section1 {
+  height: 100vh;
+  width: 100vw;
+  background: white;
+  position: absolute;
+  /* display : none; */
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+.preloader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.preloader > img {
+  width: 5%;
+  height: auto;
+}
+.dots {
+  margin-top: 1%;
+  width: 10%;
+  height: 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dot {
+  height: 2rem;
+  border-radius: 50%;
+  width: 2rem;
+  border: 1.5px solid black;
+}
+.dt1 {
+  animation: fill 1s ease 0.2s infinite;
+}
+.dt2 {
+  animation: fill 1s ease 0.4s infinite;
+}
+.dt3 {
+  animation: fill 1s ease 0.6s infinite;
+}
+@keyframes fill {
+  from {
+    background: black;
+  }
+  to {
+    fill: white;
+  }
+}
+.typingText {
+  display: flex;
+  align-items: center;
+}
+.newPlatform {
+  margin-left: 10px;
+}
+.section3 {
+  height: 120vh;
+  width: 100vw;
+  /* background :#6798bb; */
+  transition: background 0.5s ease;
+}
+.section3-BgEffect {
+  background: white;
+}
+.infoContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.section3Top {
+  width: 40%;
+  text-align: center;
+  margin-top: 3%;
+  /* background  :red; */
+}
+.section3MainHeading {
+  font-family: "Saira", sans-serif;
+  font-size: 4.8rem;
+  font-weight: 650;
+}
+.section3SubHeading {
+  font-family: "Saira", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-top: 5%;
+}
+.section3FirstBox {
+  /* background : blue; */
+  padding-right: 1%;
+  margin-top: 2%;
+  height: 40%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-around;
+}
+.rightFirst,
+.firstBoxRight,
+.secondBoxRight {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.rightFirst {
+  /* background : red; */
+  height: 100%;
+  width: 50%;
+  justify-content: center;
+}
+.firstHeading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+.firstBoxRight,
+.secondBoxRight {
+  justify-content: space-evenly;
+  height: 50%;
+}
+.Box-animation {
+  animation: fade 1.5s ease;
+}
+
+.firstDescription {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+.leftFirst {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.leftFirst > img {
+  width: 80%;
+}
+.section3SecondBox {
+  width: 90%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 10%;
+  align-items: center;
+}
+.secondBoxRight2 {
+  height: 100%;
+}
+.secondBoxRight2 > img {
+  height: 100%;
+}
+.secondBoxLeft2 {
+  width: 50%;
+  /* background : grey; */
+  height: 40%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.footer {
+  height: 5vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width:1400px){
+  #getStarted{
+    width: 30%;
+  }  
+  #signup{
+    width: 35%;
+  }
+  .left > img{
+    margin-left: 60%;
+  }
+}
+@media screen and (max-width:1300px){
+  html{
+    font-size: 50%;
+  }
+}
+@media screen and (max-width:1100px){
+  .mainImage{
+    margin-top: 5%;
+  }
+  .section3SecondBox{
+
+    padding-left: 5%;
+    padding-right: 2%;
+  }
+  .secondBoxLeft2{
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1024px){
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+  #getStarted{
+    display: none;
+  }
+  .leftContainer{
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    margin-top: 3%;
+    padding-left: 0%;
+
+  }
+  .description{
+    text-align: center;
+    width: 50%;
+  }
+  .mainImage{
+    margin-top: 0%;
+  }
+  .typingText{
+    justify-content: center;
+  }
+  .section3Top{
+    margin-top: 5%;
+  }
+  #signup{
+    width: 40%;
+  }
+}
+@media screen and (max-width: 980px){
+  .section3Top{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  .section3SubHeading{
+    width : 80%;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 920px){
+  .section3SecondBox{
+    justify-content: space-between;
+    padding: 0%;
+  }
+}
+@media screen and (max-width: 870px){
+  .section3Top{
+    width: 50%;
+  }
+  .secondBoxRight2{
+    height: 90%;
+  }
+  #signup{
+    width : 45%;
+  }
+}
+@media screen and (max-width: 818px){
+  .secondBoxLeft2{
+    width: 45%;
+  }
+  .leftFirst{
+    height: 80%;
+  }
+  .leftFirst > img{
+    height: 100%;
+    width: auto;
+  }
+}
+@media screen and (max-width: 770px){
+  .section3Top{
+    width: 80%;
+    margin-top:7%;
+  }
+  .rightFirst{
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+  }
+  .section3{
+    height: 160vh;
+  }
+  .firstBoxRight, .secondBoxRight{
+    width: 80%;
+    align-self: center;
+  }
+  .secondBoxRight{
+    margin-top: 5%;
+  }
+  .section3FirstBox{
+    height: 80vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .section3SubHeading{
+    width: 70%;
+  }
+  .section3SecondBox{
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-around;
+  }
+  .secondBoxRight2{
+    width: 90%;
+    justify-content: center;
+    display: flex;
+  }
+  .right{
+    width: 40%;
+    justify-content: space-evenly;
+  }
+  .secondBoxLeft2{
+    width : 80%;
+  }
+  .firstDescription{
+    margin-top:5%;
+  }
+  .description{
+    width: 65%;
+  }
+}
+@media screen and (max-width: 637px){
+  .mainImage{
+    width: 85%;
+  }
+  .mainImage > img{
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 608px){
+  .mainContainer{
+    background  :white;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .leftContainer{
+    margin-top: 8%;
+  }
+  .text{
+    margin-top: 2%;
+  }
+  .description{
+    margin-top: 3%;
+  } 
+  #getStarted{
+    display: flex;
+    margin-top:30%;
+  }
+  #signup{
+    display: none;
+  }
+  .right{
+    justify-content: flex-end;
+    padding-right: 8%;
+  }
+  .left > img{
+    margin-left: 48%;
+  }
+  .section3Top{
+    margin-top: 10%;
+  }
+  .section3MainHeading{
+    font-size: 3.7rem;
+  }
+  .section3SubHeading{
+    font-size: 2rem;
+  }
+  .firstHeading{
+    font-size: 2rem;
+  }
+  .firstDescription{
+    font-size: 1.6rem;
+  }
+  .leftFirst{
+    width: 80%;
+  }
+  .leftFirst > img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 516px){
+  .text{
+    font-size: 3.5rem;
+  }
+  .preloader > img{
+    width: 20%;
+  }
+  .dots{
+    width: 30%;
+    margin-top: 5%;
+  }
+}
+@media screen and (max-width: 452px){
+  html{
+    font-size: 40%;
+  }
+  .bodyContainer{
+    height : 80%;
+  }
+  .rightFirst{
+    margin-top: 10%;
+  }
+  .left{
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 15%;
+  }
+  .section3FirstBox{
+    height: 40%;
+  }
+  .leftFirst{
+    height: 40%;
+    width : 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content:center;
+  }
+  .bodyContainer{
+    height: 100vh;
+  }
+  .leftFirst > img{
+    width: 100%;
+    height: auto;
+  }
+  #login{
+    margin-right: 10%;
+  }
+  .section3{
+    height : 100vh;
+  }
+  .section3SecondBox{
+    margin-top: 5%;
+    height: 40%;
+  }
+  .secondBoxLeft2{
+    margin-top: 10%;
+    height: 20%;
+  }
+  .secondBoxRight2{
+    width: 60%;
+    height: 60%;
+  }
+  .secondBoxRight2 > img{
+    width : 100%;
+    height: 100%;
+  }
+  .topBar{
+    justify-content : space-between;
+    padding : 0%;
+    margin-top: 0%;
+  }
+  .left{
+    margin-left: 11%;
+  }
+}
+@media screen and (max-width: 414px){
+
+  .left{
+    height: 90%;
+  }
+  .left > img{
+    height : 100%;
+  }
+}
+@media screen and (max-width:380px){
+  html{
+    font-size: 35%;
+  }
+  .text{
+    font-size:3.5rem;
+
+  }
+  .section3{
+    height:130vh;
+  }
+}
