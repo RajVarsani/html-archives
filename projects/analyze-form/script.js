@@ -276,7 +276,7 @@ function Survey(survey) {
             mainElement.classList.add("submission");
             mainElement.setAttribute("role", "alert");
             mainElement.innerHTML = `<img
-        src="./images/all-done.png"
+        src="./assets/all-done.png"
         alt=""
         style=" width:400px;
         height:300px;"
