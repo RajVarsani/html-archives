@@ -1,0 +1,519 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	background-size: contain;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body{
+    background-image: radial-gradient(circle at 50% 10%, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    min-height: 100vh;
+}
+
+/* box main that is center aligned */
+.container01{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* main container having logo and score box */
+.center-main-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 2px;
+    border-color: rgba(205,205,205,1);
+    width: clamp(410px, 45%, 650px);
+    margin-top: 2%;
+    border-radius: 10px;
+    padding: 1% 2%;
+}
+
+/* score-container */
+.container02{
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 5.8px 19px;
+    border-radius: 5px;
+    margin-right: 0;
+}
+
+/* score-text */
+.score-text{
+    color: rgb(0, 115, 255);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* score in number */
+.score-box{
+    font-weight: 900;
+    font-size: 4.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* shapes of the hands */
+ .all-icons .single-icons{
+    background-color: #fff;
+    padding: 16px;
+    border: solid 16px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+}
+
+
+/*shape of individual hands*/
+.all-icons .btn-rock{
+    border-color: rgb(255, 81, 81);
+    position: relative;
+    top: 12rem;
+    left: 21rem;
+}
+
+.all-icons .btn-rock:hover{
+    transform: scale(1.2);
+}
+
+/* .all-icons .rock:focus{
+    transform: scale(0.9);
+} */
+
+.all-icons .btn-paper{
+    border-color: rgb(99, 99, 255);
+    position: relative;
+    bottom: 0rem;
+    left: 17rem;
+}
+
+.all-icons .btn-paper:hover{
+    transform: scale(1.2);
+}
+
+.all-icons .btn-scissors{
+    border-color:goldenrod;
+    position: relative;
+    bottom: 6rem;
+}
+.all-icons .btn-scissors:hover{
+    transform: scale(1.2);
+}
+
+.all-icons .btn-lizard{
+    border-color: rgb(128, 43, 233);
+    position: relative;
+    top: 12rem;
+    right: 15rem;
+}
+.all-icons .btn-lizard:hover{
+    transform: scale(1.2);
+}
+
+.all-icons .btn-spock{
+    border-color: lightblue;
+    position: relative;
+    bottom: 0rem;
+    right: 24.5rem;
+}
+.all-icons .btn-spock:hover{
+    transform: scale(1.2);
+} 
+
+
+
+/* positons of the hands */
+.all-icons{
+    background-image: url(images/bg-pentagon.svg);
+    background-repeat: no-repeat;
+    background-size: 360px 320px;
+    display: flex;
+    justify-content: center; 
+    background-position: center;
+    padding-top: 150px;
+    padding-bottom: 240px;
+    /* z-index: -1; */
+    }
+
+/* next page */
+
+.wrapper{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    margin: 100px 0px;
+    color: #fff;
+
+}
+
+.wrapper01{
+    text-align: center;
+    margin-right: 100px;
+}
+
+.youPicked{
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.wrapper02{
+    text-align: center;
+    margin-right: 100px;
+}
+
+.results{
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* play again button */
+.play-again{
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 12px;
+        color: #000000;
+        font-family: Arial;
+        font-size: 16px;
+        font-weight: 100;
+        padding: 15px 45px;
+        background-color: #FFFFFF;
+        border: solid #FFFFFF 1px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 2px;
+     }    
+.play-again:hover {
+        transform: scale(1.1);
+     }
+
+
+.wrapper03{
+    text-align: center;
+}
+
+.House-picked{
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+
+/* hands page 2 */
+.secondPage-rock{
+    background-color: #fff;
+    padding: 40px;
+    border: solid 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    border-color: rgb(255, 81, 81);
+}
+.secondPage-paper{
+    background-color: #fff;
+    padding: 40px;
+    border: solid 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    border-color: rgb(99, 99, 255);
+}
+.secondPage-scissors{
+    background-color: #fff;
+    padding: 40px;
+    border: solid 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    border-color:goldenrod;
+}
+.secondPage-lizard{
+    background-color: #fff;
+    padding: 40px;
+    border: solid 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    border-color: rgb(128, 43, 233);
+}
+
+
+.secondPage-spock{
+    background-color: #fff;
+    padding: 40px;
+    border: solid 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    border-color: lightblue;
+}
+
+/* animation on the winning hand */
+/* .winner{
+    box-shadow: 0 0 0 25px #293251, 0 0 0 50px #232c4b, 0 0 0 90px #1e2949;
+    animation: winner 1s ease forwards;
+    z-index: 100;
+}
+
+@keyframes winner {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1 ;
+    }
+} */
+
+@media screen and (max-width: 746px) {
+    .wrapper{
+        flex-wrap: wrap;
+    }
+    .wrapper02:nth-last-of-type(2){
+        order: 3;
+    }
+    .wrapper02{
+        margin-top: 50px;
+        position: relative;
+        left: 55px;
+    }
+
+    
+}
+
+@media screen and (max-width: 440px){
+    .wrapper01{
+        position: relative;
+        left: 45px;
+    }
+    .wrapper03{
+        position: relative;
+        top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+
+/* rules button */
+.btn-rules{
+   text-align: right;
+   margin: 0 30px 30px 0;
+}
+
+.button-rules {
+    background: #1F3756;
+    background-image: -webkit-linear-gradient(top, #1F3756, #141539);
+    background-image: -moz-linear-gradient(top, #1F3756, #141539);
+    background-image: -ms-linear-gradient(top, #1F3756, #141539);
+    background-image: -o-linear-gradient(top, #1F3756, #141539);
+    background-image: -webkit-gradient(to bottom, #1F3756, #141539);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 7px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 7px 30px;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 1.5px;
+ }
+ 
+ .button-rules:hover {
+    background: #04284B;
+    border: solid #FFFFFF 2px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 7px;
+    text-decoration: none;
+ }
+
+/* rules style */
+
+.wrapper04{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    z-index: -10;
+}
+
+.rules-wrapper{
+    background-color: #fff;
+    display: none;
+    justify-content: center;
+    width: 400px;
+    padding: 35px 30px;
+    /* position: relative;
+    bottom: 600px;
+    left: 0px; */
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px rgb(255, 255, 255, 0.15);
+    z-index: 1;
+
+}
+
+.close-icon{
+    cursor: pointer;
+}
+ 
+/* below 425px */
+
+@media screen and (max-width: 481px) {
+    .btn-rules{
+        text-align: center;
+        position: relative;
+        left: 21px;
+    
+    }
+    
+    .button-rules{
+        font-size: 18px;
+        padding:10px 30px;
+    }
+    
+    .wrapper04{
+        position:fixed;
+        padding:0;
+        margin:0;
+    
+        top:0;
+        left:0;
+    
+        width: 100%;
+        height: 100%;
+        /* background:rgba(255,255,255,0.5); */
+        display: block;
+    }
+    
+    .rules-wrapper{
+        background-color: #fff;
+        display: none;
+        justify-content: center;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        
+        padding: 0;
+        border-radius: 15px;
+        box-shadow: none;
+        z-index: 1;
+    }
+    .rules-image{
+        margin-top: 50%;
+        width: 70%;
+        height: 40%;
+    
+    }
+    .close-icon{
+       position: relative;
+       top: 90%;
+       right: 32%;
+    }
+    
+}
+
+@media screen and (max-width: 440px) {
+    /* shapes of the hands */
+    .all-icons .single-icons{
+        background-color: #fff;
+        padding: 10px;
+        border: solid 12px;
+        border-radius: 100%;
+        cursor: pointer;
+        box-shadow: inset 0px 6px rgba(0,0,0,0.15);
+    }
+
+
+/*shape of individual hands*/
+.all-icons .btn-rock{
+    border-color: rgb(255, 81, 81);
+    position: relative;
+    top: 9rem;
+    left: 17rem;
+}
+
+.all-icons .btn-rock:hover{
+    transform: scale(1.1);
+}
+
+/* .all-icons .rock:focus{
+    transform: scale(0.9);
+} */
+
+.all-icons .btn-paper{
+    border-color: rgb(99, 99, 255);
+    position: relative;
+    bottom: -0.5rem;
+    left: 13rem;
+}
+
+.all-icons .btn-paper:hover{
+    transform: scale(1.1);
+}
+
+.all-icons .btn-scissors{
+    border-color:goldenrod;
+    position: relative;
+    left: 0.5rem;
+    bottom: 4rem;
+}
+.all-icons .btn-scissors:hover{
+    transform: scale(1.1);
+}
+
+.all-icons .btn-lizard{
+    border-color: rgb(128, 43, 233);
+    position: relative;
+    top: 9.5rem;
+    right: 10rem;
+}
+.all-icons .btn-lizard:hover{
+    transform: scale(1.1);
+}
+
+.all-icons .btn-spock{
+    border-color: lightblue;
+    position: relative;
+    bottom: -0.5rem;
+    right: 18.5rem;
+}
+.all-icons .btn-spock:hover{
+    transform: scale(1.1);
+} 
+
+/* positons of the hands */
+.all-icons{
+    background-size: 260px 240px;
+    padding-top: 170px;
+    }
+
+/* main container having logo and score box */
+.container01{
+    transform: scale(0.7);
+}
+
+}
+
