@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap");
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Urbanist", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgb(255, 255, 255) 70%,
+    rgb(243, 243, 243) 100%
+  );
+  position: relative;
+}
+
+.accordion {
+  width: 300px;
+  padding: 24px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(124, 130, 141, 0.2);
+  position: relative;
+  transform-style: preserve-3d;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+}
+.accordion::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        135deg,
+        rgb(123, 104, 238) 0%,
+        rgb(235, 61, 174) 33%,
+        rgb(247, 206, 81) 66%,
+        rgb(91, 197, 250) 100%
+      )
+      border-box;
+  border: 2px dashed transparent;
+  border-radius: 8px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translateZ(-10px) rotate(5deg);
+}
+.accordion .tab {
+  cursor: pointer;
+}
+.accordion .tab:not(:last-child) {
+  margin-bottom: 8px;
+}
+.accordion .tab-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #292d34;
+  position: relative;
+  user-select: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+.accordion .tab-name .chevron-icon {
+  fill: #292d34;
+  position: absolute;
+  left: calc(100% - 10px);
+  top: 50%;
+  transform: translate(-100%, -50%);
+  transition: all 0.5s ease;
+}
+.accordion .tab-content {
+  user-select: none;
+  color: #7c828d;
+  max-height: 0;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 9px;
+  transition: all 0.5s linear;
+  animation: slideDownReverse 0.25s ease forwards;
+}
+.accordion .tab.active .tab-name {
+  color: white;
+}
+.accordion .tab.active .tab-content {
+  color: white;
+  max-height: 300px;
+  animation: slideDown 1s ease-out forwards;
+}
+.accordion .tab.active .chevron-icon {
+  transform: translate(-100%, -50%) rotate(180deg);
+  fill: white;
+}
+.accordion .tab:nth-of-type(1).active .tab-name {
+  background: linear-gradient(
+    45deg,
+    rgb(123, 66, 209) 0%,
+    rgb(123, 104, 238) 100%
+  );
+  box-shadow: 0 10px 25px rgba(123, 66, 209, 0.4);
+}
+.accordion .tab:nth-of-type(1).active .tab-content {
+  background: linear-gradient(
+    45deg,
+    rgb(123, 66, 209) 0%,
+    rgb(123, 104, 238) 100%
+  );
+  box-shadow: 0 10px 25px rgba(123, 66, 209, 0.4);
+}
+.accordion .tab:nth-of-type(2).active .tab-name {
+  background: linear-gradient(
+    45deg,
+    rgb(245, 205, 81) 0%,
+    rgb(247, 206, 81) 100%
+  );
+  box-shadow: 0 10px 25px rgba(245, 205, 81, 0.4);
+}
+.accordion .tab:nth-of-type(2).active .tab-content {
+  background: linear-gradient(
+    45deg,
+    rgb(245, 205, 81) 0%,
+    rgb(247, 206, 81) 100%
+  );
+  box-shadow: 0 10px 25px rgba(245, 205, 81, 0.4);
+}
+.accordion .tab:nth-of-type(3).active .tab-name {
+  background: linear-gradient(
+    45deg,
+    rgb(222, 23, 152) 0%,
+    rgb(235, 61, 174) 100%
+  );
+  box-shadow: 0 10px 25px rgba(222, 23, 152, 0.4);
+}
+.accordion .tab:nth-of-type(3).active .tab-content {
+  background: linear-gradient(
+    45deg,
+    rgb(222, 23, 152) 0%,
+    rgb(235, 61, 174) 100%
+  );
+  box-shadow: 0 10px 25px rgba(222, 23, 152, 0.4);
+}
+.accordion .tab:nth-of-type(4).active .tab-name {
+  background: linear-gradient(
+    45deg,
+    rgb(42, 179, 248) 0%,
+    rgb(91, 197, 250) 100%
+  );
+  box-shadow: 0 10px 25px rgba(42, 179, 248, 0.4);
+}
+.accordion .tab:nth-of-type(4).active .tab-content {
+  background: linear-gradient(
+    45deg,
+    rgb(42, 179, 248) 0%,
+    rgb(91, 197, 250) 100%
+  );
+  box-shadow: 0 10px 25px rgba(42, 179, 248, 0.4);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes slideDownReverse {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+.jssecrets {
+  text-decoration: none !important;
+  padding: 16px;
+  background: #ffc805;
+  color: #000000;
+  font-size: 1em;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(184, 144, 0, 0.1882352941),
+    0px 8px 24px rgba(184, 144, 0, 0.3764705882);
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  transition: all 0.3s;
+}
+.jssecrets:hover {
+  transform: translateY(-4px);
+}
