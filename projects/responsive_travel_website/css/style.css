@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ############### html element styling########### */
+
+html{
+    /* font-size: 10px; */
+    /* 16px ----100% */
+    /* 10px-----(100/16)*10 =62.5% */
+    font-size: 62.5%;
+
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul li{
+    list-style: none;
+}
+
+p, li{
+    font-size: 1.6rem;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.16em;
+   
+}
+
+/* ############# utility ########## */
+.lg-heading{
+    font-size: 3.5rem;
+    font-weight: 700;
+    /* color:  lightgray; */
+    
+}
+
+.md-heading{
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* color:red ; */
+    text-decoration: none;
+    text-transform: capitalize;
+
+}
+.md-heading2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    /* color:red ; */
+    text-decoration: none;
+    text-transform: capitalize;
+
+}
+
+.text-red{
+    color: red;
+}
+
+.text-gray{
+    color: #555555;
+}
+
+.text-black{
+    color: #333;
+
+}
+
+.bg-dark{
+    background: #263238;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0.5em 0;
+}
+
+.btn-primary{
+    background-color: #fff;
+    border-radius: 100px;
+    color: red;
+}
+
+.btn-primary:hover{
+    background-color: #ddd;
+}
+
+.btn-secondary{
+    color: red;
+    border: 2px solid red;
+    border-radius: 1.5em;
+}
+.btn-secondary:hover{
+    background-color: #fcf3f2;
+}
+
+.third-button{
+    color: #fff;
+    border: 2px solid #fff;
+}
+/* ################ header styling ########## */
+
+.header{
+    height: 95vh;
+    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , url('../img/dark city.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+/* navigation bar */
+
+.navbar{
+    /* border: 2px solid white; */
+    padding: 1rem;
+}
+
+ .logo,
+ .navbar a{
+    color: lightgray;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.logo{
+    
+}
+
+.navbar .logo{
+    float: left;
+    font-size: 3.5rem;
+}
+
+.navbar .nav-items{
+    float: right;
+    margin-top: 1rem;
+    
+}
+
+.navbar a:link,
+.navbar a:visited{
+    color: #f4f4f4f4;
+}
+
+.navbar a{
+    padding-bottom: 0.3rem;
+}
+
+.navbar a:hover{ 
+    border-bottom: 1px solid white;
+}
+
+.navbar::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.nav-item{
+    display: inline-block;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+
+
+
+/* For headings */
+h1, h2, h3{
+    margin-bottom: 0.5em;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+/* ################# CONTAINER ############ */
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/* ########### header containt styling ######### */
+.header-content h1{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: lightgray;
+}
+.header-content p{
+    text-transform: uppercase;
+    color:  lightgray;
+}
+
+    .header{
+        position: relative;
+    }
+
+    .header-content{
+        position:absolute ;
+        /* border: 2px solid white; */
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2));
+    }
+
+   /* ##################### SHOWCASE SECTION STYLING ######## */
+
+   .showcase{
+       background: #ddd;
+       padding: 10rem 0;
+   }
+
+   .row{
+       /* border: 2px solid red; */
+       height: 350px;
+       background-color: white;
+       box-shadow: 0px 0px 20px 0px #aaa;
+    
+   }
+
+   .row1{
+       margin-bottom:10rem ;
+   }
+
+   .row1 .img-box, .row2 .text-box{
+       float:left;
+       width: 50%;
+   }
+   .row2 .img-box , .row1 .text-box{
+       float:right;
+       width: 50%;
+       
+   }
+   .row .img-box{
+       /* border: 2px solid green; */
+       height: 100%;
+       
+   }
+   .row .text-box{
+       /* border: 2px solid blueviolet; */
+padding: 3rem;
+   }
+
+   .row .img-box img{
+       display: inline-block;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+   }
+
+
+.row::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ########### SECTION FEATURE STYLING ####### */
+
+.features{
+    padding:10rem 0 ;
+    
+}
+
+.box-wrapper{
+/* border: 2px solid green; */
+box-shadow:5px 5px 20px 0px rgba(0, 0, 0, 0.534);
+
+}
+
+.box-wrapper::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.box{
+    width: 33.3333%;
+    float: left;
+    /* border: 2px solid red; */
+    padding: 2rem 0;
+    text-align: center;
+}
+.box-1, .box-3{
+    background-color: #263238;
+    color: #ddd;
+}
+
+.box-2{
+    background: linear-gradient(25deg,#d64c7f,#ee4758 50%);
+    color: #ddd;
+}
+
+
+/* ################ FOOTER STYLING ################ */
+.footer{
+    /* border: 5px solid red; */
+    background: #263238;
+    text-align: center;
+    color: #ddd;
+    padding: 2rem;
+
+}
+
+.social-media-links i{
+    margin: 2rem;
+
+}
+
+
+/* ######################## ABOUT PAGE STYLING ################ */
+
+.about{
+    padding: 5rem 0;
+}
+ 
+.about-us{
+    border-bottom: 6px solid red;
+    color: #333;
+   
+}
+
+/* .about-us::after{
+    content:'';
+    display: block;
+    border: 6px solid red;
+    width: 100%;
+} */
+
+.about-wrapper{
+    /* border: #333 solid 2px; */
+    text-align: center;
+    margin-top: 2rem;
+
+}
+
+.about-wrapper .right{
+    float: right;
+    width: 50%;
+}
+
+.about-wrapper .left{
+    float: left;
+    width: 50%;
+}
+
+.about-wrapper::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.about-wrapper li::before{
+    content: '\2713';
+    color: red;
+    font-weight: bold;
+    padding-right: 1rem;
+}
+
+/* ############ COUNT-STYLING############# */
+
+.counts {
+    /* border: 2px solid black; */
+    margin-top: 3rem;
+    
+}
+.counts .count-item{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.counts::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+.count-no{
+
+    font-weight: bold;
+    color: red;
+    font-size: 3rem;
+
+}
+
+.counts p{
+    font-weight: 700;
+    font-size: 1.5rem;
+
+}
+
+/* ##############banner styling########## */
+.banner{
+   /* border: darkgreen 3px solid; */
+   background: linear-gradient(25deg,#d64c7f,#ee4758 50%);
+    color: #ddd;
+    padding:1rem;
+    margin-top: 3rem;
+    box-shadow: 5px 5px 10px #00000057;
+    
+}
+.banner-left{
+    float: left;
+    width: 60%;
+    
+}
+
+.banner-right{
+    float: right;
+    width: 40%;
+    text-align: right;
+    /* border: 2px solid #fff; */
+}
+
+.banner-line{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    
+}
+
+.btn-banner{
+    text-align: center;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    border: 4px solid white;
+    padding: 0.3em 2.5em;
+    letter-spacing: 0.5rem;
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+.banner::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* ############### CONTACT PAGE ############ */
+
+.contact-page{
+    /* background: #ddd; */
+    height: 100vh;
+    padding-top: 4rem;
+    background: #f7f7f7;
+}
+.contact-wrapper{
+   
+    /* border: 2px solid red; */
+
+}
+.form-group textarea{
+    width: 100%;
+    height: 40%;
+}
+
+.company-address{
+    /* border: 2px dotted blue; */
+    /* font-size: 2rem; */
+    float: left;
+    width: 49%;
+    background: #fff;
+   padding: 1rem;
+   height: 760px;
+}
+
+.contact-wrapper .company-address i{
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+
+.contact-wrapper .company-address h2{
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+
+.contact-wrapper .address-group{
+    margin-bottom: 3rem;
+}
+
+.contact-wrapper .company-address img{
+    width: 90%;
+    min-height: 40rem;
+    object-fit: cover;
+    object-position: right;
+}
+
+
+.cont-form{
+    /* border: 2px dotted green; */
+    font-size: 1.6rem;
+    float: right;
+    width: 49%;
+   background: #fff;
+    height: 760px;
+    padding: 1rem;
+    
+
+}
+
+.contact-wrapper::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.contact-form h1::after{
+    content: '';
+    display: block;
+    border: 3px solid red;
+    width: 100%;
+}
+
+.contact-wrapper label{
+    display: block;
+
+}
+
+.contact-wrapper .cont-form input{
+    width: 100%;
+}
+
+.contact-wrapper .form-group{
+    padding-bottom: 1.5rem;
+}
+
+.contact-wrapper label::after{
+    content: '*';
+    color: red;
+}
+
+.form-button{
+    display: block;
+    margin: 0 auto;
+    padding: 0.5em 3em;
+    font-size: 1.8rem;
+    background: red;
+    text-transform: uppercase;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ############### MEDIA QUERIES ########### */
+
+/* ###### HOME PAGE RESPONSIVE ######## */
+
+@media (max-width: 500px){
+html{
+    font-size: 50%;
+}
+.navbar .nav-items, .navbar .logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+   
+}
+
+.header-content .main-heading{
+    display: none;
+}
+
+.row{
+    height: auto;
+    width: 100%;
+}
+
+.row .img-box, .row .text-box{
+    float: none;
+    width: 100%;
+    text-align: center;
+
+}
+
+.features .box{
+    float:none;
+    width: 100%;
+    text-align: center:  
+}
+.features .box-3,
+.features .box-2{
+    margin-top: 7rem;
+    box-shadow:5px 5px 20px 0px #aaa;
+}
+.features .box-1{
+    box-shadow:5px 5px 20px 0px #aaa;
+}
+
+ .box-wrapper{
+    box-shadow: none;
+}
+/* ############## ABOUT PAGE RESPONSIVE ######### */
+
+.banner .banner-left,
+.banner .banner-right{
+    float: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+    
+}
+.btn-banner{
+    font-size: 2rem;
+}
+
+/* ######### CONTACT PAGE RESPONSIVE ######### */
+.contact-wrapper .company-address{
+    float: none;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5rem;
+
+}
+
+.contact-wrapper .cont-form{
+    float: none;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    
+}
+.form-group textarea{
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+} 
+
+@media(orientation: landscape){
+    .header{
+        height: 90vmax;
+    }
+
+    .banner .btn-banner{
+        font-size: 1.5rem;
+        
+    }
+}
+
+@media(min-width:501px) and (max-width: 769px){
+    html{
+        font-size: 56.25%;
+    }
+}
+
