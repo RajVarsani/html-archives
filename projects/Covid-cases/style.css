@@ -1,0 +1,82 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color:rgb(247, 187, 237);
+}
+.head-box{
+    background: linear-gradient(to right, rgba(108, 235, 218, 0.473), rgba(131, 145, 209, 0.473));
+    text-align: center;
+}
+.head{
+    color:rgb(10, 7, 168);
+    font-size:100px;
+    text-transform:uppercase;
+    text-transform: uppercase;
+    padding-top: 100px;
+    margin-bottom:0px;
+}
+p{
+    font-size:30px;
+    padding-bottom: 100px;
+    margin-bottom:150px;
+}
+
+table{
+    table-layout: fixed;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 2px solid grey;
+    border-radius:5px;
+    
+}
+table, th, td, .state{
+    border-bottom: 3px solid grey;
+    border-collapse: collapse;
+    vertical-align: center;
+}
+th{
+    text-align:right;
+    font-size:25px;
+    color:white;
+    padding:5px;
+    background-color: rgb(119, 118, 118);
+    font-family: 'Roboto Condensed', sans-serif;
+    height:70px;
+    padding-left:15px;
+    padding-right:15px;
+}
+td{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: end;
+    font-size: 25px;
+    padding-left:15px;
+    padding-right:15px;
+    font-weight:600;
+    height:70px;
+}
+tr:nth-child(odd){
+    background-color: #dfdfdf;
+}
+tr:nth-child(even){
+    background-color: #cccccc;
+}
+.state{
+    text-align: left;
+}
+.head-left{
+    text-align:left;
+}
+tr:hover{
+    cursor: pointer;
+    background-color:rgb(253, 253, 253);
+    font-weight: bolder;
+}
+.bottom{
+    font-size:20px;
+    margin-left:20%;
+    margin-top:55px;
+    margin-bottom:20px;
+    padding:0px;
+}
