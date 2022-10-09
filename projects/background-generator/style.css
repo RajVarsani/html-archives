@@ -1,0 +1,82 @@
+body {
+  background: linear-gradient(to right, #3dc5ff, #ee00ff);
+  background-repeat: repeat-y;
+}
+h1 {
+  margin-top: 100px;
+  font-size: 45px;
+  font-family: verdana;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  width: 100%;
+  color: rgba(245, 245, 245, 0.7);
+  background-color: rgba(255, 249, 249, 0.2);
+  padding: 12px;
+  margin-bottom: 50px;
+}
+h1:hover {
+  background-color: rgba(252, 242, 242, 0.4);
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.container-color {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.container-css {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+input {
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input:hover {
+  background-color: rgba(44, 40, 40, 0.8);
+  cursor: pointer;
+}
+.css-head,
+.css-link {
+  border: 2px solid black;
+  padding: 8px;
+  font-size: 20px;
+  font-family: cursive;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(211, 211, 220);
+  border-radius: 19px;
+}
+.css-head {
+  margin-right: 4px;
+}
+.css-link:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+button {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: verdana;
+  background-color: rgba(216, 211, 211, 0.3);
+  border: 2px solid black;
+  border-radius: 18px;
+  padding: 10px;
+}
+.generator {
+  display: flex;
+  justify-content: center;
+  margin: 35px;
+}
+button:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+@media screen and (max-width: 550px) {
+  body {
+    background-repeat: repeat;
+  }
+}
