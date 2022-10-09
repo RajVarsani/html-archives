@@ -1,0 +1,19 @@
+.Bar{
+    display: flex;
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 10px;
+    border: 2px solid white;
+    justify-content: center;
+}
+.F{
+    text-decoration: none;
+    margin: 0px 40px;
+}
+.W{
+    text-decoration: none;
+}
+.G{
+    text-decoration: none;
+}
