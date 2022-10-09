@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content=" user-scalable=0" />
+    <!--320-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./Src/tetris.png" type="image/x-icon" />
+    <title>Tetris</title>
+  </head>
+  <body>
+    <div id="startboard">
+      <h3>Welcome to Tetris</h3>
+      <button id="start">Start</button>
+    </div>
+    <audio id="background" src="./Src/background.mp3"></audio>
+    <audio id="points" src="./Src/point.mp3"></audio>
+    <audio id="gameOver" src="./Src/gameOver.mp3"></audio>
+    <div id="board">
+      <div>
+        <h1>Tetris</h1>
+        <div id="onlyPc">
+          <span>Score</span>
+          <span id="scoreTxt">0</span>
+          <h4>Enjoy</h4>
+        </div>
+      </div>
+
+      <canvas width="600" height="600"></canvas>
+    </div>
+    <div id="onlyPhone">
+      <div id="scoreSection">
+        <span>Score</span>
+        <span id="scorePhone">0</span>
+      </div>
+    </div>
+    <div id="buttons">
+      <button id="left">Left</button>
+      <button id="down">Down</button>
+      <button id="rotate">Rotate</button>
+      <button id="right">Right</button>
+    </div>
+    <h2 id="name">Enjoy</h2>
+    <div id="scoreModal">
+      <span class="score1">Score </span>
+      <span id="scoreBtn" class="score2">0</span>
+      <h5>Wanna Play Again</h5>
+      <button id="restartBtn">Restart</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
