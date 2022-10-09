@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="text/hftml;charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="Sorting Visualizer" property="og:site_name" />
+    <meta name="author" content="Aryan Raj" />
+    <meta
+      content="This is an ongoing project which is built to visualize graphically how various sorting algorithms work for its better understanding also with the ability to control to speed of algorithm for proper visualization."
+      name="description"
+    />
+    <meta property="og:title" content="Sorting Visualizer" />
+    <meta
+      property="og:image"
+      content="https://aryaraj132.github.io/SortingVisualizer/preview.jpg"
+    />
+    <meta
+      property="og:description"
+      content="This is an ongoing project which is built to visualize graphically how various sorting algorithms work for its better understanding also with the ability to control to speed of algorithm for proper visualization."
+    />
+    <meta
+      property="og:url"
+      content="https://aryaraj132.github.io/SortingVisualizer/"
+    />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <ul class="menu-bar">
+        <li>
+          <a href="#" onclick="GenArray();"><button>Generate Array</button></a>
+        </li>
+        <li class="has-children">
+          <button>Sort <i class="arrow"></i></button>
+          <ul class="children">
+            <li>
+              <a href="#" id="bubbleSort"><button>Bubble Sort</button></a>
+            </li>
+            <li>
+              <a href="#" id="insertionSort"><button>Insertion Sort</button></a>
+            </li>
+            <li>
+              <a href="#" id="selectionSort"><button>Selection Sort</button></a>
+            </li>
+            <li>
+              <a href="#" id="quickSort"><button>Quick Sort</button></a>
+            </li>
+            <li>
+              <a href="#" id="mergeSort"><button>Merge Sort (X)</button></a>
+            </li>
+          </ul>
+        </li>
+        <li class="has-children">
+          <button>Speed <i class="arrow"></i></button>
+          <ul class="children">
+            <li>
+              <a href="#" id="fast"><button>Fast</button></a>
+            </li>
+            <li>
+              <a href="#" id="default-speed"><button>Normal</button></a>
+            </li>
+            <li>
+              <a href="#" id="slow"><button>Slow</button></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="bars-container"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
