@@ -1,0 +1,121 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+body
+{
+    height: 100vh;
+    width: 100%;
+    background: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h1
+{
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0rem;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin-bottom: 0.7rem;
+}
+p
+{
+    font-size: 0.9rem;
+    color: #d8d8d8;
+}
+.social_links
+{
+    padding: 1rem;
+    background: #383838;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
+}
+.combo
+{
+    transform: scale(0.9);
+    transition: 0.4s ease-in;
+    margin: 0 0.5rem;
+    height: 3em;
+    width: 3em;
+    line-height: 3em;
+}
+.circle
+{
+    color: #f9f9f9;
+    transition: 0.4s ease-in;
+    font-size: 3em;
+}
+.icon
+{
+    color: #444343;
+    font-size: 2rem;
+    transform: translateY(1px);
+    transition: 0.2s ease-in;
+}
+.combo:hover
+{
+    transform: scale(1.1);
+}
+.combo:hover , .combo:hover .icon
+{
+    color:white;
+}
+.ig:hover , .ig:hover .circle
+{
+    color:#e91e63;
+}
+.fb:hover , .fb:hover .circle
+{
+    color:#2196f3;
+}
+.yt:hover , .yt:hover .circle
+{
+    color:#f44336;
+}
+.tw:hover , .tw:hover .circle
+{
+    color:#2196f3;
+}
+.gt:hover , .gt:hover .circle{
+    color: #1f1f1f;
+}
+footer{
+	opacity: 0.9;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0e0e0e;
+    padding: 0.5rem;
+    color: white;
+    text-align: center;
+}
+footer p{
+	font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+footer p a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Media Query CSS  */
+@media only screen and (max-width:600px) {
+    h1{
+        font-size: 1.8rem;
+    }
+}
