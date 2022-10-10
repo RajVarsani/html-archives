@@ -1,5 +1,5 @@
 :root {
-	--dark: #425c56;
+	--dark: #77718b;
 	--darker: #1F2937;
 	--darkest: #737b8a;
 	--grey: #84a8ee;
@@ -32,7 +32,7 @@ header {
 header h1{ 
 	font-size: 2.5rem;
 	font-weight: 300;
-	color: var(--grey);
+	color: #cc84ee;
 	margin-bottom: 1rem;
 }
 
@@ -49,7 +49,8 @@ input, button {
 
 #new-task-input {
 	flex: 1 1 0%;
-	background-color: var(--darker);
+	background-color: #54719b9c;
+    border: 0.5px solid #7878c0;
 	padding: 1rem;
 	border-radius: 1rem;
 	margin-right: 1rem;
