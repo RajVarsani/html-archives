@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+margin: 0;padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+body{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.box{
+width: 55px;
+height: 58px;
+position: relative;
+display: flex;
+align-items: center;
+overflow: hidden;
+padding: 5px;
+cursor: pointer;
+margin: 0.6em;
+transition: all .4s;
+}
+.box:hover{
+width: 160px;
+background: #c32aa3;
+border-radius: 10px;
+color: white;
+box-shadow: 0 0 50px #b315917c;
+}
+.box:nth-child(2):hover{
+background: #1877f2;
+box-shadow: 0 0 50px #1876f285;
+}
+.box:nth-child(3):hover{
+width: 130px;
+background: #1da1f2;
+box-shadow: 0 0 50px #1da0f280;
+}
+.box:nth-child(4):hover{
+background: #25d366;
+box-shadow: 0 0 50px #25d3657e;
+}
+p{
+transform: translate(60px);
+}
+.box .icon{
+position: absolute;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+border-radius: 10px;
+margin-right: 10px;
+transition: all .4s;
+}
+.instagram{
+background: #c32aa3;
+}
+.facebook{
+background: #1877f2;
+}
+.twitter{
+background: #1da1f2;
+}
+.whatsapp{
+background: #25d366;
+}
+.box:hover .icon{
+background: white;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.26);
+color: rgb(59, 59, 59);
+}
