@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');  
+*{  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+  font-family: 'Poppins', sans-serif;  
+}  
+body{  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  height: 100vh;  
+  flex-direction: column;  
+}  
+.container{  
+  width: 450px;  
+  display: flex;  
+  justify-content: space-between;  
+  flex-wrap: wrap;  
+  margin: 1em 0 0 0;  
+}  
+.checkbox{  
+  width: 140px;  
+  height: 40px;  
+  position: relative;  
+  margin: 0.5em 0;  
+}  
+.checkbox input{  
+  position: absolute;  
+  cursor: pointer;  
+  width: 100%;  
+  height: 100%;  
+  z-index: 2;  
+  appearance: none;  
+  -webkit-appearance: none;  
+}  
+.box{  
+  width: 100%;  
+  height: 100%;  
+  position: absolute;  
+  z-index: 1;  
+  background: #f7f7f7;    
+  border: 2px solid #d1d1d1;  
+  color: rgb(63, 63, 63);  
+  border-radius: 5px;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  overflow: hidden;  
+  transition: all 0.6s;  
+}  
+.box i{  
+  margin-right: 0.3em;  
+}  
+.box p{  
+  transition: all 0.2s;  
+}  
+.checkbox input:checked ~ .box p{  
+  transform: translateY(-30px);  
+}  
+.box p::before{  
+  content: attr(data-text);  
+  position: absolute;  
+  transform: translateY(30px);  
+}  
+.checkbox input:checked ~ .box p::before{  
+  transform: translateY(30px);  
+}  
+.checkbox input:checked ~ .box {  
+  background: #f7f7f7;  
+  border: 2px solid #185ADB;  
+  color: #185ADB;  
+} 
