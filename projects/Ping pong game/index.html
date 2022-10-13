@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <script
+      src="https://kit.fontawesome.com/607b6d4251.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Ping Pong game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="start-button" class="display-upper">
+      <button type="button" name="button">Start Game</button>
+    </div>
+
+    <span id="body-container" class="blurry">
+      <div class="top-container">
+        <div class="score">Player 1 :<span id="score-display1"> 0 </span></div>
+
+        <div class="new-game" id="new-game-button">
+          <button type="button" name="button">New Game</button>
+        </div>
+
+        <div class="lives">
+          Lives <i class="fas fa-heart heart1"></i>
+          <i class="fas fa-heart heart1"></i>
+          <i class="fas fa-heart heart1"></i>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="rod1">Rod 1</div>
+        <div class="ball"></div>
+        <div class="rod2">Rod 2</div>
+      </div>
+
+      <div class="top-container">
+        <div class="score">Player 2 :<span id="score-display2"> 0 </span></div>
+
+        <div class="lives">
+          Lives <i class="fas fa-heart heart2"></i>
+          <i class="fas fa-heart heart2"></i>
+          <i class="fas fa-heart heart2"></i>
+        </div>
+      </div>
+    </span>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
