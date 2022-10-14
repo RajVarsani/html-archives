@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+:root{
+    /* *Font Stuff */
+    font-size: 15px;
+    font-family: 'Lexend Deca', sans-serif;
+
+    /* *Colors */
+    /* Primary Colors */
+    --orange: hsl(31, 77%, 52%);
+    --cyan: hsl(184, 100%, 22%);
+    --dark-cyan: hsl(179, 100%, 13%);
+
+    /* Neutral Colors */
+    --p-color: hsla(0, 0%, 100%, 0.75);
+    --light-gray: hsl(0, 0%, 95%);
+}
+
+*,
+*::after
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 1440px;
+    min-height: 95vh;
+}
+
+@media only screen and (max-width: 1200px){
+    .container{
+        width: 100vw;
+    }
+}
+
+/* *Container */
+main.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* *Cards */
+main .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: 1fr;
+}
+
+main .cards .card{
+    padding: 3rem;
+}
+
+    /* Cards Header */
+main .cards .card .card-header h2{
+    color: var(--light-gray);
+    font-size: 2.75rem;
+}
+
+    /* Card Content */
+main .cards .card .card-content p{
+    color: var(--p-color);
+    line-height: 1.8;
+}
+main .cards .card .card-content a{
+    display: inline-block;
+    background-color: var(--light-gray);
+    padding: .75rem 2rem;
+    border-radius: 50px;
+    margin-top: 5rem;
+    border: 2px solid var(--light-gray);
+}
+main .cards .card .card-content a:hover{
+    background-color: transparent;
+    color: var(--light-gray);
+}
+
+/* *Card Sedans */
+main .cards .card-sedans{
+    background-color: var(--orange);
+    border-radius: 10px 0 0 10px;
+}
+main .cards .card-sedans .card-content a{
+    color: var(--orange);
+}
+
+/* *Card SUVs */
+main .cards .card-suvs{
+    background-color: var(--cyan);
+}
+main .cards .card-suvs .card-content a{
+    color: var(--cyan);
+}
+
+/* *Card Luxury */
+main .cards .card-luxury{
+    background-color: var(--dark-cyan);
+    border-radius: 0 10px 10px 0;
+}
+main .cards .card-luxury .card-content a{
+    color: var(--dark-cyan);
+}
+
+/* *Footer */
+main footer{
+    margin-top: 2rem;
+}
+
+main footer .attribution{ 
+    font-size: 11px;
+    text-align: center;
+}
+main footer .attribution a{
+     color: var(--cyan);
+}
+main footer .attribution a:hover{
+     color: var(--dark-cyan);
+}
+@media only screen and (max-width: 910px){
+    /* *Container */
+    .container{
+        width: 100vw;
+    }
+
+    /* *Cards */
+    main .cards{
+        grid-template-columns: repeat(3, 250px);
+    }
+    main .cards .card{
+        padding: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    /* *Container */
+    .container{
+        width: 100vw;
+    }
+
+    /* *Cards */
+    main .cards{
+        grid-template-columns: repeat(3, 250px);
+    }
+    main .cards .card{
+        padding: 1.5rem;
+    }
+}
+@media only screen and (max-width: 540px){
+    /* *Container */
+    .container{
+        width: 100vw;
+    }
+
+    /* *Cards */
+    main .cards{
+        grid-template-columns: repeat(1, 300px);
+    }
+
+    /* Card Content */
+    main .cards .card .card-content a{
+        margin-top: 2rem;
+    }
+    
+    /* *Card Sedans */
+    main .cards .card-sedans{
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* *Card Luxury */
+    main .cards .card-luxury{
+        border-radius: 0 0 10px 10px;
+    }
+
+}
