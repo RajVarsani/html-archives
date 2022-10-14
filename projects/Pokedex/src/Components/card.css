@@ -1,0 +1,29 @@
+/* div{
+    background-color: #5cfff0;
+} */
+img {
+    width: 200px;
+    height: 180px;
+    filter: opacity(0.8);
+    /* z-index: -1; */
+    transition: all .2s ease-in-out; 
+}
+img:hover{
+    transform: scale(1.1) rotate(1deg); 
+    opacity: 0.8;
+}
+.colour{
+    background-color: #95b1ff;
+}
+h2{
+    color: #0043ff;
+}
+p{
+    color: #9100ff;
+}
+a{
+    color: #ece6d0;
+}
+a:hover{
+    color: #e8d07c;
+}

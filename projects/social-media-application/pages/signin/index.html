@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../../images/Icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.css" integrity="sha512-DYOwgMAsSbNzrSwEU3nQ7bcYo5aEqpIq1lOe5doeuUwXjuFYjIPvIZDZrEOH+QMIXvRpqcc8gPKcoIMIyAZMCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.all.js" integrity="sha512-L75ujuHj04ye7EqWOTRxioEKz7fQrNcYEX2+k2YMt3kG6TvLe1BAGZ7EjY0sIbEUeougiQ5Dqoean/93XLww5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./signin.css" />
+
+    <title>Sign In/ Sign Up | Linkize</title>
+  </head>
+  <body> 
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="#" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Email" class="emailSignIn" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                class="passwordSignIn"
+              />
+            </div>
+            <input type="submit" value="Login" class="btn solid loginButton" />
+            <p class="social-text">Or Sign in with other Platforms</p>
+            <div
+              class="g-signin2"
+              data-onsuccess="onSignIn"
+              data-theme="dark"
+              data-width="150px"
+            ></div>
+            <div class="socialMediaContainer">
+              <div class="social-media">
+                <a href="/auth/google" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+              </div>
+              <div class="social-media">
+                <a href="/auth/facebook" class="social-icon">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+          </form>
+          <form action="#" class="sign-up-form">
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" class="emailSignUp" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                class="passwordSignUp"
+              />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="confirmPasswordSignUp"
+              />
+            </div>
+            <input type="submit" class="btn signupButton" value="Sign up" />
+            <p class="social-text">Or Sign up with other social platforms</p>
+            <div
+                class="g-signin2"
+                data-onsuccess="onSignIn"
+                data-theme="dark"
+                data-width="150px"
+              ></div>
+              <div class="socialMediaContainer">
+                <div class="social-media">
+                  <a href="/auth/google" class="social-icon">
+                    <i class="fab fa-google"></i>
+                  </a>
+                </div>
+                <div class="social-media">
+                  <a href="/auth/facebook" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              Join our startup community—experience ideas like never before.
+            </p>
+            <button class="btn transparent" id="sign-up-btn">Sign up</button>
+          </div>
+          <img src="../../images/Signup.png" class="image" alt="signup Image" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <p>Sign in to see what is going in the community</p>
+            <button class="btn transparent" id="sign-in-btn">Sign in</button>
+          </div>
+          <img
+            src="../../images/sign in.png"
+            class="image"
+            id="signinImage"
+            alt="signin Image"
+          />
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../../utils/alert.js"></script>
+    <script src="./signin.js"></script>
+  </body>
+</html>
