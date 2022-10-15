@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blur Hover Effect</title>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 85vw;
+            margin: 1rem auto;
+        }
+
+
+        .bg,
+        .overlay {
+            text-align: center;
+        }
+
+        img,
+        .overlay {
+            transition: .3s all;
+            border-radius: 3px;
+        }
+
+        .bg {
+            float: left;
+            max-width: 31%;
+            position: relative;
+            margin: .5%;
+        }
+        
+
+        .bg img {
+            width: 100%;
+            margin-bottom: -4px;
+        }
+
+        .bg .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            opacity: 0;
+        }
+
+        .bg .overlay h2 {
+            padding-top: 20%;
+            font-family: 'Droid Serif', serif;
+        }
+
+        .bg .overlayp {
+            font-family: 'Julius Sans One', sans-serif;
+        }
+
+
+        .bg :hover .overlay {
+            opacity: 1;
+        }
+
+        .bg :hover img {
+            -webkit-filter: blur(2px);
+            filter: blur(2px);
+        }
+
+
+
+        @media screen and (max-width: 1148px) {
+            .bg {
+                max-width: 48%;
+                margin: 1%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .bg {
+                float: none;
+                max-width: 80%;
+                margin: 1% auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bg">
+            <img src="https://unsplash.it/400/200" alt="">
+            <div class="overlay">
+                <h2>Check This <span>Out!</span></h2>
+                <p>this is some text.</p>
+            </div>
+        </div>
+        <div class="bg">
+            <img src="https://unsplash.it/400/200" alt="">
+            <div class="overlay">
+                <h2>Check This <span>Out!</span></h2>
+                <p>this is some text.</p>
+            </div>
+        </div>
+        <div class="bg">
+            <img src="https://unsplash.it/400/200" alt="">
+            <div class="overlay">
+                <h2>Check This Out!</h2>
+                <p>this is some text.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
