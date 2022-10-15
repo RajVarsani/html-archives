@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Navigation Overlay</title>
+    <style> @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:700,300');
+        @import url('https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css');
+
+        * { padding: 0px; margin: 0px; border: 0px; outline: 0px; }   /* fast reset */
+
+        body { 
+          font-family: 'Merriweather Sans', Arial, sans-serif;
+          font-size: 12px; 
+        }
+
+        a { text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        li { list-style: none; }
+
+        .container { margin: 0px 20% 0px 20%; }
+
+        #head { margin-top: 20px; }
+
+        #menu .box {
+          position: fixed;
+          text-align: center;
+          overflow: hidden;
+          z-index: -1;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          left: 0px;
+          top: 0px;
+          background: rgba(0,0,0,0.8);
+          -webkit-transition: all 0.3s ease-in-out; 
+          -moz-transition: all 0.3s ease-in-out; 
+          -o-transition: all 0.3s ease-in-out; 
+          transition: all 0.3s ease-in-out;
+        }
+
+        #menu ul {
+          position: relative;
+          top: 20%;
+          -webkit-transform: scale(2);
+          -moz-transform: scale(2);
+          -ms-transform: scale(2);
+          transform: scale(2);
+          -webkit-transition: all 0.3s ease-in-out; 
+          -moz-transition: all 0.3s ease-in-out; 
+          -o-transition: all 0.3s ease-in-out; 
+          transition: all 0.3s ease-in-out;
+        }
+
+        #menu li { 
+          display: inline-block; 
+          margin: 20px;
+        }
+
+        #menu li a {
+          border-radius: 3px;
+          padding: 15px;
+          border: 1px solid transparent;
+          text-decoration: none;
+          font-size: 18px;
+          color: #fff;
+          -webkit-transition: all 0.2s ease-in-out; 
+          -moz-transition: all 0.2s ease-in-out; 
+          -o-transition: all 0.2s ease-in-out; 
+          transition: all 0.2s ease-in-out;
+        }
+
+        #menu li a:hover { border-color: #fff; }
+
+        #menu li a i { 
+          margin-right: 5px; 
+          font-size: 24px;
+        }
+
+        #toggle-nav-label {
+          color: rgba(0,0,0,0.5);
+          background: rgba(0,0,0,0.2);
+          text-align: center;
+          line-height: 30px;
+          font-size: 16px;
+          display: block;
+          cursor: pointer;
+          position: relative;
+          z-index: 500;
+          width: 30px;
+          height: 30px;
+          border-radius: 5px;
+        }
+
+        #toggle-nav { display: none; }
+
+        #toggle-nav:checked ~ .box { 
+          opacity: 1;
+          z-index: 400;
+        }
+
+        #toggle-nav:checked ~ .box ul {
+          -webkit-transform: scale(1);
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          transform: scale(1);
+        }
+
+        #toggle-nav:checked ~ #toggle-nav-label { 
+          background: #fff; 
+          color: rgba(0,0,0,0.8);
+        }
+
+        #content { margin: 20px 0px 20px 0px; }
+
+        #content h1 {
+          margin-bottom: 20px;
+          font-size: 30px;
+        }
+
+        #content p {
+          font-size: 14px;
+          line-height: 150%;
+          margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- start header -->
+    <header id="head">
+        <div class="container">
+            <nav id="menu">
+          
+              <input type="checkbox" id="toggle-nav"/>
+              <label id="toggle-nav-label" for="toggle-nav"><i class="icon-reorder"></i></label>
+          
+              <div class="box">
+                <ul>
+                  <li><a href="#"><i class="icon-home"></i> home</a></li>
+                  <li><a href="#"><i class="icon-file-alt"></i> about</a></li>
+                  <li><a href="#"><i class="icon-copy"></i> works</a></li>
+                  <li><a href="#"><i class="icon-envelope"></i> contacts</a></li>
+                </ul>
+              </div>
+          
+            </nav>
+        </div>
+      </header>
+      <!-- end header -->
+  
+      <!-- start content -->
+      <section id="content">
+        <div class="container">
+          <h1>Pure CSS Navigation Overlay</h1>
+          <p>Nisi pellentesque placerat penatibus montes ridiculus ridiculus! Penatibus porttitor, augue? Odio sed, elementum, in nisi ultricies enim? Risus scelerisque placerat et elementum odio dictumst. Scelerisque phasellus, sit in diam odio lectus porta, vel duis pid nisi! Eu eros! Sit non aenean enim hac egestas ultrices, et pulvinar sed, arcu et, arcu vel tortor turpis, phasellus lundium turpis turpis hac eros, auctor dignissim ut facilisis, est? Duis odio magnis? Aenean ultrices, mattis placerat adipiscing cum adipiscing ut, scelerisque augue in massa, pulvinar augue! Amet rhoncus arcu phasellus integer adipiscing tristique facilisis! Adipiscing sed ac turpis scelerisque nunc sit tempor turpis ultricies egestas adipiscing magnis sit augue et pulvinar sociis, urna in, aliquam sagittis dictumst</p>
+          <p>Aliquam cum, auctor habitasse, elementum tempor et sit, urna integer. Dictumst, turpis penatibus magnis integer placerat adipiscing aliquam, sit rhoncus ut et, integer elementum tempor nisi nec facilisis, nec phasellus. Nisi odio lundium, eu rhoncus massa vut lacus magna mauris magnis! Eu tempor hac ac turpis eros tristique est pellentesque ac nascetur nascetur urna, placerat vel eu vel, dictumst amet. Pulvinar arcu odio, cursus, ridiculus nisi tempor sagittis amet platea? Vel mus quis nunc sed quis! Sagittis habitasse elementum ac rhoncus rhoncus amet nunc et? Phasellus! Phasellus urna, et aliquet diam sociis egestas duis? Porta lundium velit nisi nec, massa porta dolor nunc, mid lorem sit magnis montes. Vel nisi, elementum vut! Nisi nisi habitasse integer! Dolor sed.</p>
+        </div>
+      </section>
+      <!-- end content -->
+</body>
+</html>
+
