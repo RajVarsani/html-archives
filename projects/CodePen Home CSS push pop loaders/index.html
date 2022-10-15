@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            --primary: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #663399;
+        }
+
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        .loader {
+            margin: 50px;
+        }
+
+        /**
+ * push-pop
+ * lil push pop effect, push one side out and one side in
+ * @author jh3y
+ */
+        .push-pop {
+            --duration: 0.85;
+            height: 100px;
+            width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .push-pop>div:nth-of-type(1) {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            animation: push-pop-slide calc(var(--duration) * 1s) infinite alternate ease-in-out;
+            transform: translate(0, -100%);
+            top: 100%;
+            left: 0;
+        }
+
+        .push-pop>div:nth-of-type(1):after {
+            animation: push-pop-flip calc(var(--duration) * 1s) infinite alternate ease-in-out;
+            background: var(--primary);
+            content: '';
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .push-pop>div:nth-of-type(2) {
+            background: var(--primary);
+            height: 30px;
+            left: 50%;
+            position: absolute;
+            top: 100%;
+            transform: translate(-50%, -100%);
+            width: 20px;
+        }
+
+        .push-pop:after,
+        .push-pop:before {
+            animation: push-pop-pushed calc(var(--duration) * 1s) alternate infinite ease;
+            background: var(--primary);
+            bottom: 0;
+            content: '';
+            height: 40px;
+            position: absolute;
+            width: 20px;
+        }
+
+        .push-pop:before {
+            animation: push-pop-pushed calc(var(--duration) * 1s) alternate-reverse infinite ease;
+            left: 0;
+        }
+
+        .push-pop:after {
+            right: 0;
+        }
+
+        @keyframes push-pop-pushed {
+
+            0%,
+            72.5% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(0, 100%);
+            }
+        }
+
+        @keyframes push-pop-flip {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(0, -80px) rotate(90deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(180deg);
+            }
+        }
+
+        @keyframes push-pop-slide {
+            to {
+                transform: translate(0, -100%) translate(80px, 0);
+            }
+        }
+
+        /**
+ * push-out
+ * lil push out effect, push one side out and one side in
+ * @author jh3y
+ */
+        .push-out {
+            --duration: 0.85;
+            height: 100px;
+            width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .push-out>div:nth-of-type(1) {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            animation: push-out-slide calc(var(--duration) * 1s) infinite alternate ease-in-out;
+            transform: translate(0, -100%);
+            top: 100%;
+            left: 0;
+        }
+
+        .push-out>div:nth-of-type(1):after {
+            animation: push-out-flip calc(var(--duration) * 1s) infinite alternate ease-in-out;
+            background: var(--primary);
+            content: '';
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .push-out>div:nth-of-type(2) {
+            background: var(--primary);
+            height: 30px;
+            left: 50%;
+            position: absolute;
+            top: 100%;
+            transform: translate(-50%, -100%);
+            width: 20px;
+        }
+
+        .push-out:after,
+        .push-out:before {
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-duration: calc(var(--duration) * 4s);
+            background: var(--primary);
+            bottom: 0;
+            content: '';
+            height: 40px;
+            position: absolute;
+            width: 20px;
+        }
+
+        .push-out:after {
+            animation-name: push-out-pushed-1;
+            right: 0;
+        }
+
+        .push-out:before {
+            animation-name: push-out-pushed-2;
+            left: 0;
+        }
+
+        @keyframes push-out-pushed-1 {
+
+            0%,
+            18.125%,
+            50%,
+            68.125%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25%,
+            43.125%,
+            75%,
+            93.125% {
+                transform: translate(0, 100%);
+            }
+        }
+
+        @keyframes push-out-pushed-2 {
+
+            0%,
+            18.125%,
+            50%,
+            68.125%,
+            100% {
+                transform: translate(0, 100%);
+            }
+
+            25%,
+            43.125%,
+            75%,
+            93.125% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes push-out-flip {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(0, -80px) rotate(90deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(180deg);
+            }
+        }
+
+        @keyframes push-out-slide {
+            to {
+                transform: translate(0, -100%) translate(80px, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="push-pop loader">
+        <div></div>
+        <div></div>
+    </div>
+    <div class="push-out loader">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
