@@ -1,0 +1,72 @@
+.forever {
+  position: fixed;
+  inset: 0;
+  --c: #000;
+  background: radial-gradient(110% 200px at bottom, #263c47 99%, #0000),
+    radial-gradient(
+      circle at 50% calc(100% - 220px),
+      #fef9bf,
+      #fffff7 250px,
+      #0000 252px
+    ),
+    #18104b;
+}
+.forever:before {
+  content: "";
+  position: absolute;
+  bottom: 182px;
+  width: 100px;
+  aspect-ratio: 0.75;
+  left: calc(50% - 10px);
+  background: radial-gradient(50% 50%, var(--c) 97%, #0000) 74% 50%/9% 8%,
+    linear-gradient(69deg, #0000 41%, var(--c) 42% 67%, #0000 68%) 68% 33%/26%
+      29%,
+    radial-gradient(50% 50%, var(--c) 97%, #0000) 18% 50%/11% 8%,
+    linear-gradient(124deg, #0000 41%, var(--c) 42% 67%, #0000 68%) 23% 33%/26%
+      29%,
+    conic-gradient(
+        from 167deg at 50% -55%,
+        #0000,
+        var(--c) 1deg 26deg,
+        #0000 27deg
+      )
+      50% 43%/100% 45%,
+    linear-gradient(var(--c) 0 0) 40% 91%/14% 27%,
+    linear-gradient(var(--c) 0 0) 60% 91%/14% 27%,
+    radial-gradient(50% 50%, var(--c) 97%, #0000) 40% 99%/14% 11%,
+    radial-gradient(50% 50%, var(--c) 97%, #0000) 60% 99%/14% 11%,
+    radial-gradient(50% 50%, var(--c) 95%, #0000) 50% 2%/26% 20%;
+  background-repeat: no-repeat;
+}
+.forever:after {
+  content: "";
+  position: absolute;
+  bottom: 197px;
+  width: 100px;
+  padding-inline: 19px;
+  aspect-ratio: 0.85;
+  box-sizing: border-box;
+  right: calc(50% - 13px);
+  outline: 5px solid #fff;
+  background: linear-gradient(41deg, #0000 41%, var(--c) 42% 67%, #0000 68%)
+      100% 48%/30% 35% no-repeat,
+    radial-gradient(50% 100% at bottom, var(--c) 98%, #0000) top/62% 25%
+      no-repeat,
+    linear-gradient(var(--c) 0 0) 50% 56%/62% 55% no-repeat,
+    radial-gradient(5px at 50% calc(100% - 5px), #000 99%, #0000 101%)
+      calc(50% - 10px) 0/20px 100% content-box,
+    radial-gradient(5px at 50% calc(100% + 0px), #0000 99%, #000 101%) 50%
+      calc(100% - 5px) / 20px 50% repeat-x content-box,
+    #fff;
+  filter: blur(4px) contrast(23);
+  mix-blend-mode: darken;
+  border-radius: 0 0 30px 30px;
+  animation: b 1s linear infinite;
+  opacity: 0.8;
+}
+@keyframes b {
+  100% {
+    background-position: 100% 48%, top, 50% 56%, calc(50% - 30px) 0,
+      calc(50% - 20px) calc(100% - 5px);
+  }
+}
