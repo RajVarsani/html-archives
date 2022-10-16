@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apart Animated text</title>
+    <style>
+              * {
+        box-sizing: border-box;
+      }
+      body {
+        height:100vh;
+        overflow:hidden;
+         background:linear-gradient(-45deg, rgb(250,100,250) -30%, rgb(250,180,250)50%,
+           rgb(155,150,255) 130%);
+      }
+      .dont{
+        width:100vw;
+        position:absolute;
+        top:49vh;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8vh;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align:center;
+        color: rgba(255,255,255,.8);
+        z-index:-1;
+        animation: dont 4s infinite cubic-bezier(.5,0,0,1);
+      }
+      @keyframes dont {
+        0%,100% {
+          opacity:0;
+          letter-spacing: 0em;
+        }
+        50% {
+          opacity:1;
+          letter-spacing: .3em;
+        }
+      }
+
+      .wrapper {
+        width:100vw;
+        margin-top:25vh;
+        display: grid;
+        place-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 40vh;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-align:center;
+        color: white;
+        animation: pop 4s infinite cubic-bezier(.5,0,0,1);
+        opacity:.9;
+        filter:blur(2px)url("#goo")blur(2px);
+      }
+      @keyframes pop {
+        0%, 100% {transform:scale(1);
+        }
+        50% {
+          transform:scale(1.2);
+        }
+      }
+      .wrapper > div {
+        grid-area: 1/1/-1/-1;
+      }
+      .top {
+        clip-path:polygon(0% 0%, 100% 0%, 100% 40%, 45% 70%,0% 30%);
+        animation: up 4s infinite cubic-bezier(.5,0,0,1.2);
+      }
+      @keyframes up {
+        50% {
+          transform:  translate(.3em,-.2em);
+           letter-spacing: .3em;
+        }
+      }
+      .bottom {
+        clip-path: polygon(0% 29.9%, 44.9% 69.9%, 100% 39.9%, 100% 100%, 0% 100%);
+        animation: down 4s infinite cubic-bezier(.5,0,0,1.3);
+      }
+      @keyframes down {
+        50% {
+          transform: translate(.3em,.4em);
+          letter-spacing: .3em;
+        }
+      }
+
+      .mtop{
+        clip-path:
+          polygon(0% 0%, 100% 0%, 100% 40%, 45% 70%, 0% 30%);
+        animation: mup 4s infinite cubic-bezier(.5,0,0,1.5);
+      }
+      @keyframes mup {
+        50% {
+          transform: translate(.2em,-.7em) rotate(-10deg);
+          letter-spacing: .3em;
+        }
+      }
+      .mbottom{
+         clip-path: polygon(0% 29.9%, 44.9% 69.9%, 100% 39.9%, 100% 100%, 0% 100%);
+        animation: mdown 4s infinite cubic-bezier(.5,0,0,1.2);
+      }
+      @keyframes mdown {
+        50% {
+           transform:translate(.2em,.9em) rotate(10deg);
+          letter-spacing: .3em;
+        }
+    </style>
+  </head>
+
+  <body>
+    <section class="wrapper">
+      <div class="top">
+        ap<span style="letter-spacing:.44em;">&nbsp;</span>rt
+      </div>
+      <div class="bottom">
+        ap<span style="letter-spacing:.44em;">&nbsp;</span>rt
+      </div>
+      <div class="mtop">a</div>
+      <div class="mbottom">a</div>
+    </section>
+    <div class="dont">don't fall</div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="filter" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+            result="goo"
+          />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>
