@@ -1,0 +1,52 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: wheat;
+  min-height: 100vh;
+  width: 100%;
+}
+
+h2 {
+  color: blueviolet;
+}
+
+.ball {
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+}
+
+.ball-bouncing .ball {
+  animation: bouncing 1.2s ease-in infinite;
+  bottom: 2.1rem;
+  transform-origin: bottom;
+}
+
+@keyframes bouncing {
+  0%,
+  100% {
+    transform: scale(1.5, 0.5);
+  }
+  20% {
+    transform: scaleY(1.2);
+  }
+  40%,
+  80% {
+    transform: translateY(-14rem);
+  }
+  70% {
+    transform: translateY(-15rem);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
