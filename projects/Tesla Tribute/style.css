@@ -1,0 +1,122 @@
+body{
+  background: radial-gradient(circle at 100%, #8ecae6, #bde0fe 50%, #a2d2ff 75%, #0077b6 75%);
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.container{    
+    margin: 60px auto 30px auto;
+}
+
+#image{
+  display: block;
+  max-width: 100%;
+  border-radius: 20px 20px 20px 20px;
+  border: 1px solid #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+figcaption{
+  padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding: 60px 15px 0px 15px;
+    font-size: 80px;
+    margin: 0px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+#timeline-header {
+  color: black;
+}
+
+figure {
+    text-align: center;
+}
+
+
+
+blockquote { 
+  margin: 0px 200px;
+}
+
+.info{
+  text-align: center;
+  font-size: 25px;
+  padding: 25px;
+}
+
+hr {
+  border: 0.5px solid #ccc;
+  margin: 10px 150px;
+}
+
+.by{
+  text-align: center;
+  padding: 5px;
+}
+
+.underline{
+  text-decoration: underline;
+  color: #000;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#footer-text {
+  text-align: start;
+  border: 1px solid #ffffff;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #333;
+  transition: 0.3s ease-in-out all;
+}
+
+#footer-text:hover{
+  background-color: #334;
+  color: #fff;
+  scale: 1.01;
+  transition: 0.5s;
+}
+
+li {
+  list-style: url('./fan.png');
+  background-color: #333;
+  margin: 3px;
+  border-radius: 20px 20px 20px 20px;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  transition: 0.1s ease-in-out all;
+
+}
+
+li:hover {
+  scale: 1.02;
+}
+
+#first{
+  color: #ffffff;
+}
+
+#last {
+  color: #000;
+}
+
+footer {
+  text-align: end;
+}
