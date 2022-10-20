@@ -1,0 +1,300 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --primary-color:#0055D4;
+    --secondary-color:rgb(110, 107, 107);
+    --tertiary-color:rgb(48, 45, 45);
+    --hcolor:black;
+    --main_font:  'Fira Sans', sans-serif;;
+    --sec_font: 'Varela Round', sans-serif;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+a:hover{
+    color:inherit;
+}
+body{
+
+    font-family:var(--main_font);
+    color:var(--tertiary-color);
+    
+}
+/* img{
+    height: 100%;
+    width:100%;
+} */
+
+ul{
+    list-style-type:none;
+}
+
+
+#active{
+    color:var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 2px;
+    
+
+    
+}
+
+.typog{
+    font-family: var(--sec_font);
+}
+
+/************************Navbar*********************************/
+
+.navbar{
+    font-size:1.2rem;
+}
+
+.navbar-brand{
+    font-size: 2rem;
+}
+#svg{
+    
+    transform: rotate(210deg) translateY(3px) translateX(5px);
+    
+      
+}
+
+.navslogo{
+    height:40px;
+    width:40px;
+}
+
+.incubelogo{
+    height:60px;
+}
+
+.btn{
+    border-radius: 2px;
+}
+
+/* .btr:hover{
+    transition: reverse;
+} */
+.my-shadow{
+    box-shadow:2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/******************************intro**************************************/
+
+.head1{
+    display:inline;
+    color:var(--hcolor);
+    font-weight: 800;
+
+}
+
+.blue-text{
+    color:var(--primary-color);
+}
+
+.secondary-para{
+    
+    letter-spacing: 2px;
+    
+    font-weight: 700;
+}
+
+
+
+/******************************Whta we offer**************************************/
+
+
+.bold{
+    font-weight:800;
+}
+
+.scaled{
+    /* transform: scale(5); */
+    font-size: 1.5rem;
+}
+
+
+
+.form-control{
+    border-color: var(--primary-color);
+    
+}
+
+
+
+/**********************testimonials**********************/
+
+.group{
+    max-width:250px
+}
+.grp-img{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    /* -webkit-clip-path: circle(10% at 50% 10%); */
+    transform: translateY(50px);
+}
+.blue-card{
+    background: #1371eb;
+    color:white;
+    border-radius: 5px;
+}
+/*****************footer**************************/
+
+
+footer div i{
+    padding-right: 10px;
+    font-size:1.5rem;
+}
+
+footer{
+    background: var(--primary-color);
+    color:white;
+    
+}
+
+
+
+/***********************services************************/
+
+
+
+
+
+
+
+
+/**********************about*******************************/
+.my-card{
+    max-width: 540px;
+    border-radius: 10px;
+    
+    
+}
+
+.my-card img{
+    border-radius:2%;
+    
+    
+    
+}
+
+/* .img{
+    height: 100%;
+    width: 100%;
+} */
+
+
+
+/*************contact****************/
+.contact i{
+    padding-right:20px;
+    font-size: 2.2rem;
+}
+.contact{
+    border-right:3px var(--primary-color) solid ;
+}
+.map{
+    width:inherit;
+    height:450px;
+}
+
+
+
+/***********************log**********************/
+.log-screen{
+    border:3px var(--primary-color) solid;
+    border-radius:10px;
+    
+} 
+
+.backimg{
+    background: rgba(255, 255, 255, 0.894) url("../images/log.jpg");
+     
+            background-repeat: no-repeat;
+            background-size:cover; 
+            align-self: center;
+            
+            background-blend-mode:lighten;
+            
+            
+           
+}
+
+
+
+/****************************responsive****************************/
+
+
+@media(max-width:1180){
+   :root{
+    font-size: 10px;
+   }
+    .head1{
+        font-size: 10px;
+    }
+}
+
+@media(max-width:1180){
+
+}
+
+@media(max-width:780px){
+
+    #news-form p{
+        text-align:Start;
+        align-items:start;
+        justify-content:start;
+    }
+    footer .container .row ul{
+        padding: 0;
+    }
+
+
+    footer .container .row div div,
+    footer .container .row div{
+    padding: 0;
+    
+    }
+
+
+    .container,.container-fluid{
+        padding:20px;
+    }
+
+    .backimg{
+        background-image: none;
+    }
+
+   .p-5{
+        padding:10px !important;
+    }
+
+    .form-floating{
+        font-size: 0.7rem !important;
+    }
+    
+    
+
+}
+
+@media(max-width:767px){
+    .contact{
+        border-right:none ;
+        border-bottom:3px var(--primary-color) solid ;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+
+}
+
+@media(max-width:350px){
+    .my-5{
+        margin-top:10px !important;
+        margin-bottom:10px !important;
+
+    }
+
+}
