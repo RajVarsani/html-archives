@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden ;
+    height: 100vh;
+}
+.main{
+    display: grid;
+    border: 0.4vmin solid black;
+    width: 85vmin;
+    height: 85vmin;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(20,1fr);
+    transition: 0.5s all  !important;
+}
+
+.head{
+z-index: 1;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    background-color: rgb(180, 32, 32);
+    /* transition: 0.3s all; */
+}
+.p{
+    transform: 0.4s;
+    text-decoration: none!important;
+}
+.food{
+    /* background: url(./Assets/apple.png); */
+    z-index:0;
+    width: 100%;
+    height: 100%;
+
+}
+.wholesnake{
+    transition: 0.5s all;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+}
+.Anime1{
+    animation: anime1 0.3s ease-in-out;
+}
+@keyframes anime1{
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.main{
+    align-self: center;
+    justify-self: center;
+    background:rgb(245, 245, 245,0.9);
+    border-radius:10px;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url(./Assets/back.jpg);
+    background-size: 15%;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.score{
+    width: 30%;
+    height: 100vh;
+    height: 92vmin;
+    text-align: center;
+    font-size: 2.5vmax;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.page{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center ;
+    align-items: center;
+    
+}
+.headermain{
+    width: 90%;
+    justify-self: center;
+    align-items: center;
+    height: max-content;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    font-size: 4vmin;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.headermain div{
+    padding: 10px;
+    color: black;
+    background-color: rgb(255,255,255,0.7);
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px;
+
+}
+.mid{
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+.headermain .goback,.headermain .Score{
+    font-size: 3.2vmin;
+    text-decoration: underline;
+    transition: 0.4s;
+    }
+    .headermain .goback,.headermain .Score:hover,a:hover{
+        transform: scale(1.1);
+
+    }
+.goback{
+    cursor: pointer;
+}
+.Score{
+    display: flex;
+    
+}
+a{
+    color: black;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vmin;
+    transition: 0.4s;
+
+}
+.tastyapple{
+    position: absolute;
+    background-color: rgb(255, 255, 255,0.8);
+    border: 1px solid black;
+    border-radius: 10px ;
+    box-shadow: 2px 2px 2px 2px;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    padding: 10px;
+    font-size: xx-large;
+    color:  red;
+    font-weight: 700;
+    transform: translateX(100vw);
+    
+}
+.tastyappleanime{
+    display: flex!important;
+    flex-direction: column;
+    animation: anime 5s forwards;
+}
+@keyframes anime {
+    40%{
+    transform: translateX( 35vw);
+    }
+    100%{
+        transform: translateX( 100vw);
+
+    }
+}
