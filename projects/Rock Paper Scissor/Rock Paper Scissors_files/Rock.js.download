@@ -1,0 +1,39 @@
+// let All = document.querySelectorAll(".P");
+// let our = document.querySelector(".our")
+// let robot  =  document.querySelector(".robot");
+// let OurScoree = document.querySelector(".ours")
+// let robotScore  =  document.querySelector(".robots");
+// let result = document.querySelector(".result");
+// let img = document.querySelector("img")
+// let OurScore = 0;
+// let botScore = 0;
+// OurScoree.innerHTML =0;
+// robotScore.innerHTML = 0;
+// All.forEach(element => {
+//     element.addEventListener("click",()=>{
+//         img.id = element.innerHTML;
+//         robot.innerHTML = All[Math.floor(Math.random()*3)].innerHTML;
+//         for(let i=0;i<3;i++){
+//             if(robot.id==our.id)result.innerHTML = "Draw";
+//             if(img.id == "Rock"&& robot.id === "Scissor" ){result.id = "Won"}
+//             if(img.id == "Rock"&& robot.id === "Paper" ){result.id = "Lost"}
+//             if(img.id == "Scissor"&& robot.id === "Rock" ){result.id = "Lost"}
+//             if(img.id == "Scissor"&& robot.id === "Paper" ){result.id = "Won"}
+//             if(img.id == "Paper"&& robot.id === "Rock" ){result.id = "Won"}
+//             if(img.id == "Paper"&& robot.id === "Scissor" ){result.innerHTML = "Lost"}
+
+//         }
+//         console.log(our.id)
+//         if(result.innerHTML=="Won")OurScore++;
+//         else if(result.innerHTML=="Draw");  
+//         else botScore++;
+//         OurScoree.innerHTML = OurScore;
+//         robotScore.innerHTML = botScore;
+
+
+        
+//     });
+
+   
+    
+// });

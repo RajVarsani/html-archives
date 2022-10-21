@@ -1,0 +1,231 @@
+/* body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.all{
+    display: flex;
+    flex-direction: row;
+    
+    
+    
+}
+.P{
+    font-size: 25px;
+    margin: 20px;
+    cursor: pointer;
+    
+   
+}
+.I{
+    border-radius: 50%;
+}
+.P:hover{
+    
+    color: darkblue;
+}
+.arena{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+  
+}
+.S{
+    width: 30%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+h1{
+    transform: translateY(50%);
+}
+.our{
+    border: 2px solid blue;
+}
+.robot{
+    border: 2px solid red;
+}
+.result{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+} */
+body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+  
+    
+}
+.Dummy{
+    width: 65%;
+    word-wrap: break-word;
+}
+.allthings{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+    width: 90%;
+    border: 5px solid black;
+   
+    
+   
+}
+.ROUNDS{
+    color: blue;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+.all img{
+    border-radius: 50%;
+    margin: 10px;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Arena{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 20px;
+    
+    
+}
+@media only screen and (max-width: 550px) {
+   .Arena{
+       flex-wrap: wrap;
+   }
+  }
+.ScoreLeaderBoard{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-content: space-around;
+    margin: 20px;
+    width: 65%;
+  
+}
+h1{
+    color: gray;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500    ;
+}
+.S{
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 260px;
+    max-height: 111px;
+    min-width: 97px;
+    min-height: 41px;
+    
+    
+    
+}
+.OUR{
+   
+  
+}
+.OURJS{
+    transform: translateX(-10%);  
+    animation : handwavy1 2.5s ease-in;  
+}
+.BOTJS{
+  
+      
+    animation : handwavy2 2.5s ease-in;  
+   
+}
+.BOT{
+    transform: translateX(15%);  
+      
+    
+   
+}
+@keyframes handwavy1{
+    0%{
+        transform : rotate(0deg) translateX(-10%);
+        transform-origin: left ;
+    }
+    20%{
+   transform: rotate(-10deg) translateX(-10%);
+   transform-origin: left ;
+    }
+    40%{
+   transform: rotate(10deg) translateX(-10%);
+   transform-origin: left ;
+    }
+    60%{
+        transform: rotate(-10deg) translateX(-10%);
+        transform-origin: left ;
+    }
+    80%{
+        transform: rotate(10deg) translateX(-10%);
+        transform-origin: left ;
+    }
+   90%{
+        transform: rotate(-10deg) translateX(-10%);
+        transform-origin: left ;
+    }
+    100%{
+        transform: rotate(0deg) translateX(-10%);
+        transform-origin: left ;
+    }
+}
+
+@keyframes handwavy2{
+    0%{
+        transform:rotate(0deg)   translateX(15%);
+        transform-origin: right ;
+    }
+    20%{
+   transform:rotate(10deg)   translateX(15%);
+   transform-origin: right ;
+    }
+    40%{
+   transform:rotate(-10deg) translateX(15%);
+   transform-origin: right ;
+    }
+    60%{
+        transform: rotate(10deg) translateX(15%);
+        transform-origin: right ;   
+    }
+    80%{
+        transform: rotate(-10deg) translateX(15%);
+        transform-origin: right ;
+    }
+    90%{
+        transform: rotate(10deg) translateX(15%);
+        transform-origin: right ;
+    }
+    100%{
+        transform: rotate(0deg) translateX(15%);
+        transform-origin: right ;
+    }
+}
+
+
+.our , .bot{
+    display: flex;
+    align-items: center;
+    height: 25vh;
+    
+    overflow: hidden;
+}
+.all{
+    margin:0px 10% 0px 10%;
+}
