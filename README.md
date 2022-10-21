@@ -4,6 +4,7 @@
 
 In this repository, you can find HTML projects that beginners can use for their first web project.
 
+## [![GitHub pull-requests](https://img.shields.io/github/issues-pr/RajVarsani/html-archives)](https://GitHub.com/RajVarshani/html-archives/pull/)
 ## 💙 For contributors
 
 Please read the following before contributing to the repository:
