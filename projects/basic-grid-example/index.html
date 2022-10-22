@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Grid Example</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 800px;
+        }
+
+        .gridContainer {
+            display: grid;
+        }
+
+        .img {
+            width: 100%;
+            grid-row: 1 / 4;
+            grid-column: 1 / 4;
+            object-fit: cover;
+        }
+
+        .testInput1 {
+            align-self: center;
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+
+        .testInput2 {
+            align-self: center;
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+        }
+
+        .testInput3 {
+            align-self: center;
+            grid-row: 3 / 4;
+            grid-column: 3 / 4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="gridContainer">
+            <!-- Random Unsplash Image -->
+            <img src="https://unsplash.it/800/800" class="img" />
+            <div class="testInput1">
+                <input type="text" id="testInput1" value="test input 1" />
+            </div>
+            <div class="testInput2">
+                <input type="text" id="testInput2" value="test input 2" />
+            </div>
+            <div class="testInput3">
+                <input type="text" id="testInput3" value="test input 3" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

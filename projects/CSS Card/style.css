@@ -1,0 +1,126 @@
+:root {
+
+    --clr-neutral-900: hsl(255, 17%, 9%);
+    --clr-neutral-100: hsl(0 0% 100%);
+    --clr-neutral-400: hsl(142 90% 61%);
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    line-height: 1.6;
+    place-items: center;
+    /* background: var(--clr-neutral-900); */
+    background-color:rgb(62, 218, 245);
+    font-family: sans-serif;
+    padding-right: 5em;
+    
+}
+
+.card {
+    color: var(--clr-neutral-100);
+    background-image: url(image/Card-bg.jpg);
+    background-size: cover;
+    padding: 10rem 0 0;
+    max-width: 35ch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    
+}
+
+.card:hover,
+.card:focus-within {
+    transform: scale(1.05);
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(hsl(0 0% 0% / 0),
+            hsl(20 0% 0% / 0.3), 20%,
+            hsl(0 0% 0% / 1));
+    transform: translateY(65%);
+    transition: transform 500ms ease;
+}
+.card-title {
+    position: relative;
+    /* outline: solid red; */
+    width: max-content;
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 4px;
+    left: calc(var(--padding)* -1);
+
+    bottom: 0;
+    width: calc(100% + var(--padding));
+    background: var(--clr-neutral-400);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease;
+}
+
+.card:hover .card-title::after {
+    transform: scaleX(1);
+}
+
+.card-body {
+    color: rgb(255 255 255/0.8);
+}
+
+
+@media (hover) {
+    .card-content {
+        transform: translateY(65%);
+        transition: transform 500ms ease;
+    }
+
+    .card:hover .card-content,
+    .card:focus-within .card-content {
+        transform: translateY(0);
+        transition-delay: 500ms;
+    }
+
+    .card.card:focus-within .card-content {
+        transition-duration: 0ms;
+    }
+
+    .card-content>*:not(.card-title) {
+        opacity: 0;
+        transition: opacity 500ms linear;
+
+    }
+
+    .card:hover .card-content>*:not(.card-title) {
+        opacity: 1;
+        transition-delay: 500ms;
+    }
+    .card-title::after{
+        transform:scaleX(0);
+    }
+}
+
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-neutral-900);
+    background-color: var(--clr-neutral-400);
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--clr-neutral-100);
+}

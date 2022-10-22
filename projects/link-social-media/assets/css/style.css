@@ -1,0 +1,24 @@
+a{
+	max-width: 400px;
+}
+
+form{
+	max-width: 400px;
+}
+
+.f-20{
+	font-size: 20px;
+}
+
+.btn-to{
+	min-width: 300px;
+}
+
+#gelap{
+	background-color: black;
+	color: white;
+}
+
+.bio{
+	max-width: 700px;
+}

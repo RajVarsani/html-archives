@@ -1,0 +1,167 @@
+button {
+  margin: 3px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  /* border-color: white; */
+}
+
+.All {
+  padding: 6px 10px;
+  border-color: rgb(217 197 228);
+  color: #f9a9ae;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+  background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+.All:hover {
+  border-color: white;
+}
+.Grass {
+  padding: 5px 16px;
+  font-size: 1.1em;
+  border-color: rgb(197 228 201);
+  color: #30c33b;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#caffd3 0%, #38c75e 100%);
+  text-shadow: 1px 1px 1px rgb(255 255 255 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+.Grass:hover {
+  border-color: rgb(238, 245, 232);
+}
+.Fire {
+  border-color: rgb(244 119 165);
+  color: #f44242;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #ff706f 0%, #f0bb5c 100%);
+  text-shadow: 1px 1px 1px rgb(255 255 255 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+  padding: 5px 20px;
+  font-size: 1.1em;
+}
+
+.Fire:hover {
+  border-color: rgb(240, 185, 185);
+}
+.Water {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(101 110 216);
+  color: #2459bd;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#5185fc 0%, #295ab3 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+.Water:hover {
+  border-color: rgb(179, 191, 243);
+}
+.Bug {
+  padding: 5px 20px;
+  font-size: 1.1em;
+  border-color: rgb(146 148 159);
+  color: #7a869d;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#bcc2cf 0%, #83888f 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+
+.Bug:hover {
+  border-color: rgb(219, 213, 213);
+}
+
+.Poison {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(246 118 118);
+  color: #bf5146;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#ec6153 0%, #ec4b4b 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+.Poison:hover {
+  border-color: rgb(236, 204, 194);
+}
+
+.Normal {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(189 70 211);
+  color: #de5bdab3;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#e86ce4 0%, #c531e0 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+
+.Normal:hover {
+  border-color: rgb(179, 153, 175);
+}
+
+.Flying {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(37 211 195);
+  color: #6badd3b3;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#44ecec 0%, #9cd1cd 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+
+.Flying:hover {
+  border-color: rgb(191, 227, 231);
+}
+.Electric {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(209 206 105);
+  color: #d7de6eb3;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#e4de3c 0%, #d6854c 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+
+.Electric:hover {
+  border-color: rgb(236, 243, 176);
+}
+
+.Psychic {
+  padding: 5px 15px;
+  font-size: 1.1em;
+  border-color: rgb(209 206 105);
+  color: #9ea349b3;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#e4e07f 0%, #e8df7b 100%);
+  text-shadow: 1px 1px 1px rgb(250 243 243 / 66%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+}
+
+.Psychic:hover {
+  border-color: rgb(217, 218, 211);
+}

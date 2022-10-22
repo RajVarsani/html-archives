@@ -1,0 +1,149 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  /* display: inline-block; */
+}
+#body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background-size: contain;
+  background-color: #ffbe3b;
+}
+.display-upper {
+  /* height: 100vh; */
+  height: 30vh;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+  z-index: 10;
+  top: 40vh;
+  /* left:42vw; */
+  text-align: center;
+  color: yellow;
+}
+.display-upper button {
+  background-color: yellow;
+  font-size: 200%;
+  font-weight: 600;
+  border-radius: 2rem;
+  padding: 0.4rem;
+  box-shadow: 0px 0px 4px black;
+}
+/*container of the game*/
+.container {
+  width: 100%;
+  height: 70%;
+
+  box-sizing: border-box;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 15px solid black;
+  border-right: 15px solid black;
+  margin: 0px;
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #61b8dad1;
+}
+/*Rods and ball of the game*/
+.rod1,
+.rod2 {
+  background-color: green;
+  width: 10%;
+  /* min-width:0px; */
+  height: 20px;
+  position: relative;
+  left: 45%;
+  border-radius: 40rem;
+  box-sizing: border-box;
+  font-size: 15px;
+  text-align: center;
+}
+.rod2 {
+  background-color: rgb(255, 140, 0);
+}
+.ball {
+  background-color: rgb(192, 221, 255);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  position: absolute;
+  align-self: center;
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+/*To hide the element*/
+.hidden {
+  visibility: hidden;
+}
+/*center-rod*/
+.center-rod {
+  left: 45%;
+}
+/*blurry*/
+.blurry {
+  opacity: 0.3;
+}
+/*top container for score and new game button*/
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  /* width: 100%; */
+  background-size: contain;
+  box-sizing: border-box;
+
+  align-items: baseline;
+}
+.top-container > div {
+  height: 20px;
+  padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+  /* margin-bottom: 1%; */
+}
+.score {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  font-weight: 700;
+}
+.score h5 {
+  font-size: 100%;
+
+  font-weight: 700;
+}
+.new-game button {
+  background-color: #14cb98df;
+  font-size: 100%;
+  font-weight: 700;
+  border-radius: 2rem;
+  padding: 0.2rem;
+  box-shadow: 0px 0px 4px black;
+  color: #67728ad9;
+}
+/*Lives score*/
+
+.lives {
+  color: #494958f2;
+}
+.lives i {
+  color: red;
+  font-size: 1rem;
+}
+button {
+  padding: 20px;
+}

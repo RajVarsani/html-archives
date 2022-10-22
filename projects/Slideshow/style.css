@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slider{
+    overflow: hidden;
+    box-shadow: 2px 2px 5px 1px black;
+}
+.slider figure img{
+    float: left;
+    width: 33.33%;
+    height: 100vh;
+}
+.slider figure{
+    position: relative;
+    width: 300%;
+    animation: slide 12s infinite;
+}
+@keyframes slide{
+    0%{
+        left: 0;
+    }
+    15%{
+        left: 0;
+    }
+    30%{
+        left: -100%;
+    }
+    45%{
+        left: -100%;
+    }
+    60%{
+        left: -200%;
+    }
+    75%{
+        left: -200%;
+    }
+    90%{
+        left: 0;
+    }
+    100%{
+        left: 0;
+    }
+}

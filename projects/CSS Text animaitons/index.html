@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!--<div class="take-input">
+           <input type="text" placeholder="Write any text" />
+          <a href="javascript:void(0);">Enter Text</a>
+        </div>-->
+      <div class="animate seven">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate one">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate two">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate three">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate four">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate five">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+
+      <div class="animate six">
+        <span>c</span><span>s</span><span>s</span><span>3</span> &nbsp;
+        <span>a</span><span>n</span><span>i</span><span>m</span><span>a</span
+        ><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
+
+        <a class="repeat" href="javascript:void(0);">Repeat Animation</a>
+      </div>
+    </div>
+    <script>
+      /* This code is not required for the animation. This is only needed for the repeatation */
+      $(function () {
+        $(".repeat").click(function () {
+          var classes = $(this).parent().attr("class");
+          $(this).parent().attr("class", "animate");
+          var indicator = $(this);
+          setTimeout(function () {
+            $(indicator).parent().addClass(classes);
+          }, 20);
+        });
+      });
+    </script>
+  </body>
+</html>

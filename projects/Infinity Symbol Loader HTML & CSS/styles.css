@@ -1,0 +1,99 @@
+:root {
+  --color: rgb(0,155,255);
+  --area: 40vmin;
+  --time:4s;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing:border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg ,red ,blue);
+  overflow: hidden;
+}
+main{
+  width:80vw;
+  height:80vh;
+  border-radius: 10vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(50,50,50);
+}
+section {
+  display: flex;
+  flex-wrap: nowrap;
+  width: calc(var(--area) * 2) );
+  height: calc(var(--area) * 1);
+}
+.container-1,
+.container-2 {
+  display: inline-flex;
+  width: var(--area);
+  height: var(--area);
+  background-color: transparent;
+  border-radius: 50%;
+  transform: rotate(calc(12deg * 11.5));
+  margin: 0px;
+  animation: my-rotate calc(var(--time) * 4) linear infinite normal;
+}
+.container-2 {
+  transform: rotate(calc(12deg * -5));
+}
+@keyframes my-rotate{
+  0%,100%{
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+.item{
+  position: absolute;
+  background-color: transparent;
+  width: var(--area);
+  height: var(--area);
+  border-radius: 50%;
+  transform: rotate(calc(12deg * var(--i)));
+}
+.item::after {
+  position: absolute;
+  content: "";
+  background-color: var(--color);
+  box-shadow: 0px 0px calc(var(--area) * 0.005) var(--color),
+              0px 0px calc(var(--area) * 0.01) var(--color),
+              0px 0px calc(var(--area) * 0.015) var(--color),
+              0px 0px calc(var(--area) * 0.02) var(--color),
+              0px 0px calc(var(--area) * 0.025) var(--color),
+              0px 0px calc(var(--area) * 0.03) var(--color);
+  top: calc(var(--area) * 0.12);
+  left: calc(var(--area) * 0.12);
+  width: calc(var(--area) * 0.05);
+  height: calc(var(--area) * 0.05);
+  transform: scale(0.001);
+  border-radius: 50%;
+  animation: my-move var(--time) cubic-bezier(1,-.5,1,-.5) infinite normal;
+  animation-delay: calc( (var(--time) / 60) * var(--i));
+}
+.container-2 .item::after {
+  animation-delay: calc( (var(--time) / -60) * var(--i))
+}
+@keyframes my-move{
+  0%{
+    transform: scale(3.75);
+  }
+  40%,
+  100%  {
+    transform: scale(0);
+    visibility:hidden;
+  }
+}

@@ -1,0 +1,103 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  image-rendering: auto;
+  transform-style: preserve-3d;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(0deg, rgb(60, 0, 100), rgb(25, 0, 100));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  height: 85vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(58, 0, 59);
+  position: relative;
+  border: 10px solid rgb(255, 130, 0);
+  animation: animate 10s linear 0s infinite;
+}
+@keyframes animate {
+  0% {
+    transform: rotateX(75deg) rotateY(0deg) rotateZ(-30deg);
+  }
+  100% {
+    transform: rotateX(75deg) rotateY(0deg) rotateZ(-390deg);
+  }
+}
+
+.pyramid {
+  width: 21vw;
+  height: 21vw;
+  background-color: transparent;
+}
+.shadow {
+  position: absolute;
+  width: 10vw;
+  height: 10vw;
+  background-color: black;
+  box-shadow: 0 0 3vw 2vw black;
+}
+.level:nth-child(2) {
+  width: 12vw;
+  aspect-ratio: 1;
+  transform: translateX(1.5vw) translateY(1.5vw);
+}
+
+.level:nth-child(3) {
+  width: 9vw;
+  aspect-ratio: 1;
+  transform: translateX(3vw) translateY(-9vw);
+}
+
+.level:nth-child(4) {
+  width: 6vw;
+  aspect-ratio: 1;
+  transform: translateX(4.5vw) translateY(-16.5vw);
+}
+
+.level:nth-child(5) {
+  width: 3vw;
+  aspect-ratio: 1;
+  transform: translateX(6vw) translateY(-21vw);
+}
+
+.container {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  transform: translateX(calc(var(--i) * 3vw)) translateY(calc(var(--j) * 3vw))
+    translateZ(calc(calc(var(--z) * 1.5vw) + 9vw));
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3vw;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: rgb(255, 221, 0);
+  transform: rotate3d(var(--x), var(--y), 0, 90deg) translateZ(1.5vw);
+  border: 0.5px solid rgb(255, 187, 0);
+  box-sizing: border-box;
+}
+
+.item:nth-child(2) {
+  transform: rotate3d(var(--x), var(--y), 0, 180deg) translateZ(1.5vw);
+}

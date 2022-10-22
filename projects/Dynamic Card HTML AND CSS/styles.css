@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #181818;
+}
+
+/* Main Box */
+.box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(0,0,0,0.75);
+  border-radius: 10px;
+  overflow: hidden; /*Limit gradient layer inside our card.*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Two Rotating Bpx */
+.box::before { /*用僞類構造動態邊框層*/
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-image: conic-gradient(transparent,transparent,transparent,#4afa37);
+  animation: animate 4s linear infinite;
+}
+
+.box::after { /*用僞類構造動態邊框層*/
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-image: conic-gradient(transparent,transparent,transparent,#e7f779); /*Use conic gradient to render the flowing styles */
+  animation: animate 4s linear infinite; /*Make it move*/
+  animation-delay: -2s; /*Prevent overlaps*/
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+/*Cover tag Span */
+.box span {
+  position: absolute;
+  inset: 5px;
+  border-radius: 8px;
+  background-color: #181818;
+  z-index: 1;
+  
+}
+
+.box h2{ 
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 1.5em;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket ball score board</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="HTTPS://fonts.cdnfonts.com/css/cursed-timer-ULIL" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./images/favicon-16x16.png">
+
+
+</head>
+
+<body class="bg-black">
+    <h1 class="text-white flex justify-center text-2xl font-[cursive] mt-7 md:mt-6 md:text-4xl">BASKETBALL  SCOREBOARD</h1>
+    <div
+        class="container md:px-7 md:py-0  px-3 py-0 bg-[#062a8b] w-[80vw] h-[50vh] sm:-h-[70vh] m-auto mt-[4rem] md:w-[70vw] md:h-[80vh] md:m-auto md:mt-[2rem]">
+      
+        <div class=" border-8 border-white border-y-[#062a8b] h-full">
+            <div class="flex justify-center ">
+                <button
+                    class="px-3 py-2 bg-green-600 text-white rounded-md font-[cursive] text-xl mt-3 md:mt-4 md:text-2xl md:px-5 md:py-3  hover:scale-105 ease-in-out duration-500"
+                    onclick="newgame()" id="newgm">New
+                    game</button>
+            </div>
+            <div class="flex justify-evenly mt-3">
+                <div class="main1">
+                    <h1 class="md:text-7xl text-4xl font-bold  text-white">HOME</h1>
+                    <div
+                        class="score-board bg-black w-[7rem] h-[6rem] md:w-[14rem] md:h-[9rem] mt-3 md:mt-5 flex justify-center md:flex md:justify-center md:items-center items-center">
+                        <h2 class="text-yellow-400 text-7xl md:text-9xl font-cure" id="hpoint">0</h2>
+                    </div>
+                    <div class="buttons1 flex justify-evenly mt-3">
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1 md:px-3 md:py-2 md:border-2 border-2 rounded-md md:rounded-md md:text-xl border-white hover:scale-105 ease-in-out duration-500"
+                            onclick="homeaddone()">+1</button>
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1   md:px-3 md:py-2 md:border-2 border-2 rounded-md border-white mx-1 md:rounded-md md:text-xl hover:scale-105 ease-in-out duration-500"
+                            onclick="homeaddtwo()">+2</button>
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1   md:px-3 md:py-2 md:border-2 border-2 rounded-md border-white md:rounded-md md:text-xl hover:scale-105 ease-in-out duration-500"
+                            onclick="homeaddthree()">+3</button>
+                    </div>
+                </div>
+                <div class="main2">
+                    <h1 class="text-4xl md:text-7xl font-bold text-white">GUEST</h1>
+                    <div
+                        class="score-board bg-black w-[7rem] h-[6rem] md:w-[14rem] md:h-[9rem] mt-3 md:mt-5 flex justify-center md:flex md:justify-center  md:items-center items-center">
+                        <h2 class="text-yellow-400 text-7xl md:text-9xl font-cure" id="gpoint">0</h2>
+                    </div>
+                    <div class="buttons1 flex justify-evenly mt-3">
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1 md:px-3 md:py-2 md:border-2 border-2 rounded-md md:rounded-md md:text-xl border-white hover:scale-105 ease-in-out duration-500"
+                            onclick="guestaddone()">+1</button>
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1   md:px-3 md:py-2 md:border-2 border-2 rounded-md border-white mx-1 md:rounded-md md:text-xl hover:scale-105 ease-in-out duration-500"
+                            onclick="guestaddtwo()">+2</button>
+                        <button
+                            class="text-white bg-[#062a8b] px-1 py-1   md:px-3 md:py-2 md:border-2 border-2 rounded-md border-white md:rounded-md md:text-xl hover:scale-105 ease-in-out duration-500"
+                            onclick="guestaddthree()">+3</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script>
+           let homePoint = document.getElementById("hpoint");
+let guestPoint = document.getElementById("gpoint");
+
+let homecount=0;
+let guestcount=0;
+const homeaddone=()=>
+{
+    homecount+=1;
+    homePoint.innerText = homecount;
+}
+const homeaddtwo=()=>
+{
+    homecount+=2;
+    homePoint.innerText = homecount;
+}
+const homeaddthree=()=>
+{
+    homecount+=3;
+    homePoint.innerText = homecount;
+}
+// guest function 
+const guestaddone=()=>
+{
+    guestcount+=1;
+    guestPoint.innerText = guestcount;
+}
+const guestaddtwo=()=>
+{
+    guestcount+=2;
+    guestPoint.innerText = guestcount;
+}
+const guestaddthree=()=>
+{
+    guestcount+=3;
+    guestPoint.innerText = guestcount;
+}
+// new game function 
+const newgame = ()=>
+{
+    guestcount = 0;
+    homecount = 0;
+    homePoint.innerText = 0;
+    guestPoint.innerText = 0;
+    
+
+}
+    </script>
+</body>
+
+</html>

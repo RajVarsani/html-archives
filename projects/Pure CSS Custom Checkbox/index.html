@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Custom Checkbox
+    </title>
+    <style>
+        /* This css is for normalizing styles. You can skip this. */
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        .new {
+            padding: 50px;
+        }
+
+        .form-group {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
+            padding: 0;
+            height: initial;
+            width: initial;
+            margin-bottom: 0;
+            display: none;
+            cursor: pointer;
+        }
+
+        .form-group label {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .form-group label:before {
+            content: '';
+            -webkit-appearance: none;
+            background-color: transparent;
+            border: 2px solid #0079bf;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .form-group input:checked+label:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 9px;
+            width: 6px;
+            height: 14px;
+            border: solid #0079bf;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="new">
+        <form>
+            <div class="form-group">
+                <input type="checkbox" id="html">
+                <label for="html">HTML</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="css">
+                <label for="css">CSS</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="javascript">
+                <label for="javascript">Javascript</label>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

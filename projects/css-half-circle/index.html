@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Half Circle</title>
+    <style>
+        div {
+            background: #9e978e;
+            display: inline-block;
+            margin: 0 1em 1em 0;
+        }
+
+        .top,
+        .bottom {
+            height: 300px;
+            width: calc(300px * 2);
+        }
+
+        .right,
+        .left {
+            height: calc(300px * 2);
+            width: 300px;
+        }
+
+        .top {
+            border-top-left-radius: calc(300px * 2);
+            border-top-right-radius: calc(300px * 2);
+        }
+
+        .right {
+            border-bottom-right-radius: calc(300px * 2);
+            border-top-right-radius: calc(300px * 2);
+        }
+
+        .bottom {
+            border-bottom-left-radius: calc(300px * 2);
+            border-bottom-right-radius: calc(300px * 2);
+        }
+
+        .left {
+            border-bottom-left-radius: calc(300px * 2);
+            border-top-left-radius: calc(300px * 2);
+        }
+
+        .rotate {
+            animation: 1s linear infinite rotate;
+            position: relative;
+            top: calc(300px * -1);
+            transform-origin: 50% 100%;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top"></div>
+</body>
+
+</html>

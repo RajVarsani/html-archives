@@ -1,0 +1,28 @@
+body {
+  margin: 0%;
+  padding: 0%;
+}
+#car {
+  background: url(/road.jpg);
+}
+#scene {
+  background: url(/side.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 450px;
+}
+#btn {
+  width: 100px;
+  height: 50px;
+  background-color: yellow;
+  font-size: 20px;
+  margin: 20px;
+}
+
+#bdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}

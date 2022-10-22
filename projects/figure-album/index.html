@@ -1,0 +1,90 @@
+<DOCTYPE html>
+  <html>
+      <head>
+           <style>
+              body {
+                  background-image: url(https://pm1.narvii.com/6335/4e92a52d3427ef6b24ea7fb88c40fda9582b005d_hq.jpg);
+              }
+              h1 {
+                text-align: center;
+                background-color:#dcdcdc;
+                padding-top:2%;
+                font-family: Comic Sans MS;
+                height: 10%;
+              }
+              h2 {
+                text-align: center;
+                background-color: #dcdcdc;
+                font-family: Comic Sans MS;
+              }
+              main img{
+                text-align: center;
+                border-radius: 50%;
+                border:solid;
+                border-color:#dcdcdc;
+  
+              }
+              table {
+                margin-top:5%;
+                float:right;
+                margin-right:10%;
+  
+  
+              }
+              .description {
+                text-align: center;
+                background-color: #dcdcdc;
+                font-family: Comic Sans MS;
+  
+  
+              }
+              .imageSide{
+               margin-top:6%; 
+                float: right;
+                border-radius: 10%;
+                border:solid;
+                border-color:#dcdcdc;
+  
+              }
+          </style>
+      </head>
+      <body>
+          <header>
+              <h1>Figure Album</h1> 
+          </header>
+          <img class="imageSide" src="https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ec/Ezreal_OriginalLoading.jpg/revision/latest?cb=20151012173109&path-prefix=pt-br" id="imagem_principal">
+          <main>
+              <h2><output id="title">Ezreal | Number: 24 | Goals:6</output></h2>
+              <table align="center" width="900" border="0">
+                 <tr>
+  
+                        <td><img src="https://www.mobafire.com/images/avatars/ezreal-classic.png"  alt="ez" onclick="change('https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ec/Ezreal_OriginalLoading.jpg/revision/latest?cb=20151012173109&path-prefix=pt-br', 'Ezreal | Numero: 24 | Gols:6', 'EZ MEU FAVORITO')"></td> 
+                        <td><img src="https://www.mobafire.com/images/champion/square/katarina.png" alt="kat" onclick="change('https://www.maisesports.com.br/wp-content/uploads/2015/02/Nova-Splash-Art-da-Katarina-2.jpg', 'Katarina | Numero:14 | Gols: 7 ', 'KAT MINHA FAVORITA')"></td>
+                        <td><img src="https://www.mobafire.com/images/avatars/galio-classic.png" alt="galio" onclick="change('https://i.pinimg.com/originals/33/0a/e4/330ae45cd82ac58ebf3650e382dedfd5.jpg','Galio | Numero: 1| Gols: 0 ', 'GALIO MEU FAVORITO')"></td>
+                        <td><img src="https://www.mobafire.com/images/avatars/lucian-classic.png" alt="luciano" onclick="change('https://d1u5p3l4wpay3k.cloudfront.net/lolesports_gamepedia_en/b/b3/Lucian_0.jpg?version=8ef27cf92cdbc0d0a9a8860e9d7a90fb','Lucian | Numero: 10 | Gols: 10', ' LUCIAN MEU FAVORITO')"></td> 
+                  </tr>
+                  <tr>
+                          <td><img src="https://www.mobafire.com/images/avatars/tristana-rocket-girl.png" alt="tris" onclick="change('http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Tristana_6.jpg','Tristana | Numero: 18 | Gols: 4', 'TRISTANA MINHA FAVORITA')"></td>
+                          <td><img src="https://www.mobafire.com/images/avatars/draven-draven.png" alt="draven" onclick="change('http://www.lolzera.com.br/uploads/2016/04/draven-draven-large.jpg','Draven | Numero: 6 | Gols: 11', ' DRAVEN MEU FAVORITO')"></td>
+                          <td><img src="https://www.mobafire.com/images/avatars/miss-fortune-captain.png" alt="miss" onclick="change('http://images6.fanpop.com/image/photos/39800000/miss-fortune-league-of-legends-39892402-345-500.jpg','Miss Fortune | Numero: 21 | Gols: 5', ' MISS FORTUNE MINHA FAVORITA')"></td>
+                          <td> <img src="https://www.mobafire.com/images/avatars/ekko-classic.png" alt="menino ney" onclick="change('http://www.lolzera.com.br/uploads/2015/06/ekko-classico-large.jpg','Ekko | Numero: 8 | Gols: 9', 'EKKO MEU FAVORITO')"></td>
+                  </tr>
+                  <tr>
+                          <td><img src="https://www.mobafire.com/images/avatars/syndra-classic.png" alt="sandra" onclick="change('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Syndra_0.jpg','Syndra | Numero: 25| Gols: 3', ' SYNDRA MINHA FAVORITA')"></td>
+                          <td><img src="https://www.mobafire.com/images/champion/square/shen.png" alt="shen" onclick="change('https://i.pinimg.com/originals/b9/5f/46/b95f460b710d62481fc6f478b17c43d4.jpg','Shen | Numero: 12| Gols: 4', 'SHEN MEU FAVORITO')"></td>
+                          <td><img src="https://www.mobafire.com/images/champion/square/jayce.png" alt="jayce" onclick="change('http://www.lolzero.org/images/champions/Jayce/Image_Splashart/Jayce_0.jpg','Jayce | Numero: 7 | Gols: 11', ' JAYCE MEU FAVORITO')"></td>
+                  </tr>
+  
+              </table>   
+          </main>
+          <p class="description" align="center"> <output id="favorite"> EZ IS MY FAVORITE </output> </p>
+      </body>
+  
+      <script>
+          function change(image, title, favorite) {
+            document.getElementById('image_principal').src = image;
+            document.getElementById('title').value = title;
+            document.getElementById('favorite').value = favorite;
+          }
+      </script>
+  </html>

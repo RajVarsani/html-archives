@@ -1,0 +1,102 @@
+*{  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+  }  
+  body{  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh;  
+  }  
+  .container{  
+    width: 40px;  
+    height: 40px;  
+    position: relative;  
+  }  
+  .container input{  
+    position: absolute;  
+    width: 100%;  
+    height: 100%;  
+    appearance: none;  
+    -webkit-appearance: none;  
+    cursor: pointer;  
+  }  
+  .container input::before{  
+    content: "f1e0";  
+    position: absolute;  
+    font-family: 'Font Awesome 6 Free';  
+    font-weight: 700;  
+    font-size: 1.5rem;    
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background: #9733EE;  
+    color: white;  
+    border-radius: 50%;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+  }  
+  .container input:checked::before{  
+    content: "f00d";  
+    font-size: 2rem;   
+  }  
+  .container input::after{  
+    content: "";  
+    position: absolute;   
+    top: -35%;  
+    left: -35%;  
+    width: 120%;  
+    height: 120%;  
+    z-index: -10;  
+    border: 10px solid #9733EE;  
+    box-shadow: 0 0 30px #9733ee4f;  
+    border-radius: 0%;  
+    transform: scale(.5);  
+    transition: all .4s;  
+  }  
+  .container input:checked::after{  
+    transform: scale(1.5);  
+    border-radius: 50%;  
+  }  
+  .links{  
+    position: absolute;  
+    z-index: -10;  
+  }  
+  .container input:checked ~ .links{  
+    transition: all 4s;  
+    z-index: 50;  
+  }  
+  .links a{  
+    position: absolute;  
+    width: 40px;  
+    height: 40px;  
+    text-decoration: none;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    background: rgba(0, 0, 0, 0.226);  
+    border-radius: 50%;  
+    cursor: pointer;  
+    color: white;  
+    transition: all .4s;  
+    transition-delay: calc(var(--i)* 0.1s);  
+    backdrop-filter: blur(5px);  
+  }  
+  .links a i{  
+    font-size: 1.5em;  
+  }  
+  .container input:checked ~ .links a:nth-child(1){  
+    transform: translateY(-130%);  
+  }  
+  .container input:checked ~ .links a:nth-child(2){  
+    transform: translateX(130%);  
+  }  
+  .container input:checked ~ .links a:nth-child(3){  
+    transform: translateY(130%);  
+  }  
+  .container input:checked ~ .links a:nth-child(4){  
+    transform: translateX(-130%);  
+  }  

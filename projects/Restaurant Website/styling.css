@@ -1,0 +1,464 @@
+ *{
+    margin: 0;
+    padding: 0; 
+    box-sizing:border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+body{
+    background-color: #fff;
+    color:grey;
+    font-family: 'Lato','san-serif';
+    font-weight: 300;
+    font-size: 20px;
+    /* for clearity of text we use 'text-rendering'. */
+    text-rendering:optimizeLegibility;
+    overflow-x: hidden;
+}
+
+
+
+
+
+ #header{ 
+    /* linear gradien(mixture oftwo colors) */
+     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+} 
+
+
+
+
+
+
+
+ .logo{
+    float: left;
+    height: 100px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.row{
+    max-width: 1140px;
+        margin: 0 auto;
+    }
+
+
+
+.main-nav {
+ margin-top: 55px;
+ float: right;
+ list-style: none;
+}
+
+
+.main-nav li{
+    display: inline-block; 
+    /* every li will creat a gap of 40px on it left */
+     margin-left: 40px;
+}
+
+
+
+
+.main-nav li a:link,
+.main-nav li a:visited{
+                    padding: 8px 0;
+                    color: #fff;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 90%; 
+                    /* transparent */
+                    border-bottom: 2px solid transparent;
+                    transition: border-bottom 0.2s;
+
+} 
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid orangered;
+}
+
+
+
+
+
+.hero-text-box{
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+
+
+h1{
+
+
+    margin-top: 0;
+    color: rgb(77, 134, 19);
+    margin-bottom: 20px;
+    word-spacing:4px ;
+    letter-spacing: 1px;
+    font-size: 240%;
+
+} 
+
+
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    display: inline-block;
+    border-radius: 200px;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, border 0.2s ;
+    /* -webkit-transition: border 0.2s,; background-color 0.2s, color 0.2s, */
+}
+
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    background-color:darkorange;
+    border:1px solid darkorange;
+    color:#fff;
+    margin-right:15px;
+    border-radius: 200px;
+}
+
+
+.btn-ghost:link,
+.btn-ghost:visited
+                    {
+
+    color: darkorange;
+    border:1px solid darkorange;
+    border-radius: 200px;
+
+} 
+
+
+/* .btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid darkorange;
+    color: darkorange;
+    border-radius: 200px;
+} */
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: rgb(192, 130, 16);
+
+}
+
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid rgb(192, 130, 16);
+}
+ 
+
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid rgb(192, 130, 16);
+    color:#fff;
+}
+
+
+h2{
+    font-size: 180%;
+    text-align: center;
+    word-spacing:2px;
+    letter-spacing:1px ;
+    margin-bottom: 30px;
+} 
+
+
+
+/* styling after h2 */
+ h2:after  {
+
+    display:block;
+    height:2px;
+    background-color: darkorange;
+    content:"";
+    width : 100px;
+    margin: 0 auto;
+    margin-top:30px;
+
+}
+
+
+
+.long-copy {
+    line-height: 145%;
+    width:70%;
+    margin-left: 15%; 
+    /* text-align: center; */
+    margin-bottom:30px;
+}
+
+
+
+
+.span-1-of-4  {
+    float:left;
+    width : 23.8%;
+}
+
+
+
+
+
+
+
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h3{
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: #cf6d17;
+    margin-bottom: 20px;
+    margin-left:70px ;
+}
+
+
+
+.section-meal{
+    margin-top: 250px;
+    padding 0;
+} 
+
+
+.meal-showcase{
+     width: 100%;
+}
+
+.meal-photo{
+    width: 25%;
+    margin: 0;
+    float:left;
+    overflow: hidden;
+    background-color: black;
+
+} 
+
+
+
+.meal-photo img {
+     width: 100%;
+     opacity: 0.7;
+     height: auto;
+     -webkit-transform: scale(1.15);
+     -ms-transform: scale(1.15);
+     transform: scale(1.15);
+     transition: transform 0.5s, opacity 0.5s;
+
+}
+ 
+.meal-photo img:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+}
+
+
+
+.clearfix {zoom:1;}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+#main-page{
+            
+            text-align: center;
+            width: 100%;
+            margin-top: 250px;
+            padding: 80px 0;
+
+
+
+
+
+
+
+
+}
+
+.tag {
+    text-transform: uppercase;
+    font-size: 25px;
+       
+
+
+
+}
+
+
+
+h4{
+    text-transform: uppercase;
+    font-weight: 300;
+    color: black;
+    margin-right: 150px;
+}
+
+
+#left {
+
+    float :left;
+    margin-left: 250px;
+    height: 400px;
+}
+
+
+#right{
+    float: right;
+    margin-right: 20px;
+    position: absolute;
+    margin-left: 550px;
+    margin-top: 100px;
+    width: 500px;
+    text-align: left;
+
+
+}
+
+
+
+.circle {
+    float: right;
+    margin-right: 50px;
+    margin-left: 60px;
+    width: 70%;
+
+}
+
+
+
+
+
+
+.border {
+    border:1px solid orange;
+    border-radius: 50%;
+    width : 50px;
+    height: 50px;
+    padding-bottom: 20px;
+    padding-top:10px;
+    padding-left: 20px;
+    
+
+      }
+
+
+
+
+      h4:after  {
+
+        display:block;
+        height:3px;
+        background-color: darkorange;
+        content:"";
+        width : 100px;
+        margin: 0 auto;
+        margin-top:30px;
+       font-weight: 300;
+       margin-bottom: 35px;
+
+    
+    }
+
+
+
+#page {
+    margin-left: 140px;
+    margin-top: 600px;
+    margin-bottom:180px;
+    text-align:center;
+}
+
+
+
+
+    #pics {
+       
+        margin-top: 250px;
+        width: ;
+        
+    }
+
+
+    .city-photo img {
+        width:18.8%;
+        height:110px;
+        margin-left: 25px ;
+        float:left;
+        overflow: hidden;
+      
+
+      
+      
+    }
+
+    
+
+.textlink{
+    margin-left: 140px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+
+
+  
+}
+
+.iconowesome{
+    width:18.8%;
+    height:110px;
+    margin-left: 25px ;
+    float:left;
+    overflow: hidden;
+
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+
+

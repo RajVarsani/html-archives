@@ -1,0 +1,9 @@
+Instructions For Ping Pong game:-
+
+1.Enter will Start the game.
+2.Player 1 can move left or right by using A And D keys.
+3.Player 2 can move left or right by using <- and -> arrow keys.
+4.After each game the player who loses will get the ball.
+5.The player who loses his life 3 time will lose the Game.
+
+I hope you will like the Game..!!
