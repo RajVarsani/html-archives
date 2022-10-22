@@ -19,6 +19,12 @@ Raj V.
 <a href="https://www.linkedin.com/in/varsani-raj/">LinkedIn</a>
 <a href="https://github.com/RajVarsani">Github</a>
 
+## 🎃 Hacktoberfest 2022 Stats
+
+Checkout Hacktoberfest 2022 stats for this repository :
+
+[![Hacktoberfest 2022 stats](https://img.shields.io/github/hacktoberfest/2022/RajVarsani/html-archives?label=HACKTOBERFEST%20-%20HTML%20ARCHIVES&style=for-the-badge)](https://github.com/RajVarsani/html-archives/pulls?q=is%3Apr+is%3Amerged+created%3A2022-10-01..2022-10-31+)
+
 ## 📄 License
 
 [MIT](./LICENSE.md)
