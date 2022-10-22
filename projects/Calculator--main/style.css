@@ -1,0 +1,19 @@
+.row{
+    margin: 8px 0px;
+}
+.button{
+    padding: 20px;
+    margin: 0 3px;
+    border: 2px solid black;
+    border-radius: 9px;
+    cursor: pointer;
+    width: 66px;
+}
+.row input{
+    width: 291px;
+    font-size: 20px;
+    padding: 10px 0px;
+    margin: 0px;
+    border: 3px solid black;
+    border-radius: 5px;
+}

@@ -1,0 +1,12 @@
+.center{
+    text-align: center;
+}
+.flex{
+    display: flex;
+}
+.flex-co{
+    flex-direction: column;
+}
+.align{
+    align-items: center;
+}
