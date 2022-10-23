@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blobby Project</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Alata&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      :root {
+      	--br-blobby: 50%;
+      	--br-blobby-before: 50%;
+      	--br-blobby-after: 50%;
+      }
+
+      body {
+      	background-color: #f4c5b7;
+      	font-family: 'Alata', sans-serif;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      h1 {
+      	color: #fff;
+      	margin: 0;
+      	position: absolute;
+      	top: 50%;
+      	left: 50%;
+      	transform: translate(-50%, -50%);
+      	z-index: 100;
+      }
+
+      .box {
+      	animation: rotate 5s linear infinite;
+      	background-color: darksalmon;
+      	border-radius: var(--br-blobby);
+      	position: relative;
+      	height: 250px;
+      	width: 250px;
+      	transition: 0.3s linear;
+      }
+
+      .box::after {
+      	content: '';
+      	background-color: darksalmon;
+      	border-radius: var(--br-blobby-after);
+      	position: absolute;
+      	opacity: 0.5;
+      	top: -2%;
+      	left: -2%;
+      	height: 104%;
+      	width: 104%;
+      	transition: 0.3s linear;
+      }
+
+      .box::before {
+      	content: '';
+      	background-color: darksalmon;
+      	border-radius: var(--br-blobby-before);
+      	position: absolute;
+      	opacity: 0.5;
+      	top: -4%;
+      	left: -4%;
+      	height: 108%;
+      	width: 108%;
+      	transition: 0.3s linear;
+      }
+
+      @keyframes rotate {
+      	0% {
+      		transform: rotate(0deg);
+      	}
+
+      	100% {
+      		transform: rotate(360deg);
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blobby</h1>
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector(".box");
+
+      setInterval(setBorderRadius, 300);
+
+      function setBorderRadius() {
+        box.style.setProperty("--br-blobby", generateBorderRadiusValue());
+        box.style.setProperty("--br-blobby-after", generateBorderRadiusValue());
+        box.style.setProperty(
+          "--br-blobby-before",
+          generateBorderRadiusValue()
+        );
+      }
+
+      function generateBorderRadiusValue() {
+        return `${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}% / ${getRandomValue()}% ${getRandomValue()}% ${getRandomValue()}%`;
+      }
+
+      function getRandomValue() {
+        return Math.floor(Math.random() * 50) + 50;
+      }
+    </script>
+  </body>
+</html>
