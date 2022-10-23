@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tooltip</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Nunito:300,700&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	font-family: 'Nunito', sans-serif;
+      	background: #dfe6e9;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .btn {
+      	background-color: #d63031;
+        	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      	border: 0;
+      	color: #fff;
+      	font-size: 20px;
+      	font-family: inherit;
+      	font-weight: bold;
+      	padding: 20px 40px;
+      	position: relative;
+      }
+
+      .btn:focus {
+      	outline: 0;
+      }
+
+      .btn:hover {
+      	opacity: 0.9;
+      }
+
+      .btn:hover .tooltip {
+      	transform: translate(-50%, 120%);
+      	opacity: 1;
+      }
+
+      .tooltip {
+      	background-color: #fff;
+        	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      	border-radius: 5px;
+      	color: #555;
+      	font-weight: 300;
+      	padding: 15px 30px;
+      	position: absolute;
+      	bottom: 0;
+      	left: 50%;
+      	opacity: 0;
+      	transform: translate(-50%, 0%);
+      	transition: all 0.5s ease;
+      	text-align: center;
+          white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">
+      Press
+      <span class="tooltip"> Don't press </span>
+    </button>
+  </body>
+</html>
