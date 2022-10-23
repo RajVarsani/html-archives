@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Registration Form</title>
+  </head>
+
+  <body>
+    <h1>Register</h1>
+
+    <form>
+      <label for="fname">First name: </label>
+      <input
+        name="first"
+        id="fname"
+        type="text"
+        placeholder="your first name"
+        required
+      />
+      <label for="lname"> last name: </label>
+      <input
+        name="last"
+        id="lname"
+        type="text"
+        placeholder="your last name"
+        required
+      />
+
+      <div>
+        <label for="male"> Male: </label>
+        <input name="gender" id="male" type="radio" value="male" />
+        <label for="female"> Female: </label>
+        <input name="gender" id="female" type="radio" value="female" />
+        <label for="other"> Other: </label>
+        <input name="gender" id="other" type="radio" value="other" />
+      </div>
+
+      <div>
+        <label for="email"> Email: </label>
+        <input name="email" id="email" type="email" placeholder="your email" />
+        <label for="password"> Password: </label>
+        <input
+          name="password"
+          id="password"
+          type="password"
+          placeholder="your password"
+          minlength="5"
+          maxlength="10"
+        />
+      </div>
+
+      <div>
+        <label>
+          Birthday:
+          <select name="month">
+            <option>month</option>
+            <option>jan</option>
+            <option>feb</option>
+            <option>mar</option>
+          </select>
+          <select name="day">
+            <option>day</option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+          <select name="year">
+            <option>year</option>
+            <option>2016</option>
+            <option>2017</option>
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label for="line"> I agree to the terms and conditions </label>
+        <input name="agreement" id="line" type="checkbox" />
+      </div>
+
+      <button>submit</button>
+    </form>
+  </body>
+</html>
