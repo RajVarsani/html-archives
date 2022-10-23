@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./Tic_tac_toe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+</head>
+<body >
+    <div class="header">
+ <a href="/Landing Page/landing.html">  
+   <img
+    class="firstimg"
+    src="./return-button-png.png"
+    alt=""
+    style="cursor: pointer;margin: 20px"
+    width="40"
+    height="45"
+  /></a>
+  <div class="Round" ></div>
+  <div class="last">
+  <div class="darkmode">
+    <img
+    class="secondimg"
+      src="https://img.icons8.com/ios/452/day-and-night.png"
+      alt=""
+      style="cursor: pointer;margin:20px 20px 0px 20px"
+      width="40"
+      height="40"
+    />
+  
+  </div>
+ <!-- <a href="#score"><div class="ReadandOption">Match Score</div></a>  -->
+</div>
+</div>
+<div class="playerinfo">
+  <form>
+    <div class="x">    
+    <div class="x1">
+     <p class="s1"> Player 1</p>
+    <input type="text" required  placeholder="Type Player 1 Name..." class="text1"></input>
+  </div>
+  <div class="x2">
+     <p class="s2"> Player 2</p>
+    <input type="text"required   placeholder="Type Player 2 Name..." class="text2"></input>
+  </div>
+  </div>
+
+    <input type="submit" class="submit" value="Start">
+
+  </form>
+</div>
+<div class="game">
+
+    <div class="main">
+<div class="supsub1">
+    <div class="sub 11 one"><div class="b11"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 21 two"><div class="b21"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 31 three"><div class="b31"><div class="line X"></div><div class="line Y"></div></div></div>
+</div>
+<div class="supsub2">
+    <div class="sub 12 one"><div class="b12"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 22 two"><div class="b22"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 32 three"><div class="b32"><div class="line X"></div><div class="line Y"></div></div></div>
+</div>
+<div class="supsub3">
+    <div class="sub 13 one"><div class="b13"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 23 two"><div class="b23"><div class="line X"></div><div class="line Y"></div></div></div>
+    <div class="sub 33 three"><div class="b33"><div class="line X"></div><div class="line Y"></div></div></div>
+</div>
+
+
+  <div class="result"> </div>
+<div class="result1"> </div> </div>
+<div class="reandne">
+<div class="restart newmatch" >New Match</div>
+
+<div class="restart" onclick="Restart()">New Round</div>
+
+</div>
+
+</div>
+<p class="title"> | Score Board |</p>
+
+<div class="mainboard">
+<div class="scoreboard" id="score">
+  <div class="p11">
+  <p class="player1"></p>
+  <p class="score1">0</p>
+
+  </div>
+  <div class="drawcount">Draws
+    <p class="score2">0</p>
+
+  </div>
+  <div class="p12">
+
+  <p class="player2"></p>
+  <p class="score3">0</p>
+</div>
+
+</div>
+<div class="leading"></div>
+
+</div>
+
+<!-- <div class="restart" onclick="Restart()">New Match </div> -->
+
+</body>
+<script src="./Tic_tac_toe.js"></script>
+</html>
