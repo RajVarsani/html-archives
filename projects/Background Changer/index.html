@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Changer</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	flex-direction: column;
+      	font-family: 'Muli', sans-serif;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      	transition: background 0.3s ease;
+      }
+
+      .change-btn {
+      	background-color: #000;
+      	border: 0;
+      	color: #fff;
+      	cursor: pointer;
+      	font-family: inherit;
+      	font-size: 18px;
+      	padding: 20px 50px;
+      }
+
+      .change-btn:active {
+      	transform: scale(0.98);
+      }
+
+      .change-btn:focus {
+      	outline: none;
+      }
+
+      .color-text {
+      	font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="change" class="change-btn">Change</button>
+    <p id="color" class="color-text">rgb(255, 255, 255)</p>
+    <script>
+      const change = document.getElementById("change");
+      const color = document.getElementById("color");
+      const body = document.body;
+
+      change.addEventListener("click", changeBG);
+
+      function changeBG() {
+        const col1 = getRandomRGB();
+        const col2 = getRandomRGB();
+        const col3 = getRandomRGB();
+        const colorString = `rgb(${col1}, ${col2}, ${col3})`;
+        body.style.background = colorString;
+        color.innerText = colorString;
+      }
+
+      function getRandomRGB() {
+        return Math.floor(Math.random() * 256);
+      }
+    </script>
+  </body>
+</html>
