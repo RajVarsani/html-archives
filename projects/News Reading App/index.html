@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Urbanist&display=swap"
+        rel="stylesheet">
+    <title>News</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header-primary-wrapper">
+
+        <!-- Logo -->
+        <div class="header-secondary-wrapper">
+            <div class="InnerHeader">
+                <div class="header-left-sec-wrapper">
+                    <a href="./index.html">
+                        <div class="news-logo">
+                            News
+                        </div>
+                    </a>
+                    <div class="search-bar-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" style="color: blue; height:1.5rem;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <form id="search-form">
+                            <input id="search-input" type="text" placeholder="Search Article" />
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Navigators -->
+                <div class="navigation-selectors-wrapper">
+                    <a><select id="lang" class="navigation-property-selects" onchange="handleLanguageSelectionChange()">
+                            <option style="border: none!important;" value="en">English</option>
+                            <option style="border: none!important;" value="ar">Arabic</option>
+                            <option style="border: none!important;" value="de">German</option>
+                            <option style="border: none!important;" value="es">Spanish</option>
+                            <option style="border: none!important;" value="fr">France</option>
+                            <option style="border: none!important;" value="he">Hebrew</option>
+                            <option style="border: none!important;" value="it">Italian</option>
+                            <option style="border: none!important;" value="no">Norweigen</option>
+                            <option style="border: none!important;" value="ru">Russian</option>
+                            <option style="border: none!important;" value="se">Sami</option>
+                            <option style="border: none!important;" value="ud">Saudi Arebia</option>
+                            <option style="border: none!important;" value="zh">Chinese</option>
+                        </select></a>
+
+                    <div class="nav-go-button-wrapper go">
+                        Go!
+                    </div>
+                </div>
+                <!-- Ham Burger -->
+                <div class="ham">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- Mpage -->
+    <div class="" style="width: 100%;height: 86px;"></div>
+    <div style="width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <div class="hello"
+            style="display: flex;width: 90%; flex-wrap:wrap;justify-content: center;align-items:center;min-height: 100vh;">
+
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div style="width: 100%;display: flex; justify-content: space-between; ">
+        <div class="previous">
+            <img src="https://img.icons8.com/ios/50/000000/long-arrow-left.png" width="40" />
+            Previous Page
+        </div>
+        <div class="PageNumber">1</div>
+        <div class="next">
+            Next Page
+            <img src="https://img.icons8.com/ios/50/000000/long-arrow-right.png" width="40" />
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+<!-- Changes -->
+</html>

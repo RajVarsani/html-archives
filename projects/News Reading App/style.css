@@ -1,0 +1,458 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* header */
+
+.header-primary-wrapper {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+}
+
+.InnerHeader {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  /* justify-self: center; */
+}
+
+.header-secondary-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  justify-content: center;
+  border-bottom: 1px solid rgb(119, 118, 118);
+}
+
+.header-left-sec-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.news-logo {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  background-color: blue;
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: white;
+  font-size: x-large;
+}
+
+.logo {
+  height: 45px;
+}
+
+.navigation-selectors-wrapper {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navigation-selectors-wrapper a {
+  display: flex;
+  color: black;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-left: 3rem;
+  cursor: pointer;
+  color: rgb(99, 99, 99);
+  /* text-align: center; */
+  align-items: center;
+}
+
+.navigation-property-selects {
+  font-family: "Urbanist", sans-serif;
+  height: 30px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.nav-go-button-wrapper {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  background-color: gray;
+  padding: 6px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: white;
+  font-size: x-large;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.reg {
+  height: 86px;
+  width: 100px;
+  /* text-align: center; */
+  opacity: 10;
+  justify-content: center;
+}
+
+.ham {
+  /* display: flex; */
+  flex-direction: column;
+  display: none;
+}
+
+.ham span {
+  display: block;
+  width: 21px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  background-color: blue;
+}
+
+/* Ham Media Query */
+
+@media only screen and (max-width: 320px) {
+  #sec {
+    display: none;
+  }
+  #secX {
+    display: none;        
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .header-primary-wrapper {
+    height: 15vw;
+  }
+
+  .news-logo {
+    font-size: 5vw !important;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .hello {
+    width: 100% !important;
+  }
+  .spand {
+    font-size: 3.5vw;
+    height: auto !important;
+    max-height: 9vw !important;
+    width: 100% !important;
+  }
+  .ham span {
+    width: 5vw;
+  }
+  .desc {
+    font-size: 3.5vw;
+    margin-top: 2vw !important;
+    width: 100% !important;
+  }
+  #search-input {
+    font-size: 4vw !important;
+    padding: 2px !important;
+    width: 44vw !important;
+  }
+  svg {
+    height: 4vw;
+  }
+  .search-bar-wrapper {
+    padding: 1vw !important;
+    height: 7vw !important;
+    width: 55vw !important;
+  }
+  .post {
+    width: 90vw !important;
+    height: auto !important;
+    padding-bottom: 3vw !important;
+    padding-top: 2vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .postImage {
+    width: 90vw !important;
+    height: 75vw !important;
+  }
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  width: 460px;
+  text-decoration: none;
+  border-radius: 5px;
+  /* border :1px solid blue; */
+  /* box-shadow: 1px 1px 3px 3px rgb(0, 0, 0, 0.5); */
+  min-width: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  transition: 0.1s all;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: white; */
+}
+
+.post:hover {
+  transform: scale(1.01);
+  transition: 0.6s all;
+  box-shadow: 0px 0px 38px -10px rgba(81, 81, 81, 0.5);
+  -webkit-box-shadow: 0px 0px 38px -10px rgba(81, 81, 81, 0.5);
+  -moz-box-shadow: 0px 0px 38px -10px rgba(81, 81, 81, 0.5);
+}
+
+.post:hover img {
+  height: 240px;
+  transform: translateY(5px);
+}
+
+.post:hover desc {
+  transform: translateY(10px);
+}
+
+.spand {
+  width: 400px;
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-decoration: none;
+  -webkit-line-clamp: 1;
+  height: 2.6em;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.desc {
+  width: 400px;
+  font-family: "Muli", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 500;
+  display: -webkit-box;
+  margin-top: 10px;
+  height: 3.7em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 0.2s ease-out;
+}
+
+.postImage {
+  min-width: 200px;
+  width: 400px;
+  height: 225px;
+  margin-top: 10px;
+  object-fit: cover;
+  transition: transform 0.2s ease-out, height 0.2s ease-out;
+}
+
+@media only screen and (max-width: 435px) {
+  #timer {
+    padding: 10px !important;
+  }
+  #timer div {
+    padding: 10px !important;
+  }
+  #timer div p {
+    font-size: 13px !important;
+  }
+}
+
+@media only screen and (max-height: 660px) {
+  .arrow img {
+    width: 19px !important;
+    /* padding: 8px!important; */
+  }
+  .arrow {
+    width: 38px !important;
+    height: 28px !important;
+  }
+}
+
+@media only screen and (max-width: 1093px) {
+  .navigation-selectors-wrapper {
+    display: none;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: -320px;
+    right: 0;
+    z-index: -1;
+  }
+  .NaviActive {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: -320px;
+    margin-top: -10px;
+    background-color: white;
+    right: 0;
+    z-index: -1;
+    animation: animeHam 0.5s forwards;
+  }
+  @keyframes animeHam {
+    100% {
+      top: 80px;
+    }
+  }
+  .NaviActiveDown {
+    animation: animeHam2 0.5s forwards;
+  }
+  @keyframes animeHam2 {
+    0% {
+      top: 70px;
+    }
+    100% {
+      top: -320px;
+    }
+  }
+  .navigation-selectors-wrapper a {
+    padding-bottom: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px;
+    padding-top: 30px;
+    justify-content: center;
+    right: 0;
+    left: 0;
+    font-size: 13px;
+    height: 100%;
+    /* border-bottom: 1px blue solid; */
+  }
+  .temp {
+    padding-top: 50px !important;
+  }
+  .reg {
+    width: 100%;
+    right: 0;
+    margin-bottom: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  .ham {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.navigation-selectors-wrapper a {
+  margin: 10px;
+  padding: 10px 10px;
+  float: left;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.navigation-selectors-wrapper a:before {
+  position: absolute;
+  bottom: 0;
+  background: blue;
+  height: 1.5px;
+  display: block;
+  content: "";
+  width: 0;
+  transition: 0.2s all ease-in;
+}
+
+.navigation-selectors-wrapper a:hover:before {
+  width: 100%;
+}
+
+.bfromLeft:before {
+  bottom: 0;
+  left: 0;
+}
+
+.navigation-selectors-wrapper a:hover {
+  color: blue;
+}
+
+#search-input {
+  outline: none;
+  border: none;
+  background-color: rgba(243, 244, 246, 1.5);
+  color: black;
+  font-size: 17px;
+  padding: 5px;
+  font-family: "Urbanist", sans-serif;
+  min-width: 20px;
+  width: 200px;
+}
+
+.search-bar-wrapper {
+  background-color: rgba(243, 244, 246, 1.5);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  margin: 20px;
+  height: 21px;
+}
+.next,
+.previous {
+  cursor: pointer;
+  font-family: "urbanist", sans-serif;
+  padding: 15px;
+  margin: 20px;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+
+  transition: 0.5s transform;
+}
+.PageNumber {
+  /* cursor: pointer; */
+  font-family: "urbanist", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+  transition: 0.5s transform;
+}
+.next:hover,
+.previous:hover {
+  transform: scale(1.05);
+  transition: 0.5s transform;
+}
+.next img,
+.previous img {
+  padding: 20px;
+}
+.next {
+  float: right;
+}
+.previous {
+  float: left;
+}
