@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incrementing Counter</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+
+      body {
+      	background-color: #8e44ad;
+      	color: #fff;
+      	font-family: 'Roboto Mono', sans-serif;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	flex-direction: column;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .counter {
+      	font-size: 60px;
+      	margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter" data-target="12000"></div>
+    <span>Twitter Followers</span>
+
+    <div class="counter" data-target="3000"></div>
+    <span>YouTube Subscribers</span>
+    <script>
+      const counters = document.querySelectorAll(".counter");
+
+      // this could work for multiple counters
+      counters.forEach((counter) => {
+        // start with 0 by default
+        counter.innerText = "0";
+
+        const updateCounter = () => {
+          const target = +counter.getAttribute("data-target");
+          const c = +counter.innerText;
+
+          // get the 0.1% to speed up things
+          const increment = target / 1000;
+
+          if (c < target) {
+            counter.innerText = `${Math.ceil(c + increment)}`;
+            setTimeout(updateCounter, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCounter();
+      });
+    </script>
+  </body>
+</html>
