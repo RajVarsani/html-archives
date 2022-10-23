@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gravity Switch</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #f1f2f6;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	flex-direction: column;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .checkbox label {
+      	background-color: red;
+      	border-radius: 50px;
+         	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      	cursor: pointer;
+      	display: block;
+      	position: relative;
+      	height: 50px;
+      	width: 150px;
+      	user-select: none;
+      	transform: rotate(0deg);
+      	transition: background-color 1s ease-in;
+      }
+
+      .checkbox label .ball {
+      	background-color: #f1f1f1;
+      	border-radius: 50%;
+         	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.75);
+      	position: absolute;
+      	top: 5px;
+      	left: 5px;
+      	width: 40px;
+      	height: 40px;
+      }
+
+      .checkbox #ckb {
+      	display: none;
+      }
+
+      .checkbox #ckb.active:not(:checked) + label {
+      	background-color: red;
+      	animation: uncheck 1.5s ease-in forwards;
+      }
+
+      @keyframes uncheck {
+      	0% {
+      		transform: rotate(0deg);
+      	}
+
+      	25%, 50% {
+      		transform: rotate(-20deg);
+      	}
+
+      	100% {
+      		transform: rotate(0deg);
+      	}
+      }
+
+      .checkbox #ckb.active:not(:checked) + label .ball {
+      	animation: moveBallLeft 1.5s ease-in forwards;
+      }
+
+      @keyframes moveBallLeft {
+      	0%, 25% {
+      		transform: translateX(100px);
+      	}
+
+      	50%, 100% {
+      		transform: translateX(0px);
+      	}
+      }
+
+      .checkbox #ckb.active:checked + label {
+      	background-color: #4cd137;
+      	animation: check 1.5s ease-in forwards;
+      }
+
+      @keyframes check {
+      	0% {
+      		transform: rotate(0deg);
+      	}
+
+      	25%, 50% {
+      		transform: rotate(20deg);
+      	}
+
+      	100% {
+      		transform: rotate(0deg);
+      	}
+      }
+
+      .checkbox #ckb.active:checked + label .ball {
+      /* 	left: 105px; */
+      	animation: moveBallRight 2s ease-in forwards;
+      }
+
+      @keyframes moveBallRight {
+      	0%, 25% {
+      		transform: translateX(0px);
+      	}
+
+      	50%, 100% {
+      		transform: translateX(100px);
+      	}
+      }
+
+      /* SOCIAL PANEL CSS */
+      .social-panel-container {
+      	position: fixed;
+      	right: 0;
+      	bottom: 80px;
+      	transform: translateX(100%);
+      	transition: transform 0.4s ease-in-out;
+      }
+
+      .social-panel-container.visible {
+      	transform: translateX(-10px);
+      }
+
+      .social-panel {
+      	background-color: #fff;
+      	border-radius: 16px;
+      	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
+      	border: 5px solid #001F61;
+      	display: flex;
+      	flex-direction: column;
+      	justify-content: center;
+      	align-items: center;
+      	font-family: 'Muli';
+      	position: relative;
+      	height: 169px;
+      	width: 370px;
+      	max-width: calc(100% - 10px);
+      }
+
+      .social-panel button.close-btn {
+      	border: 0;
+      	color: #97A5CE;
+      	cursor: pointer;
+      	font-size: 20px;
+      	position: absolute;
+      	top: 5px;
+      	right: 5px;
+      }
+
+      .social-panel button.close-btn:focus {
+      	outline: none;
+      }
+
+      .social-panel p {
+      	background-color: #001F61;
+      	border-radius: 0 0 10px 10px;
+      	color: #fff;
+      	font-size: 14px;
+      	line-height: 18px;
+      	padding: 2px 17px 6px;
+      	position: absolute;
+      	top: 0;
+      	left: 50%;
+      	margin: 0;
+      	transform: translateX(-50%);
+      	text-align: center;
+      	width: 235px;
+      }
+
+      .social-panel p i {
+      	margin: 0 5px;
+      }
+
+      .social-panel p a {
+      	color: #FF7500;
+      	text-decoration: none;
+      }
+
+      .social-panel h4 {
+      	margin: 20px 0;
+      	color: #97A5CE;
+      	font-family: 'Muli';
+      	font-size: 14px;
+      	line-height: 18px;
+      	text-transform: uppercase;
+      }
+
+      .social-panel ul {
+      	display: flex;
+      	list-style-type: none;
+      	padding: 0;
+      	margin: 0;
+      }
+
+      .social-panel ul li {
+      	margin: 0 10px;
+      }
+
+      .social-panel ul li a {
+      	border: 1px solid #DCE1F2;
+      	border-radius: 50%;
+      	color: #001F61;
+      	font-size: 20px;
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      	height: 50px;
+      	width: 50px;
+      	text-decoration: none;
+      }
+
+      .social-panel ul li a:hover {
+      	border-color: #FF6A00;
+      	box-shadow: 0 9px 12px -9px #FF6A00;
+      }
+
+      .floating-btn {
+      	border-radius: 26.5px;
+      	background-color: #001F61;
+      	border: 1px solid #001F61;
+      	box-shadow: 0 16px 22px -17px #03153B;
+      	color: #fff;
+      	cursor: pointer;
+      	font-size: 16px;
+      	line-height: 20px;
+      	padding: 12px 20px;
+      	position: fixed;
+      	bottom: 20px;
+      	right: 20px;
+      	z-index: 999;
+      }
+
+      .floating-btn:hover {
+      	background-color: #ffffff;
+      	color: #001F61;
+      }
+
+      .floating-btn:focus {
+      	outline: none;
+      }
+
+      .floating-text {
+      	background-color: #001F61;
+      	border-radius: 10px 10px 0 0;
+      	color: #fff;
+      	font-family: 'Muli';
+      	padding: 7px 15px;
+      	position: fixed;
+      	bottom: 0;
+      	left: 50%;
+      	transform: translateX(-50%);
+      	text-align: center;
+      	z-index: 998;
+      }
+
+      .floating-text a {
+      	color: #FF7500;
+      	text-decoration: none;
+      }
+
+      @media screen and (max-width: 480px) {
+
+      	.social-panel-container.visible {
+      		transform: translateX(0px);
+      	}
+
+      	.floating-btn {
+      		right: 10px;
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="checkbox">
+      <input type="checkbox" id="ckb" />
+      <label for="ckb">
+        <div class="ball"></div>
+      </label>
+    </div>
+    <script>
+      const checkbox = document.getElementById("ckb");
+
+      checkbox.addEventListener("change", () => {
+        checkbox.classList.add("active");
+      });
+    </script>
+  </body>
+</html>
