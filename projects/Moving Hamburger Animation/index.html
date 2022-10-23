@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Hamburger Animation</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #9b59b6;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .container {
+      	background-color: #fff;
+      	border-radius: 5px;
+        	box-shadow: 0 19px 38px rgba(0,0,0,0.2), 0 15px 12px rgba(0,0,0,0.1);
+      	position: relative;
+      	height: 135px;
+      	width: 350px;
+      }
+
+      .menu {
+      	cursor: pointer;
+      	position: absolute;
+      	top: 45px;
+      	height: 45px;
+      	width: 45px;
+      }
+
+      .menu.left {
+      	left: 45px;
+      }
+
+      .menu.center {
+      	left: 50%;
+      	transform: translateX(-50%);
+      }
+
+      .menu.right {
+      	left: calc(100% - 90px);
+      }
+
+      .line {
+      	background-color: #ddd;
+      	border-radius: 2px;
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	height: 5px;
+      	width: 100%;
+      }
+
+      .line.short {
+      	width: 80%;
+      }
+
+      .menu {
+      	transition: all 0.4s cubic-bezier(.65, -0.3, .5, 1.25);
+      }
+
+      .menu.active .line {
+      	background-color: darksalmon;
+      	transition: all 0.4s cubic-bezier(.65, -0.3, .5, 1.25);
+      }
+
+      .line:nth-of-type(2) {
+      	top: 10px;
+      }
+
+      .line:nth-of-type(3) {
+      	top: 20px;
+      }
+
+      .line:nth-of-type(4) {
+      	top: 30px;
+      }
+
+      .line:nth-of-type(5) {
+      	top: 40px;
+      }
+
+      .menu.center .line {
+      	left: 50%;
+      	transform: translate(-50%);
+      }
+
+      .menu.right .line {
+      	left: 100%;
+      	transform: translate(-100%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="menu left clickable" data-class="left">
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+      </div>
+      <div class="menu center clickable" data-class="center">
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+      </div>
+      <div class="menu right clickable" data-class="right">
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+      </div>
+      <div class="menu left active" id="to_move">
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <script>
+      const to_move = document.getElementById("to_move");
+      const clickable = document.querySelectorAll(".clickable");
+
+      clickable.forEach((c) => {
+        c.addEventListener("click", () => {
+          to_move.className = "menu active";
+          to_move.classList.add(c.getAttribute("data-class"));
+        });
+      });
+    </script>
+  </body>
+</html>
