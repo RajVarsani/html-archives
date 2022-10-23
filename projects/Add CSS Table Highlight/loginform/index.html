@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>S3 - Login form (+CSS)</title>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      background-color: rgb(43, 183, 188);
+    }
+
+    form {
+      background-color: rgb(243, 212, 212);
+      padding: 20px 50px;
+      margin: 10px 0;
+      width: 500px;
+      height: 400px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-family: Arial;
+      text-align: center;
+    }
+
+    div {
+      padding-bottom: 30px;
+    }
+
+    div>input {
+      width: 100%;
+      padding: 15px 15px;
+      margin: 5px 0;
+      border: 1px solid rgb(194, 189, 189);
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    div>label {
+      font-family: Arial;
+      font-size: 85%;
+      font-weight: bold;
+      color: rgb(85, 78, 78);
+    }
+
+    div>label::after {
+      content: "*";
+      color: red;
+    }
+
+    label[for="checkbox"] {
+      text-decoration: underline;
+      font-family: Arial;
+      font-size: 85%;
+    }
+
+    button {
+      width: 100%;
+      font-weight: bold;
+      background-color: #61d116;
+      color: white;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: green;
+    }
+
+    label[for="checkbox"]:hover {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="https://ghuu6.csb.app/bio.html" method="get" target="_blank">
+    <h2>
+      Login
+    </h2>
+    <div>
+      <label for="userId">Username</label> <br />
+      <input type="email" id="userId" name="userName" placeholder="user@example.com" required />
+    </div>
+    <div>
+      <label for="pass"> Password </label><br />
+      <input type="password" id="pass" name="parola" required />
+    </div>
+    <input type="checkbox" id="checkbox" name="checkAccount" />
+    <label for="checkbox">Remember me</label>
+    <br />
+    <button type="submit">LOG IN</button>
+  </form>
+</body>
+
+</html>
