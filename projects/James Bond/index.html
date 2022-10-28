@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Bond</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Holtwood+One+SC|Lora&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eee;
+            font-family: 'Holtwood One SC';
+            margin: 0;
+        }
+
+        .hidden-big {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 50px;
+            max-width: 1200px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .box {
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            width: 500px;
+            min-height: 500px;
+            position: relative;
+        }
+
+        .row.small .box {
+            min-height: 200px;
+        }
+
+        .row.mid .box {
+            min-height: 250px;
+        }
+
+        .box.dark {
+            background-color: #c0c0c0;
+            color: #fff;
+        }
+
+        .box:first-of-type {
+            background-position: top left;
+            text-align: right;
+        }
+
+        .box:last-of-type {
+            background-position: top right;
+        }
+
+        .heading {
+            letter-spacing: 2px;
+            font-size: 60px;
+            position: absolute;
+            top: 50px;
+            margin: 0;
+        }
+
+        .subheading {
+            font-family: 'Lora';
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            text-transform: uppercase;
+        }
+
+        .row.mid .subheading {
+            top: 70%;
+        }
+
+        .name {
+            letter-spacing: 2px;
+            font-size: 48px;
+            position: absolute;
+            bottom: 10px;
+            margin: 0;
+        }
+
+        .box:first-of-type .name,
+        .box:first-of-type .heading {
+            right: 10px;
+        }
+
+        .box:last-of-type .name,
+        .box:last-of-type .heading {
+            left: 10px;
+        }
+
+        .number {
+            color: #c0c0c0;
+            font-family: 'Lora';
+            font-size: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0.4;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .movies {
+            font-family: 'Lora';
+            font-size: 18px;
+            letter-spacing: 1px;
+            line-height: 20px;
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            text-transform: uppercase;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .movies li {
+            margin: 10px 0;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .hidden-big {
+                display: inline;
+            }
+
+            .hidden-small {
+                display: none;
+            }
+
+            .box {
+                order: 2;
+                min-height: auto;
+            }
+
+            .box.dark {
+                order: 1;
+                min-height: 300px;
+            }
+
+            .heading {
+                font-size: 40px;
+                text-align: center;
+                right: 0 !important;
+                top: 20px;
+                width: 100%;
+            }
+
+            .subheading {
+                font-size: 25px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .number {
+                font-size: 200px;
+            }
+
+            .name {
+                line-height: 1;
+                left: 50% !important;
+                right: auto !important;
+                text-align: center;
+                transform: translateX(-50%);
+                width: 100%;
+            }
+
+            .movies {
+                text-align: center;
+            }
+
+            .row.small .box {
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .row.mid .box {
+                min-height: 100px;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .row,
+            .box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mid">
+            <div class="box dark">
+                <h1 class="heading">
+                    James
+                    <div class="hidden-big">Bond</div>
+                </h1>
+            </div>
+            <div class="box">
+                <h1 class="heading hidden-small">Bond</h1>
+            </div>
+            <p class="subheading">Movies & Actors</p>
+        </div>
+        <div class="row">
+            <div class="box">
+                <span class="number">4</span>
+                <h2 class="name hidden-small">Daniel</h2>
+                <ul class="movies">
+                    <li>
+                        Spectre<br />
+                        2015
+                    </li>
+                    <li>
+                        Skyfall<br />
+                        2012
+                    </li>
+                    <li>
+                        Quantum of Solace<br />
+                        2008
+                    </li>
+                    <li>
+                        Casino Royale<br />
+                        2006
+                    </li>
+                </ul>
+            </div>
+            <div class="box dark image"
+                style="background-image: url('https://www.screengeek.net/wp-content/uploads/2018/08/james-bond-daniel-craig.jpg')">
+                <h2 class="name"><span class="hidden-big">Daniel</span> Craig</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box dark image" style="background-image: url('http://i.imgur.com/4MspLjL.jpg')">
+                <h2 class="name">Pierce <span class="hidden-big">Brosnan</span></h2>
+            </div>
+            <div class="box">
+                <span class="number">4</span>
+                <h2 class="name hidden-small">Brosnan</h2>
+                <ul class="movies">
+                    <li>
+                        Die another day<br />
+                        2002
+                    </li>
+                    <li>
+                        The world is not enough<br />
+                        1999
+                    </li>
+                    <li>
+                        Tomorrow Never Dies<br />
+                        1997
+                    </li>
+                    <li>
+                        Goldeneye<br />
+                        1995
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <span class="number">2</span>
+                <h2 class="name hidden-small">Timothy</h2>
+                <ul class="movies">
+                    <li>
+                        License to kill<br />
+                        1989
+                    </li>
+                    <li>
+                        The living daylight<br />
+                        1987
+                    </li>
+                </ul>
+            </div>
+            <div class="box dark image"
+                style="background-image: url('https://filmfrontier.files.wordpress.com/2015/03/dalton-bond.jpg')">
+                <h2 class="name"><span class="hidden-big">Timothy</span> Dalton</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box dark image"
+                style="background-image: url('https://images.indianexpress.com/2015/11/james-bond-roger-moore.jpg')">
+                <h2 class="name">Roger <span class="hidden-big">Moore</span></h2>
+            </div>
+            <div class="box">
+                <span class="number">7</span>
+                <h2 class="name hidden-small">Moore</h2>
+                <ul class="movies">
+                    <li>
+                        A view to a kill<br />
+                        1985
+                    </li>
+                    <li>
+                        Octopussy<br />
+                        1983
+                    </li>
+                    <li>
+                        For your eyes only<br />
+                        1981
+                    </li>
+                    <li>
+                        Moonraker<br />
+                        1979
+                    </li>
+                    <li>
+                        The sky who loved me<br />
+                        1977
+                    </li>
+                    <li>
+                        The man with the golden gun<br />
+                        1974
+                    </li>
+                    <li>
+                        Live and let die<br />
+                        1973
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box">
+                <span class="number">1</span>
+                <h2 class="name hidden-small">George</h2>
+                <ul class="movies">
+                    <li>
+                        On her majesty's secret service<br />
+                        1969
+                    </li>
+                </ul>
+            </div>
+            <div class="box dark image"
+                style="background-image: url('https://cdn-stream.httpid.com/c201/wp-content/uploads/2015/10/George-Lazenby-Best-Bond.jpg')">
+                <h2 class="name"><span class="hidden-big">George </span>Lazenby</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box dark image"
+                style="background-image: url('https://imgc.artprintimages.com/img/print/007-james-bond-dr-no-1962_u-l-q10ts640.jpg')">
+                <h2 class="name">Sean <span class="hidden-big">Connery</span></h2>
+            </div>
+            <div class="box">
+                <span class="number">6</span>
+                <h2 class="name hidden-small">Connery</h2>
+                <ul class="movies">
+                    <li>
+                        Diamonds are forever<br />
+                        1971
+                    </li>
+                    <li>
+                        You only live twice<br />
+                        1967
+                    </li>
+                    <li>
+                        Thunderball<br />
+                        1965
+                    </li>
+                    <li>
+                        Goldfinger<br />
+                        1964
+                    </li>
+                    <li>
+                        From Russia with love<br />
+                        1963
+                    </li>
+                    <li>
+                        Dr. No<br />
+                        1962
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row small">
+            <div class="box"></div>
+            <div class="box dark"></div>
+            <p class="subheading">James Bond Movies & Actors</p>
+        </div>
+    </div>
+</body>
+
+</html>
