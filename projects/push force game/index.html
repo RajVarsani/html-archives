@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Force Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier', sans-serif;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .instructions {
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .instructions button {
+            background-color: #000;
+            border: none;
+            color: #fff;
+            font-family: 'Courier', sans-serif;
+            font-size: 16px;
+            padding: 10px 12px;
+        }
+
+        #score {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        #share_container {
+            color: #fff;
+            font-size: 20px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            margin: 0;
+            transform: translateX(-50%);
+        }
+
+        #share_container a {
+            cursor: pointer;
+            color: #38a1f3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="score">Score: 0</p>
+    <p id="share_container">
+        Share your progress on
+        <a onClick="share()">Twitter</a>
+    </p>
+    <div class="instructions">
+        <h3>Welcome to the Push Force Game</h3>
+        <p>
+            Using the mouse's Push Force guide your little friend into the green
+            dots to gain points and avoid hitting the red dots as you will lose 5
+            points.
+        </p>
+        <p>Be aware! It's not that easy! Have fun! 😃</p>
+        <button onClick="startGame()">Start Game</button>
+
+    </div>
+    <script>
+        const scoreEl = document.getElementById('score');
+        const share_container = document.getElementById('share_container');
+        const instructions = document.querySelector('.instructions');
+        const DEFAULT_MAX_SPEED = 3;
+        const DEFAULT_MAX_FORCE = 0.2;
+        const VEHICLE_SIZE = 15;
+        const CONSUMABLES_SIZE = 7;
+        const FOOD_COUNT = 100;
+        const POISON_COUNT = 30;
+        const consumables = [];
+        let vehicle = undefined;
+        let score = 0;
+
+        function startGame() {
+            instructions.style.display = 'none';
+            share_container.style.display = 'block';
+            loop();
+        }
+
+        function share() {
+            window.open(
+                `https://www.twitter.com/share?text=I made ${score} points in the Push Force game created by @florinpop1705. Check it out here! 😃&hashtags=100Days100Projects&url=https://codepen.io/FlorinPop17/full/JjPVBwx`,
+                '_blank'
+            );
+        }
+
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            vehicle = new Vehicle(width / 2, height / 2);
+
+            for (let i = 0; i < FOOD_COUNT; i++) {
+                consumables.push(new Consumable('food'));
+            }
+
+            for (let i = 0; i < POISON_COUNT; i++) {
+                consumables.push(new Consumable('poison'));
+            }
+
+            share_container.style.display = 'none';
+            noLoop();
+        }
+
+        function draw() {
+            background(0);
+
+            for (let i = consumables.length - 1; i >= 0; i--) {
+                const consumable = consumables[i];
+                consumable.draw();
+                if (vehicle.checkConsumableCollision(consumable)) {
+                    if (consumable.type === 'food') {
+                        score++;
+                    } else {
+                        score -= 5;
+                    }
+
+                    updateScore();
+
+                    const newConsumable = new Consumable(consumable.type);
+                    consumables.splice(i, 1, newConsumable);
+                }
+            }
+
+            createMouseEl();
+            vehicle.update();
+            vehicle.checkEdges();
+            vehicle.draw();
+        }
+
+        function updateScore() {
+            scoreEl.innerHTML = `Score: ${score}`;
+        }
+
+        function createMouseEl() {
+            const mouse = createVector(mouseX, mouseY);
+            fill('rgba(255, 255, 255, 0.5)');
+            circle(mouseX, mouseY, 30);
+            vehicle.flee(mouse);
+        }
+
+        class Consumable {
+            constructor(food, size) {
+                this.type = food;
+                this.position = createVector(random(width), random(height));
+                this.size = size || CONSUMABLES_SIZE;
+            }
+
+            draw() {
+                if (this.type === 'food') {
+                    fill('green');
+                } else {
+                    fill('red');
+                }
+                circle(this.position.x, this.position.y, this.size * 2);
+            }
+        }
+
+        class Vehicle {
+            constructor(x, y, max_speed, max_force) {
+                this.position = createVector(x, y);
+                this.velocity = createVector(random(-1, 1), random(-1, 1));
+                this.acceleration = createVector(0, 0);
+                this.size = VEHICLE_SIZE;
+                this.max_speed = max_speed || DEFAULT_MAX_SPEED;
+                this.max_force = max_force || DEFAULT_MAX_FORCE;
+            }
+
+            update() {
+                this.velocity.add(this.acceleration);
+                this.velocity.limit(this.max_speed);
+                this.position.add(this.velocity);
+                this.acceleration.mult(0);
+            }
+
+            draw() {
+                stroke(0);
+                fill(175);
+                let angle = this.velocity.heading() + radians(90);
+
+                push();
+                translate(this.position.x, this.position.y);
+                rotate(angle);
+
+                beginShape(TRIANGLES);
+                vertex(0, -this.size);
+                vertex(-this.size / 2, this.size);
+                vertex(this.size / 2, this.size);
+                endShape();
+
+                pop();
+            }
+
+            checkEdges() {
+                // Check edges of the canvas on the X Axis
+                if (this.position.x < 0) {
+                    this.position.x = width - this.size;
+                }
+                if (this.position.x > width) {
+                    this.position.x = this.size;
+                }
+
+                // Check edges of the canvas on the Y Axis
+                if (this.position.y < 0) {
+                    this.position.y = height - this.size;
+                }
+                if (this.position.y > height) {
+                    this.position.y = this.size;
+                }
+            }
+
+            checkConsumableCollision(consumable) {
+                const d = dist(
+                    this.position.x,
+                    this.position.y,
+                    consumable.position.x,
+                    consumable.position.y
+                );
+                if (d < consumable.size * 2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            applyForce(force) {
+                this.acceleration.add(force);
+            }
+
+            flee(target) {
+                // only apply the force when it's within a distance
+                if (dist(target.x, target.y, this.position.x, this.position.y) < 100) {
+                    let desired = p5.Vector.sub(target, this.position);
+                    // let distance = desired.mag();
+
+                    desired.setMag(this.max_speed);
+
+                    let steering = p5.Vector.sub(desired, this.velocity);
+                    steering.limit(this.max_force);
+
+                    // Multiply by -1 to get inverse of seek behavior
+                    steering.mult(-1);
+                    this.applyForce(steering);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
