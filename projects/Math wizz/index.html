@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://image.freepik.com/free-photo/white-paper-with-grid-line-pattern-background_64749-690.jpg');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Big Shoulders Display', sans-serif;
+            margin: 0 0 50px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            border: 2px solid #000;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-size: 2em;
+            padding: 30px 20px;
+            position: relative;
+            margin: auto;
+            width: 1000px;
+            max-width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        input,
+        .btn {
+            padding: 10px 15px;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 20px;
+        }
+
+        .btn {
+            background-color: #000;
+            border: 2px solid #000;
+            color: #fff;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .col-1 {
+            flex: 2;
+        }
+
+        .col-2 {
+            flex: 1;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculation .op {
+            padding: 10px;
+            font-size: 100px;
+            line-height: 100px;
+            margin: 0;
+        }
+
+        .answer {
+            border: 0;
+            border: 2px solid #000;
+            background: transparent;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 100px;
+            padding: 10px;
+            max-width: 200px;
+        }
+
+        .answer:focus {
+            outline: none;
+        }
+
+        .answer.wrong {
+            border-color: orangered;
+        }
+
+        .score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .name {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .leaderboard {
+            border-radius: 5px;
+        }
+
+        h3 {
+            margin: 0 0 15px;
+            text-decoration: underline;
+        }
+
+        .leaderboard ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .leaderboard ul li {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .container {
+                width: 100%;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .answer {
+                font-size: 80px;
+                max-width: 150px;
+            }
+
+            .calculation .op {
+                font-size: 80px;
+            }
+
+            .leaderboard {
+                margin: 40px auto 0;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container"></div>
+    <script>
+        class App extends React.Component {
+            state = {
+                nr1: undefined,
+                nr2: undefined,
+                sign: undefined,
+                correct_answer: undefined,
+                answer: undefined,
+                score: 0,
+                isWrong: false,
+                database: undefined,
+                users: [],
+                user: undefined
+            };
+
+            componentWillMount = () => {
+                const database = firebase.database().ref('/users');
+                this.setState(
+                    {
+                        database
+                    },
+                    () => {
+                        this.getUsers();
+                        this.createCalculation();
+                    }
+                );
+            };
+
+            getUsers = () => {
+                const { database } = this.state;
+
+                database.on('value', snapshot => {
+                    const users = [];
+                    const usersObj = snapshot.val();
+                    if (usersObj) {
+                        Object.keys(usersObj).forEach(key => {
+                            users.push(usersObj[key]);
+                        });
+
+                        this.setState({
+                            users
+                        });
+                    }
+                });
+            };
+
+            getRandomNumber = (size = 1) => {
+                const minNr = 1; // +'1'.padEnd(size, '0'); <- this for more complex calculations
+                const maxNr = +Array(size)
+                    .fill(9)
+                    .join('');
+                const nr = Math.floor(Math.random() * (maxNr - minNr + 1) + minNr);
+                return nr;
+            };
+
+            getRandomSign = () => {
+                const signs = ['+', '-', '*', '/'];
+                const idx = Math.floor(Math.random() * signs.length);
+                return signs[idx];
+            };
+
+            createCalculation = (size = 1) => {
+                const nr1 = this.getRandomNumber(size);
+                const nr2 = this.getRandomNumber(size);
+                const sign = this.getRandomSign();
+                const correct_answer = eval(`${nr1} ${sign} ${nr2}`);
+
+                // Don't allow floating point answers nor Infinity
+                if (
+                    Math.floor(correct_answer) !== correct_answer ||
+                    correct_answer === Infinity
+                ) {
+                    return this.createCalculation(size);
+                } else {
+                    this.setState({
+                        nr1,
+                        nr2,
+                        sign,
+                        correct_answer
+                    });
+                }
+            };
+
+            handleChange = e => {
+                this.setState({
+                    // convert it to number
+                    answer: +e.target.value
+                });
+            };
+
+            handleSubmit = e => {
+                e.preventDefault();
+                const { correct_answer, answer, score } = this.state;
+
+                // increasing/decreasing the score & difficulty based on how far the user goes
+                // score increment = how many digits does his score has <- old one
+                // score increment = every 20 points
+                const score_increment = Math.floor(Math.abs(score) / 25) + 1; // score.toString().split('').length; <- old
+                let newScore = undefined;
+
+                if (correct_answer === answer) {
+                    newScore = score + score_increment;
+                    e.target.reset();
+                    this.createCalculation(score_increment);
+                    this.setState({
+                        score: newScore,
+                        isWrong: false
+                    });
+                } else {
+                    newScore = score - 1;
+                    this.setState({
+                        isWrong: true,
+                        score: newScore
+                    });
+                }
+
+                this.updateScoreInDB(newScore);
+            };
+
+            updateScoreInDB = score => {
+                const { database, user } = this.state;
+
+                database.child(user.id).update({
+                    score
+                });
+            };
+
+            handleNameChange = e => {
+                this.setState({
+                    // convert it to number
+                    name: e.target.value
+                });
+            };
+
+            handleNameSubmit = e => {
+                const { name, database } = this.state;
+
+                if (!name) return;
+
+                const newUser = {
+                    score: 0,
+                    name,
+                    lastUpdated: Date.now(),
+                    // generating a random id
+                    id: Math.random()
+                        .toString()
+                        .substr(2)
+                };
+
+                database.child(newUser.id).set(newUser);
+
+                this.setState({
+                    user: newUser
+                });
+            };
+
+            render() {
+                const { nr1, nr2, sign, score, isWrong, user, users } = this.state;
+
+                return (
+                    <>
+                        <h1>Math Wizz</h1>
+                        {user && <small className='name'>Hello, {user.name}</small>}
+                        {user ? (
+                            <div className='row'>
+                                <div className='col-1'>
+                                    <form className='form' onSubmit={this.handleSubmit}>
+                                        <h3>Calculate:</h3>
+                                        <div className='calculation'>
+                                            <p className='op'>{nr1}</p>
+                                            <p className='op'>{sign}</p>
+                                            <p className='op'>{nr2}</p>
+                                            <p className='op'>=</p>
+                                            <input
+                                                type='number'
+                                                className={`answer ${isWrong && 'wrong'}`}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className='score'>Score: {score}</div>
+                                    </form>
+                                </div>
+                                <div className='col-2'>
+                                    <div className='leaderboard'>
+                                        <h3>Leaderboard</h3>
+                                        <ul>
+                                            {users.length > 0 &&
+                                                users
+                                                    .sort((a, b) => b.score - a.score)
+                                                    .slice(0, 10)
+                                                    .map((user, idx) => (
+                                                        <li key={idx}>
+                                                            <span>{user.name}</span> {user.score}
+                                                        </li>
+                                                    ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className='text-center'>
+                                <p>
+                                    Welcome to the Math Wizz game. <br />
+                                    Let's test your math skills! 😃 <br />
+                                    <br />
+                                    You'll be given random math questions that you'll have to answer.
+                                    <br />
+                                    Level changes when you reach the score of: 25, 50, 75...
+                                </p>
+                                <p>Please enter your username to start:</p>
+                                <input type='text' onChange={this.handleNameChange} />
+                                <button className="btn" onClick={this.handleNameSubmit}>Submit</button>
+                            </div>
+                        )}
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+
+    </script>
+</body>
+
+</html>
