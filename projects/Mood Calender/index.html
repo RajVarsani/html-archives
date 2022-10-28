@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Mood Calender</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mood-color-1: #2d6b5f;
+            --mood-color-2: #72e3a6;
+            --mood-color-3: #dff4c7;
+            --mood-color-4: #edbf98;
+            --mood-color-5: #ea3d36;
+        }
+
+        body {
+            font-family: 'Muli';
+            margin: 40px 0;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        h4 {
+            font-weight: 100;
+            margin: 5px 0 20px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .moods_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mood {
+            background-color: #fff;
+            border: 0;
+            border-radius: 50%;
+            color: #000;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            line-height: 20px;
+            padding: 0;
+            margin: 0 5px;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .mood_1 {
+            color: var(--mood-color-1);
+        }
+
+        .mood_2 {
+            color: var(--mood-color-2);
+        }
+
+        .mood_3 {
+            color: var(--mood-color-3);
+        }
+
+        .mood_4 {
+            color: var(--mood-color-4);
+        }
+
+        .mood_5 {
+            color: var(--mood-color-5);
+        }
+
+        .mood.selected {
+            background-color: currentColor;
+        }
+
+        .mood.selected i {
+            color: #fff;
+        }
+
+        .mood:active {
+            transform: scale(0.9);
+        }
+
+        .mood:focus {
+            outline: 0;
+        }
+
+        .mood i {
+            cursor: pointer;
+        }
+
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .months {
+            padding: 10px;
+            width: 33%;
+        }
+
+        @media screen and (max-width: 756px) {
+            .months {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .months {
+                width: 100%;
+            }
+        }
+
+        .months h3 {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .days_container,
+        .week_days_container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .days,
+        .week_days {
+            font-size: 14px;
+            margin-bottom: 5px;
+            height: calc(100% / 7);
+            width: calc(100% / 7);
+            text-align: center;
+        }
+
+        .days .circle {
+            background-color: #888;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .days .circle:hover {
+            transform: scale(1.1);
+        }
+
+        .action_btn {
+            border-radius: 10px 0 0 10px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 8px 12px;
+            margin: 0;
+            position: fixed;
+            right: 0;
+            top: 40px;
+        }
+
+        .action_btn:active {
+            transform: scale(0.9);
+        }
+
+        .action_btn:focus {
+            outline: 0;
+        }
+
+        .randomize {
+            background-color: var(--mood-color-2);
+        }
+
+        .clear {
+            background-color: #888;
+            top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>2019 Mood Calendar</h2>
+        <h4>~ color each day depending on what your mood was / is ~</h4>
+        <p>Select mood:</p>
+        <div class="moods_container">
+            <button class="mood mood_1" id="mood_1">
+                <i class="far fa-laugh"></i>
+            </button>
+            <button class="mood mood_2" id="mood_2">
+                <i class="far fa-smile"></i>
+            </button>
+            <button class="mood mood_3" id="mood_3">
+                <i class="far fa-meh"></i>
+            </button>
+            <button class="mood mood_4" id="mood_4">
+                <i class="far fa-frown"></i>
+            </button>
+            <button class="mood mood_5" id="mood_5">
+                <i class="far fa-sad-tear"></i>
+            </button>
+        </div>
+        <p>then click on the circles below</p>
+        <button id="randomize" class="action_btn randomize">
+            <i class="fas fa-random"></i>
+        </button>
+        <button id="clear" class="action_btn clear">
+            <i class="fas fa-sync"></i>
+        </button>
+        <div id="calendar" class="calendar"></div>
+    </div>
+    <script>
+        const currentYear = 2019;
+        const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'Octomber',
+            'November',
+            'December'
+        ];
+        const colors = ['#2d6b5f', '#72e3a6', '#dff4c7', '#edbf98', '#ea3d36'];
+        const defaultColor = '#888';
+        let activeColor = '';
+
+        const calendar = document.getElementById('calendar');
+        const moods = document.querySelectorAll('.mood');
+        const randomize = document.querySelector('#randomize');
+        const clear = document.querySelector('#clear');
+
+        moods.forEach(mood => {
+            mood.addEventListener('click', () => {
+                // if is already selected, deselect it
+                if (mood.classList.contains('selected')) {
+                    mood.classList.remove('selected');
+                    activeColor = defaultColor;
+                } else {
+                    moods.forEach(mood => {
+                        mood.classList.remove('selected');
+                    });
+
+                    mood.classList.add('selected');
+                    activeColor = getComputedStyle(mood).getPropertyValue('color');
+                }
+            });
+        });
+
+        const getAllDays = year => {
+            // First day of the year - 1st January
+            const firstDay = new Date(`January 1 ${year}`);
+            // Last day of the year - 31th December - used to stop adding days to the array
+            const lastDay = new Date(`December 31 ${year}`);
+
+            // Add first day
+            const days = [firstDay];
+
+            // Used to keep track of the day
+            let lastDayInArray = firstDay;
+
+            // Loop while there are new days to be added in the current year
+            while (lastDayInArray.getTime() !== lastDay.getTime()) {
+                days.push(addDays(lastDayInArray, 1));
+                lastDayInArray = days[days.length - 1];
+            }
+
+            return days;
+        };
+
+        const dates = getAllDays(currentYear);
+
+        let monthsHTML = '';
+
+        // Loop over the months and create a div for each month
+        months.forEach((month, idx) => {
+            monthsHTML += `<div class="months month_${idx}">
+        <h3>${month}</h3>
+        <div class="week_days_container">
+            ${weekDays
+                    .map(day => `<div class="week_days">${day}</div>`)
+                    .join('')}
+        </div>
+        <div class="days_container"></div>
+    </div>`;
+        });
+
+        calendar.innerHTML = monthsHTML;
+
+        // Loop over each day and
+        dates.forEach(date => {
+            const month = date.getMonth();
+            const monthEl = document.querySelector(`.month_${month} .days_container`);
+
+            // create extra day slots if needed before day 1
+            if (date.getDate() === 1 && date.getDay() !== 0) {
+                for (let i = 0; i < date.getDay(); i++) {
+                    const emptySpot = createEmptySpot();
+
+                    monthEl.appendChild(emptySpot);
+                }
+            }
+
+            const dateEl = createDateEl(date);
+
+            monthEl.appendChild(dateEl);
+        });
+
+        // Add click event to all the .circles
+        const circles = document.querySelectorAll('.circle');
+        circles.forEach(circle => {
+            circle.addEventListener('click', () => {
+                circle.style.backgroundColor = activeColor;
+            });
+        });
+
+        // Randomize functionality
+        randomize.addEventListener('click', () => {
+            circles.forEach(circle => {
+                circle.style.backgroundColor = getRandomColor();
+            });
+        });
+
+        // Clear functionality
+        clear.addEventListener('click', () => {
+            circles.forEach(circle => {
+                circle.style.backgroundColor = defaultColor;
+            });
+        });
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * 5)];
+        }
+
+        function createDateEl(date) {
+            const day = date.getDate();
+            const dateEl = document.createElement('div');
+            dateEl.classList.add('days');
+            dateEl.innerHTML = `<span class="circle">${day}</span>`;
+
+            return dateEl;
+        }
+
+        function createEmptySpot() {
+            const emptyEl = document.createElement('div');
+            emptyEl.classList.add('days');
+
+            return emptyEl;
+        }
+
+        // function from StackOverflow: https://stackoverflow.com/questions/563406/add-days-to-javascript-date
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+    </script>
+</body>
+
+</html>
