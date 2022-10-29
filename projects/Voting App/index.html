@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting App</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      :root {
+      	--color-green-1: #67DF9B;
+      	--color-green-2: #20C4AE;
+      }
+
+      body {
+      	background: linear-gradient(to bottom, var(--color-green-1), var(--color-green-2));
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      	font-family: 'Muli';
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .container {
+      	background-color: #fff;
+      	border-radius: 2px;
+      	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      	overflow: hidden;
+      	width: 400px;
+      	margin: 0 auto;
+      }
+
+      h2 {
+      	margin: 20px 0;
+      	text-align: center;
+      }
+
+      .items-container {
+      	margin: 0 10px;
+      }
+
+      .item {
+      	border: 1px solid #bbb;
+      	color: #555;
+      	cursor: pointer;
+      	display: flex;
+      	align-items: center;
+      	justify-content: space-between;
+      	padding: 20px;
+      	position: relative;
+      	margin: 10px 0;
+      	width: 100%;
+      }
+
+      .item:hover {
+      	color: #111;
+      }
+
+      .item.active {
+      	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      	color: #111;
+      	position: relative;
+      }
+
+      .item.active:before {
+      	background: linear-gradient(to bottom, var(--color-green-1), var(--color-green-2));
+      	content: ' ';
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 5px;
+      	height: 100%;
+      }
+
+      .item span, .item small {
+      	position: relative;
+      	z-index: 1;
+      }
+
+      .item .percent-bar {
+      	background-color: var(--color-green-1);
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	bottom: 0;
+      	height: 100%;
+      	width: 0;
+      	z-index: 0;
+      	opacity: 0.2;
+      	transition: width 0.5s ease-in;
+      }
+
+      .btn {
+      	background: linear-gradient(to right, var(--color-green-1), var(--color-green-2));
+      	border: 0;
+      	color: #fff;
+      	cursor: pointer;
+      	font-size: 16px;
+      	padding: 20px 25px;
+      	letter-spacing: 0.5px;
+      	line-height: 20px;
+      	width: 100%;
+      }
+
+      .btn:active {
+      	font-size: 14px;
+      	line-height: 20px;
+      }
+
+      .btn:focus {
+      	outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Design inspired by this shoot: https://dribbble.com/shots/3367213-Poll-app-concept -->
+
+    <div class="container">
+      <h2>Vote for your favorite project</h2>
+      <div id="items_container" class="items-container">
+        <p>Fetching data from the DB...</p>
+      </div>
+      <button id="submit_btn" class="btn">Submit vote!</button>
+    </div>
+    <script>
+      const items_container = document.getElementById("items_container");
+      const submit_btn = document.getElementById("submit_btn");
+      const itemsEl = [];
+      const data = [];
+      const votes = [];
+      const db = firebase.database().ref("/items");
+      let voted = false;
+
+      db.once("value", (snapshot) => {
+        const itemsObj = snapshot.val();
+        if (itemsObj) {
+          Object.keys(itemsObj).forEach((key) => {
+            data.push({ ...itemsObj[key], id: key });
+            for (let i = 0; i < itemsObj[key].votes; i++) {
+              votes.push(key);
+            }
+          });
+
+          createDom();
+        }
+      });
+
+      function createDom() {
+        items_container.innerHTML = "";
+
+        data.forEach((data) => {
+          const item = document.createElement("div");
+          item.classList.add("item");
+          item.innerHTML = `
+			<span>${data.value}</span>
+			<small></small>
+			<div class="percent-bar"></div>
+		`;
+
+          item.setAttribute("data-id", data.id);
+
+          itemsEl.push(item);
+          items_container.appendChild(item);
+        });
+
+        const items = document.querySelectorAll(".item");
+
+        items.forEach((item) => {
+          item.addEventListener("click", () => {
+            items.forEach((innerItem) => {
+              innerItem.classList.remove("active");
+            });
+            item.classList.add("active");
+          });
+        });
+
+        submit_btn.addEventListener("click", () => {
+          if (!voted) {
+            const votedItem = document.querySelector(".item.active");
+            if (!votedItem) {
+              alert("Please select an option.");
+              return;
+            }
+            const id = votedItem.getAttribute("data-id");
+            votes.push(id);
+
+            db.child(id).update({
+              votes: data.find((item) => item.id === id).votes + 1,
+            });
+
+            calculateVotes();
+
+            submit_btn.innerText = "Thank you for your response";
+
+            voted = true;
+          }
+        });
+      }
+
+      function calculateVotes() {
+        const totalVotes = votes.length;
+        const items = document.querySelectorAll(".item");
+        const votesObj = {};
+
+        votes.forEach((vote) => {
+          votesObj[vote] = votesObj[vote] ? ++votesObj[vote] : 1;
+        });
+
+        items.forEach((item) => {
+          const id = item.getAttribute("data-id");
+          const votePercent = ((votesObj[id] || 0) / totalVotes) * 100;
+          const voteFinalValue = `${votePercent.toFixed(2)}%`;
+
+          // Add % value into the small tag
+          item.querySelector("small").innerText = voteFinalValue;
+          // Make the .percent-bar x% width
+          item.querySelector(".percent-bar").style.width = voteFinalValue;
+        });
+      }
+    </script>
+  </body>
+</html>
