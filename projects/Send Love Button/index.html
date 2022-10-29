@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Love Button</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #F1F1F1;
+      	display: flex;
+      	flex-direction: column;
+      	justify-content: center;
+      	align-items: center;
+      	height: 100vh;
+      	overflow: hidden;
+      }
+
+      .love {
+      	background-color: #E7273F;
+      	border: 0;
+      	border-radius: 5px;
+      	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      	color: #fff;
+      	cursor: pointer;
+      	display: flex;
+      	align-items: center;
+      	padding: 0;
+      	font-family: 'Muli';
+      	font-size: 20px;
+      	letter-spacing: 0.5px;
+      	text-transform: uppercase;
+      	margin: 25px;
+      	width: 350px;
+      }
+
+      .love:focus {
+      	outline: none;
+      }
+
+      .love .icon-container {
+      	background-color: #fff;
+      	border-top-left-radius: 4px;
+      	border-bottom-left-radius: 4px;
+      	border-right: 1px solid #eee;
+      	color: #E7273F;
+      	padding: 20px 25px;
+      	position: relative;
+      }
+
+      .love .text {
+      	padding: 0 25px;
+      	flex: 1;
+      	text-align: center;
+      }
+
+      .love .grey-text {
+      	display: block;
+      	color: #aaa;
+      	font-size: 12px;
+      }
+
+      .fa-redo {
+      	margin-left: 10px;
+      }
+
+      .heart {
+      	position: absolute;
+      	color: #E7273F;
+      	font-size: 15px;
+      	top: 50%;
+      	left: 50%;
+      	transform: translate(-50%, -50%);
+      	animation: fly 3s linear forwards;
+      }
+
+      @keyframes fly {
+      	to {
+      		transform: translate(-50%, -50px);
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Design inspiration on dribbble https://dribbble.com/shots/2514476--083-Button -->
+    <button class="love">
+      <span class="icon-container">
+        <i class="fas fa-heart"></i>
+      </span>
+      <span class="text">Send Some Love</span>
+    </button>
+    <script>
+      const love_btns = document.querySelectorAll(".love");
+
+      love_btns.forEach((love_btn) => {
+        love_btn.addEventListener("mousedown", (e) => {
+          love_btn.style.background = "#fff";
+          love_btn.style.color = "#E7273F";
+          love_btn.querySelector(".text").innerHTML =
+            '<span class="grey-text">Sent to:</span> FLORIN';
+
+          createHearts(love_btn.querySelector(".icon-container"));
+        });
+
+        love_btn.addEventListener("mouseup", (e) => {
+          love_btn.style.background = "#E7273F";
+          love_btn.style.color = "#fff";
+          love_btn.querySelector(".text").innerHTML =
+            'THANK YOU! <i class="fas fa-redo"></i>';
+        });
+      });
+
+      function createHearts(container) {
+        // create 5 hearts
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => {
+            const heart = document.createElement("span");
+            heart.classList.add("heart");
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.top = Math.random() * 100 + "%";
+            heart.style.fontSize = Math.random() * 20 + 5 + "px";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            container.appendChild(heart);
+
+            setTimeout(() => {
+              heart.remove();
+            }, 3000);
+          }, i * 100);
+        }
+      }
+    </script>
+  </body>
+</html>
