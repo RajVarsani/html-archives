@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Page</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      :root {
+      	--color-pink-1: #ED73C8;
+      	--color-pink-2: #FF6B96;
+      }
+
+      body {
+      	background: linear-gradient(to right, var(--color-pink-1), var(--color-pink-2));
+
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      	font-family: 'Muli';
+      	overflow: hidden;
+      	min-height: 100vh;
+      }
+
+      .contact-container {
+      	background-color: #fff;
+      	border: 3px solid #000;
+      	border-radius: 10px;
+      	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      	display: flex;
+      	flex-direction: column;
+      	justify-content: center;
+      	align-items: center;
+      	padding: 50px 70px;
+      	text-align: center;
+      	width: 600px;
+      	max-width: 100%;
+      }
+
+      .contact-container h2 {
+      	margin: 0 0 10px;
+      	opacity: 0.8;
+      }
+
+      .contact-container p {
+      	opacity: 0.7;
+      	letter-spacing: 0.5px;
+      	line-height: 24px;
+      }
+
+      .contact-container form {
+      	width: 450px;
+      	max-width: 100%;
+      }
+
+      .contact-container .wrapper {
+      	position: relative;
+      	margin: 10px 0;
+      	height: 44px;
+      	width: 100%;
+      }
+
+      .contact-container .wrapper-big {
+      	height: 80px;
+      }
+
+      .contact-container input, .contact-container textarea {
+      	border: none;
+      	border-radius: 4px;
+      	font-family: 'Muli';
+      	font-size: 14px;
+      	padding: 12px;
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	display: block;
+      	height: 100%;
+      	width: 100%;
+      	z-index: 10;
+      }
+
+      .contact-container input:focus, .contact-container textarea:focus {
+      	outline: 0;
+      }
+
+      .contact-container input:focus + .gradient-bg, .contact-container textarea:focus + .gradient-bg {
+      	background: linear-gradient(to right, var(--color-pink-1), var(--color-pink-2));
+      }
+
+      .contact-container .gradient-bg {
+      	background: #999;
+      	border-radius: 4px;
+      	position: absolute;
+      	top: -1px;
+      	left: -1px;
+      	width: calc(100% + 2px);
+      	height: calc(100% + 2px);
+      	z-index: 9;
+      }
+
+      .contact-container button {
+      	background: linear-gradient(to right, var(--color-pink-1), var(--color-pink-2));
+      	border: none;
+      	border-radius: 4px;
+      	box-shadow: 0 3px 5px rgba(237, 115, 200, 0.5);
+      	color: #fff;
+      	display: block;
+      	font-size: 16px;
+      	padding: 12px;
+      	width: 100%;
+      }
+
+      @media screen and (max-width: 600px) {
+      	.contact-container {
+      		padding: 20px 30px;
+      	}
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contact-container">
+      <h2>Send me a message</h2>
+      <p>
+        Feel free to get in touch with me with anything related to Web
+        Development or you can just say hi. I will get back to you as soon as
+        possible.
+      </p>
+      <form id="form">
+        <div class="wrapper">
+          <input type="text" placeholder="Your name" />
+          <div class="gradient-bg"></div>
+        </div>
+        <div class="wrapper">
+          <input type="email" placeholder="Email address" />
+          <div class="gradient-bg"></div>
+        </div>
+        <div class="wrapper">
+          <input type="text" placeholder="Subject" />
+          <div class="gradient-bg"></div>
+        </div>
+        <div class="wrapper wrapper-big">
+          <textarea placeholder="Message"></textarea>
+          <div class="gradient-bg"></div>
+        </div>
+        <button>Send</button>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("form");
+      const container = document.querySelector(".contact-container");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        container.innerHTML =
+          "<p>Thanks for your message. <br /> I'll get back to you soon. 😃</p>";
+      });
+    </script>
+  </body>
+</html>
