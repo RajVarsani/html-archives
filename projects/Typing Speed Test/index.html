@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed Test</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-image: url('https://images.unsplash.com/photo-1519120944692-1a8d8cfc107f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9');
+      	background-size: cover;
+      	background-position: center center;
+      	display: flex;
+      	font-family: 'Lato', sans-serif;
+      	font-size: 140%;
+      	flex-direction: column;
+      	align-items: center;
+      	justify-content: center;
+      	margin: 0;
+      	min-height: 100vh;
+      }
+
+      h4 {
+      	margin: 0 0 5px;
+      }
+
+      progress {
+      	width: 100%;
+      }
+
+      p {
+      	line-height: 1.5;
+      }
+
+      .container {
+      	box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.7);
+      	background-color: #fff;
+      	border: 2px solid #000;
+      	padding: 30px;
+      	width: 650px;
+      	max-width: 100%;
+      	text-align: center;
+      }
+
+      .container .text {
+      	display: flex;
+      	flex-wrap: wrap;
+      }
+
+      .container input {
+      	padding: 12px 15px;
+      	font-size: 20px;
+      	margin: 10px 0;
+      	width: 100%;
+      }
+
+      .start-btn {
+      	border: 0;
+      	background-color: #000;
+      	color: #fff;
+      	font-size: 16px;
+      	padding: 12px 15px;
+      }
+
+      .wpm {
+      	position: fixed;
+      	top: 20px;
+      	right: 20px;
+      	text-align: right;
+      }
+
+      .green {
+      	color: green;
+      }
+
+      .red {
+      	background-color: rgba(255, 0, 0, 0.5);
+      }
+
+      .underline {
+      	border-bottom: 1px solid #000;
+      }
+
+      .word {
+      	font-size: 20px;
+      	margin: 2px;
+      }
+
+      .share {
+      	color: #38a1f3;
+      }
+
+      @media screen and (max-width: 650px) {
+      	p {
+      		line-height: 1.3;
+      	}
+
+      	.container {
+      		margin-bottom: 50px;
+      		padding: 10px;
+      		width: 100%;
+      	}
+
+      	.wpm {
+      		display: none;
+      	}
+      }
+
+      /* SOCIAL PANEL CSS */
+      .social-panel-container {
+      	position: fixed;
+      	right: 0;
+      	bottom: 80px;
+      	transform: translateX(100%);
+      	transition: transform 0.4s ease-in-out;
+      }
+
+      .social-panel-container.visible {
+      	transform: translateX(-10px);
+      }
+
+      .social-panel {
+      	background-color: #fff;
+      	border-radius: 16px;
+      	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
+      	border: 5px solid #001F61;
+      	display: flex;
+      	flex-direction: column;
+      	justify-content: center;
+      	align-items: center;
+      	font-family: 'Muli';
+      	position: relative;
+      	height: 169px;
+      	width: 370px;
+      	max-width: calc(100% - 10px);
+      }
+
+      .social-panel button.close-btn {
+      	border: 0;
+      	color: #97A5CE;
+      	cursor: pointer;
+      	font-size: 20px;
+      	position: absolute;
+      	top: 5px;
+      	right: 5px;
+      }
+
+      .social-panel button.close-btn:focus {
+      	outline: none;
+      }
+
+      .social-panel p {
+      	background-color: #001F61;
+      	border-radius: 0 0 10px 10px;
+      	color: #fff;
+      	font-size: 14px;
+      	line-height: 18px;
+      	padding: 2px 17px 6px;
+      	position: absolute;
+      	top: 0;
+      	left: 50%;
+      	margin: 0;
+      	transform: translateX(-50%);
+      	text-align: center;
+      	width: 235px;
+      }
+
+      .social-panel p i {
+      	margin: 0 5px;
+      }
+
+      .social-panel p a {
+      	color: #FF7500;
+      	text-decoration: none;
+      }
+
+      .social-panel h4 {
+      	margin: 20px 0;
+      	color: #97A5CE;
+      	font-family: 'Muli';
+      	font-size: 14px;
+      	line-height: 18px;
+      	text-transform: uppercase;
+      }
+
+      .social-panel ul {
+      	display: flex;
+      	list-style-type: none;
+      	padding: 0;
+      	margin: 0;
+      }
+
+      .social-panel ul li {
+      	margin: 0 10px;
+      }
+
+      .social-panel ul li a {
+      	border: 1px solid #DCE1F2;
+      	border-radius: 50%;
+      	color: #001F61;
+      	font-size: 20px;
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      	height: 50px;
+      	width: 50px;
+      	text-decoration: none;
+      }
+
+      .social-panel ul li a:hover {
+      	border-color: #FF6A00;
+      	box-shadow: 0 9px 12px -9px #FF6A00;
+      }
+
+      .floating-btn {
+      	border-radius: 26.5px;
+      	background-color: #001F61;
+      	border: 1px solid #001F61;
+      	box-shadow: 0 16px 22px -17px #03153B;
+      	color: #fff;
+      	cursor: pointer;
+      	font-size: 16px;
+      	line-height: 20px;
+      	padding: 12px 20px;
+      	position: fixed;
+      	bottom: 20px;
+      	right: 20px;
+      	z-index: 999;
+      }
+
+      .floating-btn:hover {
+      	background-color: #ffffff;
+      	color: #001F61;
+      }
+
+      .floating-btn:focus {
+      	outline: none;
+      }
+
+      .floating-text {
+      	background-color: #001F61;
+      	border-radius: 10px 10px 0 0;
+      	color: #fff;
+      	font-family: 'Muli';
+      	padding: 7px 15px;
+      	position: fixed;
+      	bottom: 0;
+      	left: 50%;
+      	transform: translateX(-50%);
+      	text-align: center;
+      	z-index: 998;
+      }
+
+      .floating-text a {
+      	color: #FF7500;
+      	text-decoration: none;
+      }
+
+      @media screen and (max-width: 480px) {
+
+      	.social-panel-container.visible {
+      		transform: translateX(0px);
+      	}
+
+      	.floating-btn {
+      		right: 10px;
+      	}
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      class App extends React.Component {
+        state = {
+          text: "",
+          inputValue: "",
+          lastLetter: "",
+          words: [],
+          completedWords: [],
+          completed: false,
+          startTime: undefined,
+          timeElapsed: 0,
+          wpm: 0,
+          started: false,
+          progress: 0,
+        };
+
+        setText = () => {
+          const texts = [
+            `You never read a book on psychology, Tippy. You didn\'t need to. You knew by some divine instinct that you can make more friends in two months by becoming genuinely interested in other people than you can in two years by trying to get other people interested in you.`,
+            `I know more about the private lives of celebrities than I do about any governmental policy that will actually affect me. I'm interested in things that are none of my business, and I'm bored by things that are important to know.`,
+            `A spider's body consists of two main parts: an anterior portion, the prosoma (or cephalothorax), and a posterior part, the opisthosoma (or abdomen).`,
+            `As customers of all races, nationalities, and cultures visit the Dekalb Farmers Market by the thousands, I doubt that many stand in awe and contemplate the meaning of its existence. But in the capital of the Sunbelt South, the quiet revolution of immigration and food continues to upset and redefine the meanings of local, regional, and global identity.`,
+            `Outside of two men on a train platform there's nothing in sight. They're waiting for spring to come, smoking down the track. The world could come to an end tonight, but that's alright. She could still be there sleeping when I get back.`,
+            `I'm a broke-nose fighter. I'm a loose-lipped liar. Searching for the edge of darkness. But all I get is just tired. I went looking for attention. In all the wrong places. I was needing a redemption. And all I got was just cages.`,
+          ];
+          const text = texts[Math.floor(Math.random() * texts.length)];
+          const words = text.split(" ");
+
+          this.setState({
+            text,
+            words,
+            completedWords: [],
+          });
+        };
+
+        startGame = () => {
+          this.setText();
+
+          this.setState({
+            started: true,
+            startTime: Date.now(),
+            completed: false,
+            progress: 0,
+          });
+        };
+
+        handleChange = (e) => {
+          const { words, completedWords } = this.state;
+          const inputValue = e.target.value;
+          const lastLetter = inputValue[inputValue.length - 1];
+
+          const currentWord = words[0];
+
+          // if space or '.', check the word
+          if (lastLetter === " " || lastLetter === ".") {
+            // check to see if it matches to the currentWord
+            // trim because it has the space
+            if (inputValue.trim() === currentWord) {
+              // remove the word from the wordsArray
+              // cleanUp the input
+              const newWords = [...words.slice(1)];
+              const newCompletedWords = [...completedWords, currentWord];
+
+              // Get the total progress by checking how much words are left
+              const progress =
+                (newCompletedWords.length /
+                  (newWords.length + newCompletedWords.length)) *
+                100;
+              this.setState({
+                words: newWords,
+                completedWords: newCompletedWords,
+                inputValue: "",
+                completed: newWords.length === 0,
+                progress,
+              });
+            }
+          } else {
+            this.setState({
+              inputValue,
+              lastLetter,
+            });
+          }
+
+          this.calculateWPM();
+        };
+
+        calculateWPM = () => {
+          const { startTime, completedWords } = this.state;
+          const now = Date.now();
+          const diff = (now - startTime) / 1000 / 60; // 1000 ms / 60 s
+
+          // every word is considered to have 5 letters
+          // so here we are getting all the letters in the words and divide them by 5
+          // "my" shouldn't be counted as same as "deinstitutionalization"
+          const wordsTyped = Math.ceil(
+            completedWords.reduce((acc, word) => (acc += word.length), 0) / 5
+          );
+
+          // calculating the wpm
+          const wpm = Math.ceil(wordsTyped / diff);
+
+          this.setState({
+            wpm,
+            timeElapsed: diff,
+          });
+        };
+
+        render() {
+          const {
+            text,
+            inputValue,
+            completedWords,
+            wpm,
+            timeElapsed,
+            started,
+            completed,
+            progress,
+          } = this.state;
+
+          if (!started)
+            return (
+              <div className="container">
+                <h2>Welcome to the Typing game</h2>
+                <p>
+                  <strong>Rules:</strong> <br />
+                  Type in the input field the highlighted word. <br />
+                  The correct words will turn{" "}
+                  <span className="green">green</span>.
+                  <br />
+                  Incorrect letters will turn <span className="red">red</span>.
+                  <br />
+                  <br />
+                  Have fun! 😃
+                </p>
+                <button className="start-btn" onClick={this.startGame}>
+                  Start game
+                </button>
+              </div>
+            );
+
+          if (!text) return <p>Loading...</p>;
+
+          if (completed) {
+            return (
+              <div className="container">
+                <h2>
+                  Your WPM is <strong>{wpm}</strong>
+                </h2>
+                <button className="start-btn" onClick={this.startGame}>
+                  Play again
+                </button>
+                <p>or</p>
+                <p>
+                  Share your score on{" "}
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=My typing speed is ${wpm}. Let's see how fast you are! 😃 - created by @florinpop1705 https://codepen.io/FlorinPop17/full/ExxYJdE`}
+                    target="_blank"
+                    className="share"
+                  >
+                    Twitter
+                  </a>
+                </p>
+              </div>
+            );
+          }
+
+          return (
+            <div>
+              <div className="wpm">
+                <strong>WPM: </strong>
+                {wpm}
+                <br />
+                <strong>Time: </strong>
+                {Math.floor(timeElapsed * 60)}s
+              </div>
+              <div className="container">
+                <h4>Type the text below</h4>
+                <progress value={progress} max="100"></progress>
+                <p className="text">
+                  {text.split(" ").map((word, w_idx) => {
+                    let highlight = false;
+                    let currentWord = false;
+
+                    // this means that the word is completed, so turn it green
+                    if (completedWords.length > w_idx) {
+                      highlight = true;
+                    }
+
+                    if (completedWords.length === w_idx) {
+                      currentWord = true;
+                    }
+
+                    return (
+                      <span
+                        className={`word 
+                                ${highlight && "green"} 
+                                ${currentWord && "underline"}`}
+                        key={w_idx}
+                      >
+                        {word.split("").map((letter, l_idx) => {
+                          const isCurrentWord = w_idx === completedWords.length;
+                          const isWronglyTyped = letter !== inputValue[l_idx];
+                          const shouldBeHighlighted = l_idx < inputValue.length;
+
+                          return (
+                            <span
+                              className={`letter ${
+                                isCurrentWord && shouldBeHighlighted
+                                  ? isWronglyTyped
+                                    ? "red"
+                                    : "green"
+                                  : ""
+                              }`}
+                              key={l_idx}
+                            >
+                              {letter}
+                            </span>
+                          );
+                        })}
+                      </span>
+                    );
+                  })}
+                </p>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  value={inputValue}
+                  autofocus={started ? "true" : "false"}
+                />
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
