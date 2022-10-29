@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Direction Aware Hover Effect</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      :root {
+      	--move: 95%;
+      	--move-neg: -95%;
+      }
+
+      body {
+      	font-family: 'Muli', sans-serif;
+      	display: flex;
+      	flex-direction: column;
+      	align-items: center;
+      	justify-content: center;
+      	min-height: 100vh;
+      	margin: 0;
+      }
+
+      h2 {
+      	margin: 0;
+      }
+
+      .container {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	flex-wrap: wrap;
+      }
+
+      .card {
+      	background-color: #dfe4ea;
+      	border: 1px solid rgba(0, 0, 0, 0.3);
+      	position: relative;
+      	overflow: hidden;
+      	height: 300px;
+      	width: 400px;
+      }
+
+      .inner-card {
+      	background-color: #fff;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      	transition: transform 0.3s ease;
+      	z-index: 5;
+      	text-transform: uppercase;
+      }
+
+      .inner-card:nth-of-type(1) {
+      	transform: translateY(var(--move-neg));
+      }
+
+      .inner-card:nth-of-type(2) {
+      	transform: translateX(var(--move));
+      }
+
+      .inner-card:nth-of-type(3) {
+      	transform: translateY(var(--move));
+      }
+
+      .inner-card:nth-of-type(4) {
+      	transform: translateX(var(--move-neg));
+      }
+
+      .inner-card:hover {
+      	transform: translate(0, 0);
+      	z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>CSS only direction aware hover effect</h2>
+    <p>It works. *kinda* 😬</p>
+    <div class="container">
+      <div class="card">
+        <div class="inner-card">top</div>
+        <div class="inner-card">right</div>
+        <div class="inner-card">bottom</div>
+        <div class="inner-card">left</div>
+      </div>
+
+      <div class="card">
+        <div class="inner-card">top</div>
+        <div class="inner-card">right</div>
+        <div class="inner-card">bottom</div>
+        <div class="inner-card">left</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="inner-card">top</div>
+        <div class="inner-card">right</div>
+        <div class="inner-card">bottom</div>
+        <div class="inner-card">left</div>
+      </div>
+
+      <div class="card">
+        <div class="inner-card">top</div>
+        <div class="inner-card">right</div>
+        <div class="inner-card">bottom</div>
+        <div class="inner-card">left</div>
+      </div>
+    </div>
+  </body>
+</html>
