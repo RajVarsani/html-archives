@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Keycode</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli:300,700&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+
+      body {
+      	background: #e1e1e1;
+      	display: flex;
+      	font-family: 'Muli';
+      	align-items: center;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      	text-align: center;
+      }
+
+      .key {
+      	border: 1px solid #999;
+      	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      	background-color: #eee;
+      	display: inline-flex;
+      	font-size: 20px;
+      	flex-direction: column;
+      	align-items: center;
+      	font-weight: bold;
+      	padding: 20px;
+      	position: relative;
+      	margin: 10px;
+      	min-width: 150px;
+      }
+
+      .key small {
+      	color: #555;
+      	font-size: 14px;
+      	position: absolute;
+      	top: -24px;
+      	left: 0;
+      	text-align: center;
+      	width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="insert">
+      <div class="key">Press any key to get the event keyCode</div>
+    </div>
+    <script>
+      const insert = document.getElementById("insert");
+
+      window.addEventListener("keydown", (e) => {
+        console.log(e);
+        insert.innerHTML = `
+		<div class="key">
+			${e.key === " " ? "Space" : e.key}
+			<small>event.key</small>
+		</div>
+		<div class="key">
+			${e.keyCode}
+			<small>event.keyCode</small>
+		</div>
+		<div class="key">
+			${e.code}
+			<small>event.code</small>
+		</div>
+	`;
+      });
+    </script>
+  </body>
+</html>
