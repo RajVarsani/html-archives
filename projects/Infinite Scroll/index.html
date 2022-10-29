@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Scroll</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+
+      body {
+      	background-color: #353b48;
+      	color: #fff;
+      	font-family: 'Muli', sans-serif;
+      	display: flex;
+      	flex-direction: column;
+      	align-items: center;
+      	justify-content: flex-start;
+      	min-height: 100vh;
+      	padding-bottom: 100px;
+      }
+
+      h1 {
+      	margin-bottom: 0;
+      	text-align: center;
+      }
+
+      .post {
+      	background-color: rgba(255, 255, 255, 0.1);
+      	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      	border-radius: 3px;
+      	display: flex;
+      	padding: 20px;
+      	margin: 40px 0;
+      	width: 80vw;
+      	max-width: 800px;
+      }
+
+      .post-title {
+      	margin: 0;
+      }
+
+      .post-date {
+      	color: #aeaeae;
+      }
+
+      .post-excerpt {
+      	margin: 15px 0 0;
+      	text-align: justify;
+      	line-height: 1.2;
+      }
+
+      .post-info {
+      	margin-left: 20px;
+      }
+
+      .loading {
+      	opacity: 0;
+      	display: flex;
+      	position: fixed;
+      	bottom: 50px;
+      	transition: opacity .3s ease-in;
+      }
+
+      .loading.show {
+      	opacity: 1;
+      }
+
+      .ball {
+      	background-color: #fff;
+      	border-radius: 50%;
+      	margin: 5px;
+      	height: 10px;
+      	width: 10px;
+      	animation: jump .5s ease-in infinite;
+      }
+
+      .ball:nth-of-type(2) {
+      	animation-delay: 0.1s;
+      }
+
+      .ball:nth-of-type(3) {
+      	animation-delay: 0.2s;
+      }
+
+      @keyframes jump {
+      	0%, 100% {
+      		transform: translateY(0);
+      	}
+
+      	50% {
+      		transform: translateY(-10px);
+      	}
+      }
+
+      @media screen and (max-width: 500px) {
+      	.post {
+      		flex-direction: column;
+      	}
+
+      	.post-info {
+      		margin-left: 0;
+      	}
+
+      	.post-title {
+      		margin-top: 20px;
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Infinite scroll</h1>
+
+    <div id="container"></div>
+
+    <div class="loading">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <script>
+      const container = document.getElementById("container");
+      const loading = document.querySelector(".loading");
+
+      const titles = [
+        "Lorem ipsum dolor sit amet.",
+        "Officia sit hic nihil quisquam?",
+        "In laudantium quidem hic ipsam?",
+        "Dolorum nostrum culpa magni reprehenderit?",
+        "Rerum corporis nisi ea eum.",
+      ];
+
+      const texts = [
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ex aut numquam quaerat deserunt rerum minima dolor autem reiciendis mollitia!",
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere fugit repellendus soluta nobis, dolorum officiis debitis vero. Earum dignissimos maxime ipsum ratione nisi, accusamus enim!",
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nam commodi laudantium sapiente provident? Non officiis temporibus quo ipsa, voluptas eveniet accusamus excepturi, enim ratione, adipisci atque dolorem iure ad.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, molestiae fugit laudantium porro dicta mollitia cum corrupti placeat dignissimos. Autem maiores consectetur reiciendis repudiandae architecto officia ut placeat sapiente. Perferendis, doloremque veniam dignissimos nemo recusandae ipsa sint magni, aliquid repudiandae libero quidem et facilis ad odit, quia eligendi error cum!",
+      ];
+
+      // Scroll
+      window.addEventListener("scroll", () => {
+        const { scrollTop, scrollHeight, clientHeight } =
+          document.documentElement;
+        console.log("scroll", scrollTop + clientHeight, scrollHeight - 50);
+
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+          showLoading();
+        }
+      });
+
+      function showLoading() {
+        // show loading animation
+        loading.classList.add("show");
+
+        setTimeout(() => {
+          // remove loading animation after 1 second
+          loading.classList.remove("show");
+
+          setTimeout(() => {
+            // create new posts after a little while (wait for the loading to dissappear)
+            createPost();
+          }, 300);
+        }, 1000);
+      }
+
+      // create initial posts
+      createPost();
+      createPost();
+      createPost();
+
+      function createPost() {
+        const post = document.createElement("div");
+        post.classList.add("post");
+        post.innerHTML = `
+		<img src="https://lorempixel.com/150/200/technics/" alt="" />
+			<div class="post-info">
+			<h2 class="post-title">${randomFrom(titles)}</h2>
+			<small class="post-date">${randomDate()}</small>
+			<p class="post-excerpt">${randomFrom(texts)}</p>
+		</div>
+	`;
+
+        container.appendChild(post);
+      }
+
+      function randomFrom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function randomDate() {
+        const day = Math.floor(Math.random() * 27) + 1;
+        const month = Math.floor(Math.random() * 11) + 1;
+        return `${month}/${day}/2019`;
+      }
+    </script>
+  </body>
+</html>
