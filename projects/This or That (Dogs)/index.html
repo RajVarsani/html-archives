@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This or That(Dogs)</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	font-family: 'Monserrat', sans-serif;
+      	min-height: 100vh;
+      	margin-bottom: 50px;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
+
+      .main {
+      	display: flex;
+      	flex-direction: column;
+      	align-items: center;
+      	justify-content: center;
+      	margin: 0 auto 30px;
+      }
+
+      .text-center {
+      	text-align: center;
+      }
+
+      .container {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	margin: 10px auto;
+      	position: relative;
+      	max-width: 90vw;
+      	width: 800px;
+      }
+
+      .container .or {
+      	background-color: #fff;
+      	border-radius: 50%;
+      	color: #ff416c;
+      	display: flex;
+      	font-size: 1.3em;
+      	align-items: center;
+      	justify-content: center;
+      	position: absolute;
+      	top: 50%;
+      	left: 50%;
+      	transform: translate(-50%, -140%);
+      	padding: 10px;
+      	margin: 0;
+      	height: 50px;
+      	width: 50px;
+      }
+
+      .container .name {
+      	margin: 10px 0 20px;
+      }
+
+      .img-container {
+      	background-color: #fff;
+      	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+      	border-radius: 5px;
+      	overflow: hidden;
+      	padding: 0 0 10px;
+      	margin: 0 3px;
+      	height: 450px;
+      	width: 50%;
+      }
+
+      .img-container img {
+      	height: 75%;
+      	width: 100%;
+      	object-fit: cover;
+      }
+
+      .img-container button {
+      	margin: 0;
+      }
+
+      .choose-btn {
+      	border-radius: 5px;
+      	border: none;
+      	background: #ff416c;
+      	background: linear-gradient(to bottom, #ff4b2b 50%, #ff416c 50%);
+      	background: -webkit-linear-gradient(to bottom, #ff4b2b 50%, #ff416c 50%);
+      	box-shadow: 0px 3px 2px #ff4b2b;
+      	color: #fff;
+      	cursor: pointer;
+      	font-size: 20px;
+      	font-style: italic;
+      	font-weight: bold;
+      	letter-spacing: 0.5px;
+      	padding: 7px 50px;
+      }
+
+      .choose-btn:hover {
+      	opacity: 0.9;
+      }
+
+      .choose-btn:active {
+      	box-shadow: none;
+      	transform: translateY(3px);
+      }
+
+      .choose-btn:focus {
+      	outline: 0;
+      }
+
+      .leaderboard {
+      	max-width: 100%;
+      }
+
+      .leaderboard td {
+      	color: #ff416c;
+      	text-align: center;
+      	vertical-align: middle;
+      }
+
+      .leaderboard td.name {
+      	color: #333;
+      }
+
+      .leaderboard p {
+      	display: inline-block;
+      }
+
+      .leaderboard td:last-of-type {
+      	font-size: 30px;
+      	text-align: right;
+      	width: 150px;
+      }
+
+      .leaderboard img {
+      	width: 75px;
+      	height: 75px;
+      	object-fit: cover;
+      }
+
+      .place {
+      	font-size: 24px;
+      	margin-right: 5px;
+      }
+
+      .place i {
+      	font-size: 30px;
+      }
+
+      .place-1 {
+      	color: gold;
+      }
+
+      .place-2 {
+      	color: silver;
+      }
+
+      .place-3 {
+      	color: brown;
+      }
+
+      @media screen and (max-width: 480px) {
+      	h1 {
+      		margin: 10px 0;
+      	}
+
+      	.container {
+      		margin: 0;
+      	}
+
+      	.img-container {
+      		height: 350px
+      	}
+
+      	.img-container .name {
+      		margin: 5px 0 10px;
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      class App extends React.Component {
+        state = {
+          dogs: [],
+          database: undefined,
+          idx1: undefined,
+          idx2: undefined,
+        };
+
+        componentDidMount = () => {
+          const database = firebase.database().ref("/dogs");
+
+          this.setState(
+            {
+              database,
+            },
+            () => {
+              this.getDogs();
+            }
+          );
+
+          setTimeout(() => {
+            this.getRandomDogs();
+          }, 2000);
+        };
+
+        getDogs = () => {
+          const { database } = this.state;
+
+          database.on("value", (snapshot) => {
+            const dogs = [];
+            const dogsObj = snapshot.val();
+            Object.keys(dogsObj).forEach((key) => {
+              dogs.push(dogsObj[key]);
+            });
+
+            this.setState({
+              dogs,
+            });
+          });
+        };
+
+        favoriteDog = (id) => {
+          const { database, dogs } = this.state;
+          const dog = dogs.find((d) => d.id === id);
+
+          // increase the likes
+          database.child(id).update({ likes: dog.likes + 1 });
+          this.getRandomDogs();
+          this.getDogs();
+        };
+
+        getRandomDogs = () => {
+          const { dogs } = this.state;
+
+          if (!dogs) {
+            return;
+          }
+
+          const idx1 = Math.floor(Math.random() * dogs.length);
+          const idx2 = Math.floor(Math.random() * dogs.length);
+
+          this.setState({ idx1, idx2 });
+        };
+
+        getMedal = (idx) => {
+          switch (idx) {
+            case 0:
+              return (
+                <p className="place place-1">
+                  <i className="fas fa-medal"></i>
+                </p>
+              );
+            case 1:
+              return (
+                <p className="place place-2">
+                  <i className="fas fa-medal"></i>
+                </p>
+              );
+            case 2:
+              return (
+                <p className="place place-3">
+                  <i className="fas fa-medal"></i>
+                </p>
+              );
+            default:
+              return <p className="place">{idx + 1}</p>;
+          }
+        };
+
+        render() {
+          const { dogs, idx1, idx2 } = this.state;
+          const dog1 = dogs[idx1];
+          const dog2 = dogs[idx2];
+
+          if (dogs.length === 0 || !idx1 || !idx2)
+            return <h1>Loading data...</h1>;
+
+          return (
+            <div className="main">
+              <h1 className="text-center">Which one is your favorite?</h1>
+              <div className="container text-center">
+                <div className="img-container">
+                  <img src={dog1.image} alt="" />
+                  <h3 className="name">{dog1.name}</h3>
+                  <button
+                    className="choose-btn"
+                    onClick={() => this.favoriteDog(dog1.id)}
+                  >
+                    This!
+                  </button>
+                </div>
+                <h3 className="or">OR</h3>
+                <div className="img-container">
+                  <img src={dog2.image} alt="" />
+                  <h3 className="name">{dog2.name}</h3>
+                  <button
+                    className="choose-btn"
+                    onClick={() => this.favoriteDog(dog2.id)}
+                  >
+                    That!
+                  </button>
+                </div>
+              </div>
+              <h2>Leaderboard - Top 10</h2>
+              <table class="leaderboard">
+                <tbody>
+                  {dogs
+                    .sort((a, b) => b.likes - a.likes)
+                    .slice(0, 10)
+                    .map((dog, idx) => (
+                      <tr key={dog.id}>
+                        <td>{this.getMedal(idx)}</td>
+                        <td>
+                          <img src={dog.image} alt={dog.id} />
+                        </td>
+                        <td className="name">{dog.name}</td>
+                        <td>{dog.likes}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
