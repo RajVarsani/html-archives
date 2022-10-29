@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+          box-sizing: border-box;
+      }
+
+      body {
+          background-color: #3B3B98;
+          color: #fff;
+          display: flex;
+          font-family: 'Muli', sans-serif;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+          min-height: 100vh;
+      }
+
+      p {
+          margin: 5px 0;
+      }
+
+      h2 {
+          margin: 10px 0 20px;
+          text-align: center;
+      }
+
+      input[type=checkbox] {
+          margin-right: 0;
+      }
+
+      .container {
+          background-color: #23235B;
+          box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+          padding: 20px;
+          width: 350px;
+          max-width: 100%;
+      }
+
+      .result-container {
+          background-color: rgba(0, 0, 0, 0.4);
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          position: relative;
+          font-size: 18px;
+          letter-spacing: 1px;
+          padding: 12px 10px;
+          height: 50px;
+          width: 100%;
+      }
+
+      .result-container #result {
+          word-wrap: break-word;
+          max-width: calc(100% - 40px);
+      }
+
+      .result-container .btn {
+          font-size: 20px;
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          height: 40px;
+          width: 40px;
+      }
+
+      .btn {
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          font-size: 16px;
+          padding: 8px 12px;
+          background-color: #3B3B98;
+      }
+
+      .btn-large {
+          display: block;
+          width: 100%;
+      }
+
+      .setting {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 15px 0;
+      }
+
+      @media screen and (max-width: 400px) {
+          .result-container {
+              font-size: 14px;
+          }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Password Generator</h2>
+      <div class="result-container">
+        <span id="result"></span>
+        <button class="btn" id="clipboard">
+          <i class="far fa-clipboard"></i>
+        </button>
+      </div>
+      <div class="settings">
+        <div class="setting">
+          <label>Password length</label>
+          <input type="number" id="length" min="4" max="20" value="20" />
+        </div>
+        <div class="setting">
+          <label>Include uppercase letters</label>
+          <input type="checkbox" id="uppercase" checked />
+        </div>
+        <div class="setting">
+          <label>Include lowercase letters</label>
+          <input type="checkbox" id="lowercase" checked />
+        </div>
+        <div class="setting">
+          <label>Include numbers</label>
+          <input type="checkbox" id="numbers" checked />
+        </div>
+        <div class="setting">
+          <label>Include symbols</label>
+          <input type="checkbox" id="symbols" checked />
+        </div>
+      </div>
+      <button class="btn btn-large" id="generate">Generate password</button>
+    </div>
+
+    <script>
+      const resultEl = document.getElementById("result");
+      const lengthEl = document.getElementById("length");
+      const uppercaseEl = document.getElementById("uppercase");
+      const lowercaseEl = document.getElementById("lowercase");
+      const numbersEl = document.getElementById("numbers");
+      const symbolsEl = document.getElementById("symbols");
+      const generateEl = document.getElementById("generate");
+      const clipboard = document.getElementById("clipboard");
+
+      const randomFunc = {
+        lower: getRandomLower,
+        upper: getRandomUpper,
+        number: getRandomNumber,
+        symbol: getRandomSymbol,
+      };
+
+      clipboard.addEventListener("click", () => {
+        const textarea = document.createElement("textarea");
+        const password = resultEl.innerText;
+
+        if (!password) {
+          return;
+        }
+
+        textarea.value = password;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        alert("Password copied to clipboard");
+      });
+
+      generate.addEventListener("click", () => {
+        const length = +lengthEl.value;
+        const hasLower = lowercaseEl.checked;
+        const hasUpper = uppercaseEl.checked;
+        const hasNumber = numbersEl.checked;
+        const hasSymbol = symbolsEl.checked;
+
+        resultEl.innerText = generatePassword(
+          hasLower,
+          hasUpper,
+          hasNumber,
+          hasSymbol,
+          length
+        );
+      });
+
+      function generatePassword(lower, upper, number, symbol, length) {
+        let generatedPassword = "";
+        const typesCount = lower + upper + number + symbol;
+        const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
+          (item) => Object.values(item)[0]
+        );
+
+        // Doesn't have a selected type
+        if (typesCount === 0) {
+          return "";
+        }
+
+        // create a loop
+        for (let i = 0; i < length; i += typesCount) {
+          typesArr.forEach((type) => {
+            const funcName = Object.keys(type)[0];
+            generatedPassword += randomFunc[funcName]();
+          });
+        }
+
+        const finalPassword = generatedPassword.slice(0, length);
+
+        return finalPassword;
+      }
+
+      function getRandomLower() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+      }
+
+      function getRandomUpper() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+      }
+
+      function getRandomNumber() {
+        return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+      }
+
+      function getRandomSymbol() {
+        const symbols = "!@#$%^&*(){}[]=<>/,.";
+        return symbols[Math.floor(Math.random() * symbols.length)];
+      }
+    </script>
+  </body>
+</html>
