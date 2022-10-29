@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Line Through Effect</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli400,700&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+
+      body {
+      	background-color: #75BCE6;
+      	font-family: 'Muli', sans-serif;
+      	height: 100vh;
+      	overflow: hidden;
+      }
+
+      h1 {
+      	font-size: 10vw;
+      	font-weight: bold;
+      	margin: 0;
+      	position: absolute;
+      	top: 50%;
+      	left: 50%;
+      	transform: translate(-50%, -50%);
+      	text-align: center;
+      	z-index: 1;
+      	width: 100%;
+      }
+
+      .overlay {
+      	z-index: 2;
+      }
+
+      .line {
+      	background-color: #fff;
+      	border-radius: 50px;
+      	position: absolute;
+      	top: 50%;
+      	left: -1vw;
+      	transform: translateY(-50%);
+      	height: 2vw;
+      	width: 0;
+      	animation: grow 3s linear forwards;
+      	z-index: 2;
+      }
+
+      @keyframes grow {
+      	to {
+      		width: 68vw;
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line"></div>
+    <h1 id="text">We Love to Play</h1>
+    <script>
+      const text = document.getElementById("text");
+      const textArr = text.innerText.split("");
+
+      const newEl = document.createElement("h1");
+      newEl.innerHTML = `
+	${textArr
+    .map(
+      (letter) =>
+        `<span class="letter" style="${randomVisibility()}">${letter}</span>`
+    )
+    .join("")}
+`;
+      newEl.classList.add("overlay");
+
+      document.body.appendChild(newEl);
+
+      function randomVisibility() {
+        return Math.random() < 0.5
+          ? "visibility: hidden"
+          : "visibility: visible";
+      }
+    </script>
+  </body>
+</html>
