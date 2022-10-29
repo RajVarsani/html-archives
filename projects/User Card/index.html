@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Card</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #F0F1F7;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	font-family: 'Lato', sans-serif;
+      	min-height: 100vh;
+      }
+
+      .cards {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
+
+      .card {
+      	background-color: #fff;
+      	border-radius: 3px;
+      	padding: 30px;
+      	margin: 10px;
+      	text-align: center;
+      	width: 220px;
+      	max-width: 100%;
+      }
+
+      .card img {
+      	border-radius: 50%;
+      	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      	width: 75px;
+      }
+
+      .card.active {
+      	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      	transform: scale(1.3);
+      }
+
+      .card h4 {
+      	margin: 10px 0;
+      }
+
+      .card small {
+      	color: #777;
+      	display: block;
+      }
+
+      .card button {
+      	background-color: #fff;
+      	border: 1px solid #ccc;
+      	border-radius: 3px;
+      	color: #999;
+      	padding: 10px 25px;
+      	margin-top: 25px;
+      }
+
+      .card.active button {
+      	background-color: #748DFF;
+      	border: 0;
+      	box-shadow: 0px 2px 5px rgba(116, 141, 255, 0.7);
+      	color: #fff;
+      }
+
+      @media screen and (max-width: 600px) {
+      	.cards {
+      		flex-wrap: wrap;
+      	}
+
+      	.card.active {
+      /* 		transform: scale(1); */
+      	}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <div class="card">
+        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="" />
+        <h4>Myrtie May</h4>
+        <small>Head of Global Product</small>
+        <button>Connect</button>
+      </div>
+      <div class="card active">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="" />
+        <h4>Michael Pearson</h4>
+        <small>Sales Manager</small>
+        <button>Connect</button>
+      </div>
+      <div class="card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" />
+        <h4>Laura French</h4>
+        <small>External Consultant</small>
+        <button>Connect</button>
+      </div>
+    </div>
+  </body>
+</html>
