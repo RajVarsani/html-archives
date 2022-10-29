@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tricky Cookie</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #3498db;
+      	display: flex;
+      	align-items: center;
+      	font-family: 'Muli', sans-serif;
+      	justify-content: center;
+      	height: 100vh;
+      	margin: 0;
+      }
+
+      .popup{
+      	background-color: #fff;
+      	box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.3);
+      	border-radius: 5px;
+      	padding: 20px 30px;
+      	text-align: center;
+      	max-width: 500px;
+      }
+
+      .popup p {
+      	color: #555;
+      }
+
+      .btn-container {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
+
+      .btn {
+      	background-color: #3498db;
+      	border: 0;
+      	border-radius: 5px;
+      	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+      	color: #fff;
+      	cursor: pointer;
+      	font-size: 18px;
+      	padding: 15px 30px;
+      	position: relative;
+      	margin: 10px;
+      }
+
+      .btn:active {
+      	box-shadow: none;
+      	transform: scale(0.98);
+      }
+
+      .btn:focus {
+      	outline: none;
+      }
+
+      .btn.ghost {
+      	background-color: #fff;
+      	color: #3498db;
+      	box-shadow: none;
+      }
+
+      .btn.ghost span {
+      	background-color: #3498db;
+      	border: 0;
+      	border-radius: 5px;
+      	color: #fff;
+      	font-size: 10px;
+      	padding: 3px 7px;
+      	position: absolute;
+      	top: -10px;
+      	right: -10px;
+      	transform: rotate(10deg);
+      }
+
+      .popup img {
+      	width: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup">
+      <img src="https://image.flaticon.com/icons/svg/2078/2078580.svg" alt="" />
+      <h2>Heya! This site uses cookies.</h2>
+      <p>
+        Cookies allow the website publisher to do useful things like find out
+        whether the computer (and probably its user) has visited the site
+        before.
+      </p>
+      <div class="btn-container">
+        <button class="btn">Sweet... cookies!</button>
+        <button class="btn ghost" id="trick">
+          No. Not for me!
+          <span>Don't click me</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
