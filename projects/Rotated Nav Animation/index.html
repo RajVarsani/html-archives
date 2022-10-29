@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotated Nav Animation</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	background-color: #333;
+      	color: #222;
+      	font-family: 'Lato', sans-serif;
+      	margin: 0;
+      	overflow-x: hidden;
+      }
+
+      .container {
+      	background-color: #fafafa;
+      	transform-origin: top left;
+      	transition: transform 0.5s linear;
+      	padding: 50px;
+      	width: 100vw;
+      	min-height: 100vh;
+      }
+
+      .circle-container {
+      	position: fixed;
+      	top: -100px;
+      	left: -100px;
+      }
+
+      .container.show-nav {
+      	transform: rotate(-20deg);
+      }
+
+      .circle {
+      	background-color: #ff7979;
+      	border-radius: 50%;
+      	position: relative;
+      	height: 200px;
+      	width: 200px;
+      	transition: transform 0.5s linear;
+      }
+
+      .container.show-nav .circle {
+      	transform: rotate(-70deg);
+      }
+
+      .circle button {
+      	background: transparent;
+      	border: 0;
+      	color: #fff;
+      	font-size: 26px;
+      	position: absolute;
+      	top: 50%;
+      	left: 50%;
+      	height: 100px;
+      }
+
+      .circle button:focus {
+      	outline: none;
+      }
+
+      .circle button#open {
+      	left: 60%;
+      }
+
+      .circle button#close {
+      	top: 60%;
+      	transform: rotate(90deg);
+      	transform-origin: top left;
+      }
+
+      nav {
+      	color: #fff;
+      	position: fixed;
+      	bottom: 40px;
+      	left: 0;
+      	z-index: 100;
+      }
+
+      nav ul {
+      	list-style-type: none;
+      	padding-left: 30px;
+      }
+
+      nav ul li {
+      	margin: 40px 0;
+      	text-transform: uppercase;
+      	transform: translateX(-100%);
+      	transition: transform 0.4s cubic-bezier(.28,.27,.65,1.25);
+      	transition-delay: 0s;
+      }
+
+      .container.show-nav + nav li {
+      	transform: translateX(0);
+      	transition-delay: 0.3s;
+      }
+
+      nav ul li i {
+      	font-size: 20px;
+      	margin-right: 10px;
+      }
+
+      nav ul li + li {
+      	margin-left: 15px;
+      	transform: translateX(-150%);
+      }
+
+      nav ul li + li + li {
+      	margin-left: 30px;
+      	transform: translateX(-200%);
+      }
+
+      .content {
+      	max-width: 1000px;
+      	margin: 50px auto;
+      }
+
+      .content h1 {
+      	margin: 0;
+      }
+
+      .content small {
+      	color: #555;
+      	font-style: italic;
+      }
+
+      .content p {
+      	color: #333;
+      	line-height: 1.5;
+      }
+
+      .content img {
+      	max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="circle-container">
+        <div class="circle">
+          <button id="close">
+            <i class="fas fa-times"></i>
+          </button>
+          <button id="open">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="content">
+        <h1>Amazing Article</h1>
+        <small>by Florin Pop 🤪</small>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Exercitationem facilis distinctio nisi! Vel eius ab sequi repellendus
+          reiciendis voluptatum id qui dolores earum incidunt nulla, molestias
+          quam quidem dicta odit fuga ratione provident natus quibusdam dolor
+          labore est. Illum nisi voluptatem esse nostrum ipsa accusamus
+          perspiciatis vel quaerat labore in natus voluptatum, sequi harum
+          libero, et cumque nesciunt reiciendis voluptates laudantium deserunt.
+          Placeat aliquid neque commodi nostrum necessitatibus? Accusamus ullam
+          vel ea nesciunt sint suscipit laboriosam eos saepe ducimus quo, nam
+          perspiciatis exercitationem laborum deleniti facilis pariatur minima
+          rem maiores neque fugiat quae rerum, recusandae soluta magni.
+          Praesentium, sed nostrum?
+        </p>
+        <p>
+          Illum error officiis voluptate maiores consequatur, ad, ducimus magni
+          impedit libero officia dolorum eum nesciunt doloribus exercitationem
+          sunt pariatur excepturi adipisci cumque natus rem tempora accusamus
+          rerum velit sequi. Tempora magni quasi sunt placeat officia rem porro
+          repudiandae optio corrupti aut quam nihil inventore sit, totam
+          quibusdam dolorem, minus eius, expedita architecto quisquam vero
+          pariatur incidunt. Officiis libero exercitationem eveniet modi. Quos
+          enim quasi sit praesentium aut minima maiores doloremque odio magnam
+          culpa, magni cupiditate harum dolorum. Necessitatibus qui rerum
+          consequatur officia amet, aspernatur officiis tempora labore ab.
+          Error, eum asperiores! Consequatur deserunt dolorem aut accusamus cum
+          eius rerum veniam?
+        </p>
+        <h3>Look a cute doggie! 🥰</h3>
+        <img
+          src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+          alt="doggy"
+        />
+        <p>
+          Maiores, necessitatibus! Deserunt culpa ullam repudiandae pariatur
+          nisi qui veniam nobis, consectetur iste laudantium modi dolores totam
+          quos ratione ipsum aspernatur iure optio? Itaque tenetur nemo
+          aspernatur eveniet maiores, laudantium sequi odio repellat perferendis
+          voluptas. Necessitatibus impedit esse aliquid vero aut quibusdam,
+          culpa iste delectus consectetur quasi cumque, iure distinctio
+          blanditiis, adipisci voluptatum veniam. Maxime iste illo praesentium
+          natus ex? Sapiente dicta rerum dignissimos omnis porro obcaecati
+          quidem fugit. Sit commodi dolor doloribus distinctio odit quaerat
+          possimus asperiores provident aliquam! Magni laboriosam quo quisquam
+          earum accusamus fuga aut tempore labore quos dolorum nobis fugiat
+          cupiditate alias sit, quasi numquam deserunt!
+        </p>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><i class="fas fa-home"></i> Home</li>
+        <li><i class="fas fa-user-alt"></i> About</li>
+        <li><i class="fas fa-envelope"></i> Contact</li>
+      </ul>
+    </nav>
+    <script>
+      const open = document.getElementById("open");
+      const close = document.getElementById("close");
+      const container = document.getElementById("container");
+
+      open.addEventListener("click", () => {
+        container.classList.add("show-nav");
+      });
+
+      close.addEventListener("click", () => {
+        container.classList.remove("show-nav");
+      });
+    </script>
+  </body>
+</html>
