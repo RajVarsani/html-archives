@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+              @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+      * {
+      	box-sizing: border-box;
+      }
+
+      :root {
+      	--primary-color: #000;
+      	--secondary-color: #fff;
+      	--primary-color-dark: #fff;
+      	--secondary-color-dark: #333;
+      }
+
+      html {
+      	transition: all 0.5s ease-in;
+      }
+
+      body {
+      	font-family: 'Heebo', sans-serif;
+      	margin: 0;
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      	min-height: 100vh;
+      }
+
+      html.dark {
+      	--primary-color: var(--primary-color-dark);
+      	--secondary-color: var(--secondary-color-dark);
+      }
+
+      html.dark {
+      	background-color: #111;
+      	color: var(--primary-color);
+      }
+
+      .toggle {
+      	background-color: var(--primary-color);
+      	border: 0;
+      	border-radius: 4px;
+      	color: var(--secondary-color);
+      	font-family: 20px;
+      	padding: 8px 12px;
+      	position: absolute;
+      	top: 100px;
+      }
+
+      .toggle:focus {
+      	outline: 0;
+      }
+
+      .clock-container {
+      	display: flex;
+      	flex-direction: column;
+      	justify-content: space-between;
+      	align-items: center;
+      }
+
+      .clock {
+      	position: relative;
+      	width: 200px;
+      	height: 200px;
+      }
+
+      .needle {
+      	background-color: var(--primary-color);
+      	transition: all 0.5s ease-in;
+      	position: absolute;
+      	left: 50%;
+      	top: 50%;
+      	transform-origin: bottom center;
+      	width: 3px;
+      	height: 65px;
+      }
+
+      .needle.hour {
+      	transform: translate(-50%, -100%) rotate(0deg);
+      }
+
+      .needle.minute {
+      	transform: translate(-50%, -100%) rotate(0deg);
+      	height: 100px;
+      }
+
+      .needle.second {
+      	background-color: #e74c3c;
+      	height: 100px;
+      	transform: translate(-50%, -100%) rotate(0deg);
+      }
+
+      .center-point {
+      	background-color: #e74c3c;
+      	border-radius: 50%;
+      	width: 10px;
+      	height: 10px;
+      	position: absolute;
+      	left: 50%;
+      	top: 50%;
+      	transform: translate(-50%, -50%);
+      }
+
+      .center-point::after {
+      	background-color: var(--primary-color);
+      	transition: all 0.5s ease-in;
+      	border-radius: 50%;
+      	content: '';
+      	width: 5px;
+      	height: 5px;
+      	position: absolute;
+      	left: 50%;
+      	top: 50%;
+      	transform: translate(-50%, -50%);
+      }
+
+      .time {
+      	font-size: 60px;
+      }
+
+      .date {
+      	color: #aaa;
+      	font-size: 14px;
+      	letter-spacing: 0.3px;
+      	text-transform: uppercase;
+      }
+
+      .date .circle {
+      	background-color: var(--primary-color);
+      	border-radius: 50%;
+      	color: var(--secondary-color);
+      	display: inline-flex;
+      	align-items: center;
+      	justify-content: center;
+      	font-size: 12px;
+      	line-height: 18px;
+      	transition: all 0.5s ease-in;
+      	width: 18px;
+      	height: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="toggle">Dark mode</button>
+    <div class="clock-container">
+      <div class="clock">
+        <div class="needle hour"></div>
+        <div class="needle minute"></div>
+        <div class="needle second"></div>
+        <div class="center-point"></div>
+      </div>
+      <div class="time"></div>
+      <div class="date"></div>
+    </div>
+    <script>
+      const hourEl = document.querySelector(".hour");
+      const minuteEl = document.querySelector(".minute");
+      const secondEl = document.querySelector(".second");
+      const timeEl = document.querySelector(".time");
+      const dateEl = document.querySelector(".date");
+      const toggle = document.querySelector(".toggle");
+
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+
+      toggle.addEventListener("click", (e) => {
+        const html = document.querySelector("html");
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          e.target.innerHTML = "Dark mode";
+        } else {
+          html.classList.add("dark");
+          e.target.innerHTML = "Light mode";
+        }
+      });
+
+      function setTime() {
+        const time = new Date();
+        const month = time.getMonth();
+        const day = time.getDay();
+        const date = time.getDate();
+        const hours = time.getHours();
+        const hoursForClock = hours % 12;
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+
+        hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+          hoursForClock,
+          0,
+          11,
+          0,
+          360
+        )}deg)`;
+        minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+          minutes,
+          0,
+          59,
+          0,
+          360
+        )}deg)`;
+        secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+          seconds,
+          0,
+          59,
+          0,
+          360
+        )}deg)`;
+
+        timeEl.innerHTML = `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes
+        }`;
+        dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
+      }
+
+      // StackOverflow https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+      const scale = (num, in_min, in_max, out_min, out_max) => {
+        return (
+          ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+        );
+      };
+
+      setTime();
+
+      setInterval(setTime, 1000);
+    </script>
+  </body>
+</html>
